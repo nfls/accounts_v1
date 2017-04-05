@@ -43,7 +43,7 @@
 
     <div class="section col s12 m9 l10">
     <div class="section scrollspy" id="personalinfo">
-    <h1 class="header center-on-small-only black-text">User Info</h1>
+   <p class="promo-caption">User Info</p>
        <div class="row">
         <div class="input-field col s12">
           <input disabled value="Loading" id="id" type="text" class="validate">
