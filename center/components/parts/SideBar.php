@@ -5,7 +5,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-home"></i> 个人设置 <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="personal_info.php">个人信息</a></li>
+                      <li><a href="personal_info_material.php">个人信息</a></li>
 					  <li><a href="service_inweb.php">站内关联服务</a></li>
                       <li><a href="service_outweb.php">站外关联服务</a></li>
                       <!--<li><a href="personal_authority.php">实名认证</a></li>-->
