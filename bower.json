@@ -1,0 +1,17 @@
+{
+  "name": "UCenter",
+  "authors": [
+    "mmlmml1 <huqingyang2000@Gmail.com>"
+  ],
+  "description": "User Center for nfls.io",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
