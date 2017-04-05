@@ -17,7 +17,7 @@
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
               <span class="card-title">Messages</span>
-              <p>Check here to find latest updates about this server and school events</p>
+              <p>Check here to find out latest updates about this server and school events</p>
             </div>
             <div class="card-action">
               <a href="https://blog.oscs.io">Maintainer's blog</a>
