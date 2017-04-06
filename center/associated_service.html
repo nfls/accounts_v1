@@ -5,13 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>NFLS.IO 用户中心</title>
+    <title>NFLS.IO 用户中心 | User Center</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css" media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="../bower_components/materialize/dist/css/materialize.min.css"
+          media="screen,projection"/>
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../bower_components/materialize/dist/js/materialize.min.js"></script>
+    <script src="../bower_components/jquery.cookie/jquery.cookie.js"></script>
     </body>
     <script>
         (function (i, s, o, g, r, a, m) {
@@ -72,10 +73,7 @@
 
 <!-- page content -->
 <main>
-<div class="right_col" role="main">
-    <div class="">
-        <div class="clearfix"></div>
-
+    <div class="container">
         <div class="row">
             <ul id="tabs-swipe-demo" class="tabs">
                 <li class="tab col s3"><a class="active" href="#test-swipe-1">Test 1</a></li>
@@ -457,51 +455,11 @@
 
         </div>
     </div>
-</div>
 </main>
 
-<!-- jQuery -->
-<script src="../vendors/jquery/dist/jquery.min.js"></script>
-<!-- jQuery-cookie -->
 <script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
-<!-- Bootstrap -->
-<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="../vendors/fastclick/lib/fastclick.js"></script>
-<!-- NProgress -->
-<script src="../vendors/nprogress/nprogress.js"></script>
-<!-- bootstrap-progressbar -->
-<script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-<!-- iCheck -->
-<script src="../vendors/iCheck/icheck.min.js"></script>
-<!-- bootstrap-daterangepicker -->
-<script src="js/moment/moment.min.js"></script>
-<script src="js/datepicker/daterangepicker.js"></script>
-<!-- bootstrap-wysiwyg -->
-<script src="../vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
-<script src="../vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
-<script src="../vendors/google-code-prettify/src/prettify.js"></script>
-<!-- jQuery Tags Input -->
-<script src="../vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
-<!-- Switchery -->
-<script src="../vendors/switchery/dist/switchery.min.js"></script>
-<!-- Select2 -->
-<script src="../vendors/select2/dist/js/select2.full.min.js"></script>
-<!-- Parsley -->
-<script src="../vendors/parsleyjs/dist/parsley.min.js"></script>
-<!-- Autosize -->
-<script src="../vendors/autosize/dist/autosize.min.js"></script>
-<!-- jQuery autocomplete -->
-<script src="../vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
-<!-- starrr -->
-<script src="../vendors/starrr/dist/starrr.js"></script>
-
-<!-- Custom Theme Scripts -->
-<script src="../build/js/custom.min.js"></script>
-
-<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
-<script src="head_material.js"></script>
-<script src="service_inweb.js"></script>
+<script src="js/head_material.js"></script>
+<script src="js/service_inweb.js"></script>
 <script>loaddata();</script>
 </body>
 </html>

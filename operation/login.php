@@ -196,7 +196,8 @@ footer a, footer a:link {
     <div class="wrapper">
   <form class="login">
     <p class="title">登录</p>
-	<?php 
+	<?php
+	echo "<p>警告：用户中心改造中，可能出现无法访问或者排版错误等问题！</p>";
 	if(isset($_GET['reason'])){
 		switch($_GET['reason'])
 		{
