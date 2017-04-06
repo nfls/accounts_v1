@@ -51,46 +51,108 @@
     </div>
     <div class="row">
 
-        <form class="col s12">
+        <form class="col s12" id="step1">
             <div class="row">
-                <div class="input-field col s6">
-                    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                    <label for="first_name">First Name</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="last_name" type="text" class="validate">
-                    <label for="last_name">Last Name</label>
+                <div class="input-field col s12">
+                    <input disabled value="我哪知道" id="username" type="text">
+                    <label>用户名</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-                    <label for="disabled">Disabled</label>
+                    <input disabled value="123123@nfls.io" id="email" type="password">
+                    <label>邮箱</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="password" type="password" class="validate">
-                    <label for="password">Password</label>
+                    <select>
+                        <option value="" disabled selected>请选择您的性别</option>
+                        <option value="1">男</option>
+                        <option value="2">女</option>
+                        <option value="3">其他/保密</option>
+                    </select>
+                    <label>性别</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="email" type="email" class="validate">
-                    <label for="email">Email</label>
+                    <input id="realname" type="text">
+                    <label>真实姓名</label>
                 </div>
             </div>
             <div class="row">
-                <div class="col s12">
-                    This is an inline input field:
-                    <div class="input-field inline">
-                        <input id="email" type="email" class="validate">
-                        <label for="email" data-error="wrong" data-success="right">Email</label>
-                    </div>
+                <div class="input-field col s12">
+                    <input id="usedname" type="text">
+                    <label>曾用名</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="phone_domestic" type="text">
+                    <label>手机号码（国内）</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="phone_international" type="text">
+                    <label>手机号码（国外）</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="nickname" type="text">
+                    <label>昵称或英文名</label>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <p> STEP 2</p>
+    <div class="row">
+        <form class="col s12" id="step2">
+            <div class="row">
+                <div class="input-field col s12">
+                    <select>
+                        <option value="" disabled selected>请选择您就读的小学</option>
+                        <option value="-1">其他学校</option>
+                        <option value="1">南京外国语学校小学部（4年制）</option>
+                        <option value="2">南京外国语学校小学部（2年制）</option>
+                    </select>
+                    <label>小学就读学校</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="primary_school_name" type="text">
+                    <label>小学就读学校</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="primary_school_enter_year" type="text">
+                    <label>小学毕业年份</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="primary_school_graduated_year" type="text">
+                    <label>小学入学年份</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="remark" type="text">
+                    <label>备注</label>
                 </div>
             </div>
         </form>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>
 </body>
 </html>
