@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>NFLS.IO 用户中心</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css" media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
+    </body>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-92193639-8', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</head>
+<body>
+<header>
+    <nav class="top-nav blue">
+        <div class="container">
+            <div class="nav-wrapper blue"><a class="page-title">Account</a>
+                <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
+                    <i class="material-icons">menu</i></a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+    </div>
+    <ul id="nav-mobile" class="side-nav fixed">
+        <li><div class="userView blue">
+            <img class="circle" id="avatar"></a>
+            <span class="white-text name" id="user_name"></span></a>
+            <span class="white-text email">tianzundibei@163.com</span></a>
+        </div></li>
+        <li><a class="waves-effect" href="personal_info.php">账户综合信息</a></li>
+        <li><a class="waves-effect" href="associated_service.html">站内关联服务</a></li>
+        <li><a class="waves-effect" href="messages.php">消息与通知</a></li>
+        <li><a class="waves-effect" href="https://nfls.io/quickaction.php?action=logout&noreturn=true">退出</a></li>
+    </ul>
+    </nav>
+</header>
+<script>
+    // Initialize collapse button
+    $(".button-collapse").sideNav();
+    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+    $('.collapsible').collapsible();
+    $('.button-collapse').sideNav({
+            menuWidth: 300, // Default is 300
+            edge: 'left', // Choose the horizontal origin
+            closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+            draggable: true // Choose whether you can drag to open on touch screens
+        }
+    );
+</script>
+
+<!-- page content -->
+<main>
+<div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <ul id="tabs-swipe-demo" class="tabs">
+                <li class="tab col s3"><a class="active" href="#test-swipe-1">Test 1</a></li>
+                <li class="tab col s3"><a href="#test-swipe-2">Test 2</a></li>
+                <li class="tab col s3"><a href="#test-swipe-3">Test 3</a></li>
+                <li class="tab col s3"><a href="#test-swipe-4">Test 4</a></li>
+                <li class="tab col s3"><a href="#test-swipe-5">Test 5</a></li>
+            </ul>
+            <div id="test-swipe-1" class="col s12 ">
+                <!----------------------------tab 1---------------------------->
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2><i class="fa fa-comment-o"></i> 论坛
+                                <small>forum.nfls.io</small>
+                            </h2>
+
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+                            <form class="form-horizontal form-label-left">
+                                <div class="alert alert-success alert-dismissible fade in" role="alert">
+                                    <p>提示：论坛账户即为您的nfls.io所有服务的登录账户，用户名密码完全一致。</p>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 col-sm-3 col-xs-12 control-label">账户关联情况
+                                        <br>
+                                    </label>
+                                    <div class="checkbox col-md-9 col-sm-9 col-xs-12" id="forum_not_activated">
+                                        <label><input type="checkbox" class="flat" disabled="disabled"> 未关联</label>
+                                    </div>
+                                    <div class="checkbox col-md-9 col-sm-9 col-xs-12" id="forum_is_activated">
+                                        <label>
+                                            <input type="checkbox" class="flat" disabled="disabled" checked="checked">
+                                            已关联
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="details_forum">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">用户ID</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" id="forum_id" class="form-control" readonly="readonly"
+                                                   placeholder="正在加载中">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">用户名</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" id="forum_username" class="form-control"
+                                                   readonly="readonly" placeholder="正在加载中">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">最近一次登录时间</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" id="forum_last_login" class="form-control"
+                                                   readonly="readonly" placeholder="正在加载中">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">最近一次通知阅读时间</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" id="forum_last_read" class="form-control"
+                                                   readonly="readonly" placeholder="正在加载中">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">帖子数</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" id="forum_post_no" class="form-control"
+                                                   readonly="readonly" placeholder="正在加载中">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">评论数</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" id="forum_comment_no" class="form-control"
+                                                   readonly="readonly" placeholder="正在加载中">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                        <button type="button" class="btn btn-success" onclick="GotoForum()">进入论坛
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!----------------end of tab 1------------------------- -->
+
+            </div>
+            <div id="test-swipe-2" class="col s12 ">Test 2
+                <!----------------tab 2------------------------- -->
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2><i class="fa fa-book"></i> 百科
+                                <small>wiki.nfls.io</small>
+                            </h2>
+
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <form class="form-horizontal form-label-left">
+                                <div class="alert alert-success alert-dismissible fade in" role="alert">
+                                    <p>如果您在2017年1月31日前单独注册过wiki账户，请不要使用生成账户功能，可联系管理员进行关联工作。请不要一人多号，否则多余的账户将会被删除。</p>
+                                    <p>
+                                        如果您没有自动登录，请尝试退出并重新登录。创建完新账号后需要退出重新登录后相关账户才能生效！
+                                    </p>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 col-sm-3 col-xs-12 control-label">账户关联情况
+                                        <br>
+                                    </label>
+                                    <div class="checkbox col-md-9 col-sm-9 col-xs-12" id="wiki_not_activated">
+                                        <label><input type="checkbox" class="flat"
+                                                      disabled="disabled">未关联（请关联或生成一个账户）</label>
+                                        <button class="btn btn-info" onclick="GenerateWikiAccount()" id="wikigen">
+                                            生成一个账户！
+                                        </button>
+                                    </div>
+                                    <div class="checkbox col-md-9 col-sm-9 col-xs-12" id="wiki_is_activated">
+                                        <label>
+                                            <input type="checkbox" class="flat" disabled="disabled" checked="checked">
+                                            已关联
+                                        </label>
+                                    </div>
+                                </div>
+                                <div id="details_wiki">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">用户ID</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" id="wiki_id" class="form-control" readonly="readonly"
+                                                   placeholder="正在加载中">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">用户名</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" id="wiki_username" class="form-control"
+                                                   readonly="readonly" placeholder="正在加载中">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">真实姓名</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" id="wiki_realname" class="form-control"
+                                                   readonly="readonly" placeholder="正在加载中">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">注册时间</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" id="wiki_regtime" class="form-control"
+                                                   readonly="readonly" placeholder="正在加载中">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">最近一次登录时间</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" id="wiki_logtime" class="form-control"
+                                                   readonly="readonly" placeholder="正在加载中">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">编辑数</label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <input type="text" id="wiki_editno" class="form-control" readonly="readonly"
+                                                   placeholder="正在加载中">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="ln_solid"></div>
+                                    <div class="form-group">
+                                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                            <button type="button" class="btn btn-success" onclick="GotoWiki()">进入百科
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!----------------------end of tab 2------------------------- -->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <div id="test-swipe-3" class="col s12 ">Test 3
+                        <!-----------------------tab 3------------------------- -->
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2><i class="fa fa-file-archive-o"></i> NFLS车管所（P2P视频下载中心）
+                            <small>share.nfls.io</small>
+                        </h2>
+
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <form class="form-horizontal form-label-left">
+                            <div class="alert alert-success alert-dismissible fade in" role="alert">
+                                <p>如果您没有自动登录，请尝试退出并重新登录。创建完新账号后需要退出重新登录后相关账户才能生效！</p>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 col-sm-3 col-xs-12 control-label">账户关联情况
+                                    <br>
+                                </label>
+                                <div class="checkbox col-md-9 col-sm-9 col-xs-12" id="share_not_activated">
+                                    <label><input type="checkbox" class="flat"
+                                                  disabled="disabled">未关联（请关联或生成一个账户）</label>
+                                    <button class="btn btn-info" onclick="GenerateShareAccount()" id="sharegen">
+                                        生成一个账户！
+                                    </button>
+                                </div>
+                                <div class="checkbox col-md-9 col-sm-9 col-xs-12" id="share_is_activated">
+                                    <label>
+                                        <input type="checkbox" class="flat" disabled="disabled" checked="checked"> 已关联
+                                    </label>
+                                </div>
+                            </div>
+                            <div id="details_share">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">用户ID</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <input type="text" id="share_id" class="form-control" readonly="readonly"
+                                               placeholder="正在加载中">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">用户名</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <input type="text" id="share_username" class="form-control" readonly="readonly"
+                                               placeholder="正在加载中">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">注册时间</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <input type="text" id="share_regtime" class="form-control" readonly="readonly"
+                                               placeholder="正在加载中">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">最近一次登录时间</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <input type="text" id="share_logtime" class="form-control" readonly="readonly"
+                                               placeholder="正在加载中">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">最近一次访问IP</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <input type="text" id="share_ip" class="form-control" readonly="readonly"
+                                               placeholder="正在加载中">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">上传量</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <input type="text" id="share_uploaded" class="form-control" readonly="readonly"
+                                               placeholder="正在加载中">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">下载量</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <input type="text" id="share_downloaded" class="form-control"
+                                               readonly="readonly" placeholder="正在加载中">
+                                    </div>
+                                </div>
+
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                        <button type="button" class="btn btn-success" onclick="GotoShare()">进入车管所
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+
+                    <!----------------end of tab 3------------------------- -->
+                </div>
+
+
+                <div id="test-swipe-4" class="col s12 ">Test 4
+                    <!-----------------------tab 4------------------------- -->
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2><i class="fa fa-cloud-upload"></i> Minecraft PC (JAVA VER.) Server
+                                    <small>mc.nfls.io</small>
+                                </h2>
+
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <p>状态：建设中</p>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-------------------end of tab 4------------------------- -->
+            </div>
+            <div id="test-swipe-5" class="col s12 ">Test 5
+                <!-----------------------tab 5------------------------- -->
+
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2><i class="fa fa-cloud-upload"></i> 下载中心（学习资料）
+                                <small>dl.nfls.io</small>
+                            </h2>
+
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <p>状态：已激活</p>
+                            <div class="clearfix"></div>
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                    <button type="button" class="btn btn-success" onclick="GotoDl()">进入下载中心</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-------------------end of tab 5------------------------- -->
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</main>
+
+<!-- jQuery -->
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<!-- jQuery-cookie -->
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+<!-- Bootstrap -->
+<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="../vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="../vendors/nprogress/nprogress.js"></script>
+<!-- bootstrap-progressbar -->
+<script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+<!-- iCheck -->
+<script src="../vendors/iCheck/icheck.min.js"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="js/moment/moment.min.js"></script>
+<script src="js/datepicker/daterangepicker.js"></script>
+<!-- bootstrap-wysiwyg -->
+<script src="../vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+<script src="../vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+<script src="../vendors/google-code-prettify/src/prettify.js"></script>
+<!-- jQuery Tags Input -->
+<script src="../vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+<!-- Switchery -->
+<script src="../vendors/switchery/dist/switchery.min.js"></script>
+<!-- Select2 -->
+<script src="../vendors/select2/dist/js/select2.full.min.js"></script>
+<!-- Parsley -->
+<script src="../vendors/parsleyjs/dist/parsley.min.js"></script>
+<!-- Autosize -->
+<script src="../vendors/autosize/dist/autosize.min.js"></script>
+<!-- jQuery autocomplete -->
+<script src="../vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+<!-- starrr -->
+<script src="../vendors/starrr/dist/starrr.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="../build/js/custom.min.js"></script>
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+<script src="head_material.js"></script>
+<script src="service_inweb.js"></script>
+<script>loaddata();</script>
+</body>
+</html>

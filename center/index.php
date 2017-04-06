@@ -1,4 +1,4 @@
-<?php Header("Location:https://login.nfls.io/center/personal_info_material.php");require "components/Head.php" ?>
+<?php Header("Location:https://login.nfls.io/center/personal_info.html");require "components/Head.php" ?>
 
         <!-- page content -->
         <div class="right_col" role="main">
