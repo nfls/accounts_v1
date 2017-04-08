@@ -17,6 +17,7 @@
   "private": true,
   "dependencies": {
     "materialize": "^0.98.1",
-    "jquery.cookie": "jquery-cookie#^1.4.1"
+    "jquery.cookie": "jquery-cookie#^1.4.1",
+    "jquery-validation": "^1.16.0"
   }
 }
