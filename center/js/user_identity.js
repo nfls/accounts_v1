@@ -2,7 +2,6 @@
  * Created by hqy on 2017/4/8.
  */
 $url="http://v1.dev";
-
 $.ajax({
     type: "GET",
     url: $url + "/alumni/auth/getCurrentStep",
@@ -23,3 +22,11 @@ $.ajax({
         alert("aaa");
     }
 });
+$('step1').show();
+function gotoStep($step) {
+    switch(step){
+        case 1:
+
+    }
+
+}

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c2013e1-9c19-4634-97e1-cea099dd454a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/center/messages.html" afterPath="$PROJECT_DIR$/center/messages.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/center/js/user_identity.js" afterPath="$PROJECT_DIR$/center/js/user_identity.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/center/user_identity.html" afterPath="$PROJECT_DIR$/center/user_identity.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -50,21 +48,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_identity.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user_identity.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/center/user_identity.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2273">
-              <caret line="268" column="34" lean-forward="false" selection-start-line="268" selection-start-column="34" selection-end-line="268" selection-end-column="34" />
+            <state relative-caret-position="431">
+              <caret line="36" column="38" lean-forward="false" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_identity.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user_identity.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/center/js/user_identity.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+            <state relative-caret-position="360">
+              <caret line="24" column="16" lean-forward="false" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -122,6 +120,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>custom</find>
+      <find>step2</find>
     </findStrings>
     <replaceStrings>
       <replace>../bower</replace>
@@ -155,8 +154,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="180" />
-    <option name="y" value="216" />
+    <option name="x" value="241" />
+    <option name="y" value="34" />
     <option name="width" value="1400" />
     <option name="height" value="932" />
   </component>
@@ -366,15 +365,15 @@
       <workItem from="1491450617751" duration="2248000" />
       <workItem from="1491453048790" duration="3716000" />
       <workItem from="1491617473777" duration="1195000" />
-      <workItem from="1491625246126" duration="1586000" />
+      <workItem from="1491625246126" duration="2071000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11652000" />
+    <option name="totallyTimeSpent" value="12137000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="180" y="216" width="1400" height="932" extended-state="0" />
+    <frame x="241" y="34" width="1400" height="932" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -621,18 +620,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/center/user_identity.html">
+    <entry file="file://$PROJECT_DIR$/center/js/user_identity.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2273">
-          <caret line="268" column="34" lean-forward="false" selection-start-line="268" selection-start-column="34" selection-end-line="268" selection-end-column="34" />
+        <state relative-caret-position="360">
+          <caret line="24" column="16" lean-forward="false" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/center/js/user_identity.js">
+    <entry file="file://$PROJECT_DIR$/center/user_identity.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        <state relative-caret-position="431">
+          <caret line="36" column="38" lean-forward="false" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
           <folding />
         </state>
       </provider>
