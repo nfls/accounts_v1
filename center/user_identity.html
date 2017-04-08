@@ -35,7 +35,7 @@
 <div class="container">
     <div class="row">
         <div class="col s12">
-            <div class="card light-green accent-3">
+            <div class="card grey darken-2">
                 <div class="card-content white-text">
                     <span class="card-title">实名认证</span>
                     <p>此处您可以完成您的实名认证，获得更多校友专属权限。</p>
@@ -49,6 +49,7 @@
             </div>
         </div>
     </div>
+    <p> STEP 1</p>
     <div class="row">
 
         <form class="col s12" id="step1">
@@ -113,7 +114,7 @@
         <form class="col s12" id="step2">
             <div class="row">
                 <div class="input-field col s12">
-                    <select>
+                    <select id="primary_school_no">
                         <option value="" disabled selected>请选择您就读的小学</option>
                         <option value="-1">其他学校</option>
                         <option value="1">南京外国语学校小学部（4年制）</option>
@@ -141,13 +142,106 @@
                 </div>
             </div>
             <div class="row">
-                <div class="input-field col s12">
-                    <input id="remark" type="text">
-                    <label>备注</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="primary_remark" type="text">
+                        <label>备注</label>
+                    </div>
                 </div>
             </div>
         </form>
     </div>
+    <p> STEP 3</p>
+    <div class="row">
+        <form class="col s12" id="step3">
+            <div class="row">
+                <div class="input-field col s12">
+                    <select id="junior_school_no">
+                        <option value="" disabled selected>请选择您就读的初中</option>
+                        <option value="-1">其他学校</option>
+                        <option value="1">南京外国语学校初中部</option>
+                    </select>
+                    <label>初中就读学校</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="junior_school_name" type="text">
+                    <label>初中就读学校</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="junior_school_enter_year" type="text">
+                    <label>初中毕业年份</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="junior_school_graduated_year" type="text">
+                    <label>初中入学年份</label>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="input-field col s12">
+                        <input id="junior_remark" type="text">
+                        <label>备注</label>
+                    </div>
+            </div>
+        </form>
+    </div>
+    <p> STEP 4</p>
+    <div class="row">
+        <form class="col s12" id="step4">
+            <div class="row">
+                <div class="input-field col s12">
+                    <select id="senior_school_no">
+                        <option value="" disabled selected>请选择您就读的高中</option>
+                        <option value="-1">其他学校</option>
+                        <option value="1">南京外国语学校普高</option>
+                        <option value="2">南京外国语学校IB国际课程（国际文凭）班</option>
+                        <option value="3">南京外国语学校剑桥国际课程（A-Level）班</option>
+                        <option value="4">南京外国语学校中加（BCA）实验班</option>
+                        <option value="5">南京外国语学校优飞核心课程班（中澳班）</option>
+                    </select>
+                    <label>高中就读学校</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="senior_school_name" type="text">
+                    <label>高中就读学校</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="senior_school_enter_year" type="text">
+                    <label>高中毕业年份</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="senior_school_graduated_year" type="text">
+                    <label>高中入学年份</label>
+                </div>
+            </div>
+            <div id="general">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="senior_class11" type="text">
+                        <label>高中入学年份</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="input-field col s12">
+                        <input id="senior_remark" type="text">
+                        <label>备注</label>
+                </div>
+            </div>
+        </form>
+    </div>
+
 </div>
 <script>
     $(document).ready(function() {
