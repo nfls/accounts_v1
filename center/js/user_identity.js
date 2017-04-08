@@ -11,19 +11,15 @@ $.ajax({
     },
     crossDomain: true,
     success: function (message) {
-        //var json_mes=$.parseJSON(message)
+        showMessage(message.message);
         if(message.code==200)
         {
             gotoStep(message.step);
         }
-        else
-        {
-            alert("aaa");
-        }
 
     },
     error: function (message) {
-        alert("aaa");
+        showMessage("与服务器通讯出现故障，请检查您的网络或是刷新重试。如果错误反复出现，请与网站管理员联系");
     }
 });
 function queryInfo(step) {
@@ -36,40 +32,37 @@ function queryInfo(step) {
         },
         crossDomain: true,
         success: function (message) {
-            //var json_mes=$.parseJSON(message)
+            showMessage(message.message);
             if(message.code==200)
-            {
-                $('#username').val(message.nickname);
-                $('#email').val(message.email);
-                console.log(message);
-                return message;
-            }
-            else
-            {
-                alert("aaa");
-            }
-
+                updateForm(message.info);
         },
         error: function (message) {
-            alert("aaa");
+            serverError();
         }
     });
 }
 function gotoStep(step) {
-    switch(step){
-        case 1:
-            $('#step1').show(2000);
-            queryInfo(1);
-            break;
-        case 2:
-            $('#step2').show(2000);
-            break;
-        case 3:
-            $('#step3').show(2000);
-            break;
-        case 4:
-            $('#step4').show(2000);
-            break;
+    $("#previous").attr("disabled","disabled");
+    if(step>=1 && step<=4){
+        $('#step'+step).show(2000);
+        queryInfo(step);
     }
     return 0;
+}
+function updateForm(message) {
+    console.log(1);
+    $.each(message,
+        function(index,element)
+        {
+            $('#'+index).val(element);
+        }
+    );
+}
+function serverError()
+{
+    showMessage("与服务器通讯出现故障，请检查您的网络或是刷新重试。如果错误反复出现，请与网站管理员联系");
+}
+
+function showMessage($message) {
+    $("#serverinfo").text($message);
 }

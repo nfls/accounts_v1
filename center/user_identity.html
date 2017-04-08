@@ -16,6 +16,8 @@
     <script src="../bower_components/jquery-validation/dist/jquery.validate.js"></script>
 </head>
 <body>
+
+
 <div class="container">
     <div class="row">
         <div class="col s12">
@@ -24,12 +26,22 @@
                     <span class="card-title">实名认证</span>
                     <p>此处您可以完成您的实名认证，获得更多校友专属权限。<br/></p>
                 </div>
-                <!--
-                <div class="card-action">
-                    <a href="#">This is a link</a>
-                    <a href="#">This is a link</a>
+                <div class="card-content white-text">
+                    <span class="card-title">认证提示</span>
+                    <p id="tips">正在获取数据中</p>
                 </div>
-                -->
+                <div class="card-content white-text">
+                    <span class="card-title">服务器信息</span>
+                    <p id="serverinfo">正在获取数据中</p>
+                </div>
+                <div class="card-action">
+                    <div class="row s12" >
+                    <a style="margin:5px" id="previous" class="waves-effect waves-light lime accent-2 black-text btn col s5"><i class="material-icons left">skip_previous</i>上一步</a>
+                    <a style="margin:5px" id="next" class="waves-effect waves-light green btn col s5"><i class="material-icons left">skip_next</i>下一步</a><br />
+                    <a style="margin:5px" id="reset" class="waves-effect waves-light orange btn col s5"><i class="material-icons left">restore</i>重置</a>
+                    <a style="margin:5px" id="clear" class="waves-effect waves-light red accent-4 btn col s5"><i class="material-icons left">mode_edit</i>清空</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
