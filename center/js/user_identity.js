@@ -14,6 +14,7 @@ $.ajax({
         showMessage(message.message);
         if (message.code == 200) {
             gotoStep(message.step);
+            updateInstruction(message.instructions);
         }
 
     },
@@ -33,7 +34,10 @@ function queryInfo(step) {
         success: function (message) {
             showMessage(message.message);
             if (message.code == 200)
+            {
                 updateForm(message.info);
+            }
+
         },
         error: function (message) {
             serverError();
@@ -65,7 +69,7 @@ function submitInfo(step) {
             $.each(message.message,function(index,element)
             {
                 messageInfo = messageInfo + element +"<br/>";
-            })
+            });
             showMessage(messageInfo);
         },
         error: function (message) {
@@ -95,4 +99,12 @@ function serverError() {
 
 function showMessage(message) {
     document.getElementById('serverinfo').innerHTML= message;
+}
+function updateInstruction(message){
+    messageInfo = "";
+    $.each(message,function(index,element)
+    {
+        messageInfo = messageInfo + (index + 1)+ ". " + element +"<br/>";
+    });
+    document.getElementById('tips').innerHTML= messageInfo;
 }
