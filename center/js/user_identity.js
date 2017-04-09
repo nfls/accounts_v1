@@ -40,44 +40,38 @@ function queryInfo(step) {
         }
     });
 }
-function submitInfo(step){
-    var formInfo = new Array;
-    $.each($('input', '#form'),function(k){
-        formInfo[$(this).attr('id')]=$(this).val()
+function submitInfo(step) {
+    var formInfo = {};
+    $.each($('input', '#form'), function (k) {
+        if ($(this).attr('id') != null)
+            formInfo[$(this).attr('id')] = $(this).val();
     });
-    $.each($('select', '#form'),function(k){
-        formInfo[$(this).attr('id')]=$(this).find("option:selected").attr("value");
+    $.each($('select', '#form'), function (k) {
+        if ($(this).attr('id') != null)
+            formInfo[$(this).attr('id')] = $(this).find("option:selected").attr("value");
     });
-    formInfo.remove("undefined");
-    console.log(formInfo);
-    //console.log("")
-    /*
-    $("#form").each(
-        function(index,element) {
-            console.log(index);
-            console.log(element);
-        }
-    );
-    */
-    /*
+    var jsonData = JSON.stringify(formInfo);
     $.ajax({
-        type: "GET",
+        type: "POST",
         url: url + "/alumni/auth/" + step + "/update",
         dataType: "json",
+        data: jsonData,
         xhrFields: {
             withCredentials: true
         },
         crossDomain: true,
         success: function (message) {
-            showMessage(message.message);
-            if (message.code == 200)
-                updateForm(message.info);
+            var messageInfo = "";
+            $.each(message.message,function(index,element)
+            {
+                messageInfo = messageInfo + element +"<br/>";
+            })
+            showMessage(messageInfo);
         },
         error: function (message) {
             serverError();
         }
     });
-    */
 }
 function gotoStep(step) {
     $("#previous").attr("disabled", "disabled");
@@ -99,6 +93,6 @@ function serverError() {
     showMessage("与服务器通讯出现故障，请检查您的网络或是刷新重试。如果错误反复出现，请与网站管理员联系");
 }
 
-function showMessage($message) {
-    $("#serverinfo").text($message);
+function showMessage(message) {
+    document.getElementById('serverinfo').innerHTML= message;
 }
