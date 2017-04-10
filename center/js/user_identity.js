@@ -80,8 +80,9 @@ function submitInfo(step) {
 function gotoStep(step) {
     $("#previous").attr("disabled", "disabled");
     if (step >= 1 && step <= 4) {
-        $('#step' + step).show(2000);
         queryInfo(step);
+        $('#step' + step).show(2000);
+
     }
     return 0;
 }
@@ -90,6 +91,7 @@ function updateForm(message) {
     $.each(message,
         function (index, element) {
             $('#' + index).val(element);
+            //$('#' + index).select(element);
         }
     );
 }
