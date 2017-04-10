@@ -91,7 +91,7 @@ function updateForm(message) {
     $.each(message,
         function (index, element) {
             $('#' + index).val(element);
-            //$('#' + index).select(element);
+            $('#' + index).focus();
         }
     );
 }
