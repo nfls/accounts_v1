@@ -90,8 +90,8 @@ function updateForm(message) {
     console.log(1);
     $.each(message,
         function (index, element) {
-            $('#' + index).val(element);
-            $('#' + index).focus();
+            $('#' + index).val(element).change();
+            //$('#' + index).focus();
         }
     );
 }
