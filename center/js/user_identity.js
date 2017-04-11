@@ -2,26 +2,30 @@
  * Created by hqy on 2017/4/8.
  */
 var url = 'http://v1.dev';
-$.ajax({
-    type: 'GET',
-    url: url + '/alumni/auth/getCurrentStep',
-    dataType: 'json',
-    xhrFields: {
-        withCredentials: true
-    },
-    crossDomain: true,
-    success: function (message) {
-        showMessage(message.message);
-        if (message.code == 200) {
-            gotoStep(message.step);
-            updateInstruction(message.instructions);
-        }
+init();
+function init()
+{
+    $.ajax({
+        type: 'GET',
+        url: url + '/alumni/auth/getCurrentStep',
+        dataType: 'json',
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        success: function (message) {
+            showMessage(message.message);
+            if (message.code == 200) {
+                gotoStep(message.step);
+                updateInstruction(message.instructions);
+            }
 
-    },
-    error: function (message) {
-        showMessage('与服务器通讯出现故障，请检查您的网络或是刷新重试。如果错误反复出现，请与网站管理员联系');
-    }
-});
+        },
+        error: function (message) {
+            showMessage('与服务器通讯出现故障，请检查您的网络或是刷新重试。如果错误反复出现，请与网站管理员联系');
+        }
+    });
+}
 function queryInfo(step) {
     $.ajax({
         type: 'GET',
@@ -69,10 +73,14 @@ function submitInfo() {
         crossDomain: true,
         success: function (message) {
             var messageInfo = '';
+            var count = 0;
             $.each(message.message,function(index,element)
             {
                 messageInfo = messageInfo + element +'<br/>';
+                count++;
             });
+            if(count == 1)
+                init();
             showMessage(messageInfo);
         },
         error: function (message) {
@@ -96,6 +104,7 @@ function gotoStep(step) {
         case 4:
             $('#nfls_international_info').hide(1000);
             $('#nfls_senior_info').hide(1000);
+            $('#nfls_senior_general').hide(1000);
             break;
     }
     queryInfo(step);
@@ -130,10 +139,12 @@ function updateInstruction(message){
 }
 
 function updatePrimaryForm(){
-    var select = $('#primary_school_no').val();
+
     var step = $('#current_step').val();
+
     switch(step){
         case 2:
+            var select = $('#primary_school_no').val();
             switch(select){
                 case '-1':
                     $('#nfls_primary_info').hide(500);
@@ -145,6 +156,7 @@ function updatePrimaryForm(){
             }
             break;
         case 3:
+            var select = $('#junior_school_no').val();
             switch(select){
                 case '-1':
                     $('#nfls_junior_info').hide(500);
@@ -154,15 +166,19 @@ function updatePrimaryForm(){
                     break;
             }
             break;
-        case 4:
+        case '4':
+            console.log(12);
+            var select = $('#senior_school_no').val();
             switch(select){
                 case '-1':
                     $('#nfls_international_info').hide(500);
                     $('#nfls_senior_info').hide(500);
+                    $('#nfls_senior_general').hide(500);
                     break;
                 case '1':
                     $('#nfls_international_info').hide(500);
-                    $('#nfls_junior_info').show(500);
+                    $('#nfls_senior_info').show(500);
+                    $('#nfls_senior_general').show(500);
                     break;
                 case '2':
                 case '3':
@@ -170,11 +186,12 @@ function updatePrimaryForm(){
                 case '5':
                     $('#nfls_international_info').show(500);
                     $('#nfls_junior_info').hide(500);
+                    $('#nfls_senior_general').hide(500);
                     break;
             }
             break;
         default:
             break;
     }
-
+    console.log(step + " " + select);
 }

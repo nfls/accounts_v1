@@ -168,7 +168,7 @@
         <form class="col s12" id="form3">
             <div class="row">
                 <div class="input-field col s12">
-                    <select id="junior_school_no">
+                    <select id="junior_school_no" onchange="updatePrimaryForm()">
                         <option value="-1">其他学校</option>
                         <option value="1">南京外国语学校初中部</option>
                     </select>
@@ -216,8 +216,7 @@
         <form class="col s12" id="form4">
             <div class="row">
                 <div class="input-field col s12">
-                    <select id="senior_school_no">
-                        <option value="" disabled selected>请选择您就读的高中</option>
+                    <select id="senior_school_no" onchange="updatePrimaryForm()">
                         <option value="-1">其他学校</option>
                         <option value="1">南京外国语学校普高</option>
                         <option value="2">南京外国语学校IB国际课程（国际文凭）班</option>
