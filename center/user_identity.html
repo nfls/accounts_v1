@@ -39,18 +39,19 @@
                 <div class="card-action">
                     <div class="row s12" >
                     <a style="margin:5px" id="previous" class="waves-effect waves-light lime accent-2 black-text btn col s5"><i class="material-icons left">skip_previous</i>上一步</a>
-                    <a style="margin:5px" onclick="submitInfo(1)" id="next" class="waves-effect waves-light green btn col s5"><i class="material-icons left">skip_next</i>下一步</a><br />
+                    <a style="margin:5px" onclick="submitInfo()" id="next" class="waves-effect waves-light green btn col s5"><i class="material-icons left">skip_next</i>下一步</a><br />
                     <a style="margin:5px" id="reset" class="waves-effect waves-light orange btn col s5"><i class="material-icons left">restore</i>重置</a>
                     <a style="margin:5px" id="clear" class="waves-effect waves-light red accent-4 btn col s5"><i class="material-icons left">mode_edit</i>清空</a>
                     </div>
                 </div>
+                <p id="current_step" hidden></p>
             </div>
         </div>
     </div>
 
 
     <div class="row" id="step1" hidden>
-        <form class="col s12" id="form">
+        <form class="col s12" id="form1">
             <p>STEP 1/4 - 基础信息</p>
             <div class="row">
                 <div class="input-field col s12">
@@ -67,7 +68,6 @@
             <div class="row">
                 <div class="input-field col s12">
                     <select id="gender">
-                        <option value="0" disabled selected>请选择您的性别</option>
                         <option value="1">男</option>
                         <option value="2">女</option>
                         <option value="3">其他/保密</option>
@@ -117,11 +117,10 @@
 
     <div class="row" id="step2" hidden>
         <p> STEP 2</p>
-        <form class="col s12">
+        <form class="col s12" id="form2">
             <div class="row">
                 <div class="input-field col s12">
-                    <select id="primary_school_no">
-                        <option value="" disabled selected>请选择您就读的小学</option>
+                    <select id="primary_school_no" onchange="updatePrimaryForm()">
                         <option value="-1">其他学校</option>
                         <option value="1">南京外国语学校小学部（4年制）</option>
                         <option value="2">南京外国语学校小学部（2年制）</option>
@@ -135,22 +134,24 @@
                     <label>小学就读学校</label>
                 </div>
             </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="primary_school_enter_year" type="text">
-                    <label>小学毕业年份</label>
+            <div id="nfls_primary_info">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="primary_school_enter_year" type="text">
+                        <label>小学毕业年份</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="primary_school_graduated_year" type="text">
-                    <label>小学入学年份</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="primary_school_graduated_year" type="text">
+                        <label>小学入学年份</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="primary_remark" type="text">
-                    <label>备注</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="primary_remark" type="text">
+                        <label>备注</label>
+                    </div>
                 </div>
             </div>
         </form>
@@ -158,7 +159,7 @@
 
     <div class="row" id="step3" hidden>
         <p> STEP 3</p>
-        <form class="col s12">
+        <form class="col s12" id="form3">
             <div class="row">
                 <div class="input-field col s12">
                     <select id="junior_school_no">
@@ -204,7 +205,7 @@
 
     <div class="row" id="step4" hidden>
         <p> STEP 4</p>
-        <form class="col s12">
+        <form class="col s12" id="form4">
             <div class="row">
                 <div class="input-field col s12">
                     <select id="senior_school_no">

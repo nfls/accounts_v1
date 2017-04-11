@@ -1,11 +1,11 @@
 /**
  * Created by hqy on 2017/4/8.
  */
-var url = "http://v1.dev";
+var url = 'http://v1.dev';
 $.ajax({
-    type: "GET",
-    url: url + "/alumni/auth/getCurrentStep",
-    dataType: "json",
+    type: 'GET',
+    url: url + '/alumni/auth/getCurrentStep',
+    dataType: 'json',
     xhrFields: {
         withCredentials: true
     },
@@ -19,14 +19,14 @@ $.ajax({
 
     },
     error: function (message) {
-        showMessage("与服务器通讯出现故障，请检查您的网络或是刷新重试。如果错误反复出现，请与网站管理员联系");
+        showMessage('与服务器通讯出现故障，请检查您的网络或是刷新重试。如果错误反复出现，请与网站管理员联系');
     }
 });
 function queryInfo(step) {
     $.ajax({
-        type: "GET",
-        url: url + "/alumni/auth/" + step + "/query",
-        dataType: "json",
+        type: 'GET',
+        url: url + '/alumni/auth/' + step + '/query',
+        dataType: 'json',
         xhrFields: {
             withCredentials: true
         },
@@ -35,6 +35,7 @@ function queryInfo(step) {
             showMessage(message.message);
             if (message.code == 200)
             {
+
                 updateForm(message.info);
             }
 
@@ -44,31 +45,32 @@ function queryInfo(step) {
         }
     });
 }
-function submitInfo(step) {
+function submitInfo() {
+    step = $('#current_step').val();
     var formInfo = {};
-    $.each($('input', '#form'), function (k) {
+    $.each($('input', '#form' + $('#current_step').val()), function (k) {
         if ($(this).attr('id') != null)
             formInfo[$(this).attr('id')] = $(this).val();
     });
-    $.each($('select', '#form'), function (k) {
+    $.each($('select', '#form' + $('#current_step').val()), function (k) {
         if ($(this).attr('id') != null)
-            formInfo[$(this).attr('id')] = $(this).find("option:selected").attr("value");
+            formInfo[$(this).attr('id')] = $(this).find('option:selected').attr('value');
     });
     var jsonData = JSON.stringify(formInfo);
     $.ajax({
-        type: "POST",
-        url: url + "/alumni/auth/" + step + "/update",
-        dataType: "json",
+        type: 'POST',
+        url: url + '/alumni/auth/' + step + '/update',
+        dataType: 'json',
         data: jsonData,
         xhrFields: {
             withCredentials: true
         },
         crossDomain: true,
         success: function (message) {
-            var messageInfo = "";
+            var messageInfo = '';
             $.each(message.message,function(index,element)
             {
-                messageInfo = messageInfo + element +"<br/>";
+                messageInfo = messageInfo + element +'<br/>';
             });
             showMessage(messageInfo);
         },
@@ -78,35 +80,56 @@ function submitInfo(step) {
     });
 }
 function gotoStep(step) {
-    $("#previous").attr("disabled", "disabled");
-    if (step >= 1 && step <= 4) {
-        queryInfo(step);
-        $('#step' + step).show(2000);
-
+    $('#current_step').val(step);
+    console.log($('#current_step').val());
+    switch(step){
+        case 1:
+            $('#previous').attr('disabled', 'disabled');
+            break;
+        case 2:
+            $('#nfls_primary_info').hide(1000);
+            break;
     }
+    queryInfo(step);
+    $('#step' + step).show(2000);
+
     return 0;
 }
 function updateForm(message) {
-    console.log(1);
     $.each(message,
         function (index, element) {
+            console.log(index+'='+element);
             $('#' + index).val(element).change();
+
             //$('#' + index).focus();
         }
     );
 }
 function serverError() {
-    showMessage("与服务器通讯出现故障，请检查您的网络或是刷新重试。如果错误反复出现，请与网站管理员联系");
+    showMessage('与服务器通讯出现故障，请检查您的网络或是刷新重试。如果错误反复出现，请与网站管理员联系');
 }
 
 function showMessage(message) {
     document.getElementById('serverinfo').innerHTML= message;
 }
 function updateInstruction(message){
-    messageInfo = "";
+    messageInfo = '';
     $.each(message,function(index,element)
     {
-        messageInfo = messageInfo + (index + 1)+ ". " + element +"<br/>";
+        messageInfo = messageInfo + (index + 1)+ '. ' + element +'<br/>';
     });
     document.getElementById('tips').innerHTML= messageInfo;
+}
+
+function updatePrimaryForm(){
+    var select = $('#primary_school_no').val();
+    switch(select){
+        case '-1':
+            $('#nfls_primary_info').hide(500);
+            break;
+        case '1':
+        case '2':
+            $('#nfls_primary_info').show(500);
+            break;
+    }
 }
