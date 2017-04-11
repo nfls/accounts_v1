@@ -35,7 +35,6 @@ function queryInfo(step) {
             showMessage(message.message);
             if (message.code == 200)
             {
-
                 updateForm(message.info);
             }
 
@@ -48,11 +47,13 @@ function queryInfo(step) {
 function submitInfo() {
     step = $('#current_step').val();
     var formInfo = {};
-    $.each($('input', '#form' + $('#current_step').val()), function (k) {
-        if ($(this).attr('id') != null)
+    $.each($('input', '#form' + step), function (k) {
+        console.log(111);
+        if ($(this).attr('id') != null && $(this).is(":visible"))
             formInfo[$(this).attr('id')] = $(this).val();
     });
-    $.each($('select', '#form' + $('#current_step').val()), function (k) {
+    $.each($('select', '#form' + step), function (k) {
+        console.log(111);
         if ($(this).attr('id') != null)
             formInfo[$(this).attr('id')] = $(this).find('option:selected').attr('value');
     });
@@ -89,6 +90,13 @@ function gotoStep(step) {
         case 2:
             $('#nfls_primary_info').hide(1000);
             break;
+        case 3:
+            $('#nfls_junior_info').hide(1000);
+            break;
+        case 4:
+            $('#nfls_international_info').hide(1000);
+            $('#nfls_senior_info').hide(1000);
+            break;
     }
     queryInfo(step);
     $('#step' + step).show(2000);
@@ -123,13 +131,50 @@ function updateInstruction(message){
 
 function updatePrimaryForm(){
     var select = $('#primary_school_no').val();
-    switch(select){
-        case '-1':
-            $('#nfls_primary_info').hide(500);
+    var step = $('#current_step').val();
+    switch(step){
+        case 2:
+            switch(select){
+                case '-1':
+                    $('#nfls_primary_info').hide(500);
+                    break;
+                case '1':
+                case '2':
+                    $('#nfls_primary_info').show(500);
+                    break;
+            }
             break;
-        case '1':
-        case '2':
-            $('#nfls_primary_info').show(500);
+        case 3:
+            switch(select){
+                case '-1':
+                    $('#nfls_junior_info').hide(500);
+                    break;
+                case '1':
+                    $('#nfls_junior_info').show(500);
+                    break;
+            }
+            break;
+        case 4:
+            switch(select){
+                case '-1':
+                    $('#nfls_international_info').hide(500);
+                    $('#nfls_senior_info').hide(500);
+                    break;
+                case '1':
+                    $('#nfls_international_info').hide(500);
+                    $('#nfls_junior_info').show(500);
+                    break;
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                    $('#nfls_international_info').show(500);
+                    $('#nfls_junior_info').hide(500);
+                    break;
+            }
+            break;
+        default:
             break;
     }
+
 }

@@ -37,11 +37,17 @@
                     <p id="serverinfo">正在获取数据中</p>
                 </div>
                 <div class="card-action">
-                    <div class="row s12" >
-                    <a style="margin:5px" id="previous" class="waves-effect waves-light lime accent-2 black-text btn col s5"><i class="material-icons left">skip_previous</i>上一步</a>
-                    <a style="margin:5px" onclick="submitInfo()" id="next" class="waves-effect waves-light green btn col s5"><i class="material-icons left">skip_next</i>下一步</a><br />
-                    <a style="margin:5px" id="reset" class="waves-effect waves-light orange btn col s5"><i class="material-icons left">restore</i>重置</a>
-                    <a style="margin:5px" id="clear" class="waves-effect waves-light red accent-4 btn col s5"><i class="material-icons left">mode_edit</i>清空</a>
+                    <div class="row s12">
+                        <a style="margin:5px" id="previous"
+                           class="waves-effect waves-light lime accent-2 black-text btn col s5"><i
+                                class="material-icons left">skip_previous</i>上一步</a>
+                        <a style="margin:5px" onclick="submitInfo()" id="next"
+                           class="waves-effect waves-light green btn col s5"><i
+                                class="material-icons left">skip_next</i>下一步</a><br/>
+                        <a style="margin:5px" id="reset" class="waves-effect waves-light orange btn col s5"><i
+                                class="material-icons left">restore</i>重置</a>
+                        <a style="margin:5px" id="clear" class="waves-effect waves-light red accent-4 btn col s5"><i
+                                class="material-icons left">mode_edit</i>清空</a>
                     </div>
                 </div>
                 <p id="current_step" hidden></p>
@@ -163,7 +169,6 @@
             <div class="row">
                 <div class="input-field col s12">
                     <select id="junior_school_no">
-                        <option value="" disabled selected>请选择您就读的初中</option>
                         <option value="-1">其他学校</option>
                         <option value="1">南京外国语学校初中部</option>
                     </select>
@@ -176,22 +181,24 @@
                     <label>初中就读学校</label>
                 </div>
             </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="junior_class" type="text">
-                    <label>初中班级号</label>
+            <div id="nfls_junior_info">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="junior_class" type="text">
+                        <label>初中班级号</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="junior_school_enter_year" type="text">
-                    <label>初中毕业年份</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="junior_school_enter_year" type="text">
+                        <label>初中毕业年份</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="junior_school_graduated_year" type="text">
-                    <label>初中入学年份</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="junior_school_graduated_year" type="text">
+                        <label>初中入学年份</label>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -200,6 +207,7 @@
                     <label>备注</label>
                 </div>
             </div>
+
         </form>
     </div>
 
@@ -215,7 +223,7 @@
                         <option value="2">南京外国语学校IB国际课程（国际文凭）班</option>
                         <option value="3">南京外国语学校剑桥国际课程（A-Level）班</option>
                         <option value="4">南京外国语学校中加（BCA）实验班</option>
-                        <option value="5">南京外国语学校优飞核心课程班（中澳班）</option>
+                        <!--<option value="5">南京外国语学校优飞核心课程班（中澳班）</option>-->
                     </select>
                     <label>高中就读学校</label>
                 </div>
@@ -226,19 +234,27 @@
                     <label>高中就读学校</label>
                 </div>
             </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="senior_school_enter_year" type="text">
-                    <label>高中毕业年份</label>
+            <div id="nfls_senior_general">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="senior_school_enter_year" type="text">
+                        <label>高中毕业年份</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="senior_school_graduated_year" type="text">
+                        <label>高中入学年份</label>
+                    </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="nfls_international_info">
                 <div class="input-field col s12">
-                    <input id="senior_school_graduated_year" type="text">
-                    <label>高中入学年份</label>
+                    <input id="senior_class" type="text">
+                    <label>高中班级号</label>
                 </div>
             </div>
-            <div id="general">
+            <div id="nfls_senior_info">
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="senior_class11" type="text">
@@ -276,14 +292,16 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="senior_remark" type="text">
-                    <label>备注</label>
-                </div>
-            </div>
         </form>
     </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input id="senior_remark" type="text">
+            <label>备注</label>
+        </div>
+    </div>
+    </form>
+</div>
 
 </div>
 <script src="js/user_identity.js"></script>
