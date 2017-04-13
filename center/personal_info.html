@@ -32,23 +32,17 @@
     </script>
 <body>
 <header>
-    <nav class="top-nav blue">
-        <div class="container">
-            <div class="nav-wrapper blue"><a class="page-title">Account</a>
-                <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
-                    <i class="material-icons">menu</i></a>
-            </div>
-        </div>
-    </nav>
+
     <div class="container">
     </div>
     <ul id="nav-mobile" class="side-nav fixed">
         <li>
             <div class="userView blue">
-                <img class="circle" id="avatar"></a>
-                <span class="white-text name" id="user_name"></span></a>
-                <span class="white-text email">tianzundibei@163.com</span></a>
+                <img class="circle" id="avatar">
+                <span class="white-text name" id="user_name"></span>
+                <!--<span class="white-text email">tianzundibei@163.com</span>-->
             </div>
+
         </li>
         <li><a class="waves-effect" href="personal_info.html">账户综合信息</a></li>
         <li><a class="waves-effect" href="associated_service.html">站内关联服务</a></li>
@@ -58,24 +52,19 @@
     </ul>
     </nav>
 </header>
-</body>
-<script>
-    // Initialize collapse button
-    $(".button-collapse").sideNav();
-    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-    $('.collapsible').collapsible();
-    $('.button-collapse').sideNav({
-            menuWidth: 300, // Default is 300
-            edge: 'left', // Choose the horizontal origin
-            closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-            draggable: true // Choose whether you can drag to open on touch screens
-        }
-    );
-</script>
 
 <!-- page content -->
 <main>
-    <div class="container">
+    <nav class="top-nav blue">
+        <div class="container">
+            <div class="nav-wrapper blue"><a class="page-title">Account</a>
+                <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
+                    <i class="material-icons">menu</i></a>
+            </div>
+        </div>
+    </nav>
+    <div class="container col s12 m9 l10">
+
 
         <div class="container">
             <div class="row">

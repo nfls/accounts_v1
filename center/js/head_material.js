@@ -1,5 +1,14 @@
 if($.cookie("token")==null||$.cookie("flarum_remember")==null)
 	logout();
+$(".button-collapse").sideNav();
+$('.collapsible').collapsible();
+$('.button-collapse').sideNav({
+        menuWidth: 250, // Default is 300
+        edge: 'left', // Choose the horizontal origin
+        closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        draggable: true // Choose whether you can drag to open on touch screens
+    }
+);
 $.ajax({
 	type: "POST",
 	url: "https://app.nfls.io/API/User/User.php?action=GetAvatarByToken",
@@ -14,7 +23,7 @@ $.ajax({
 		{
 			//alert(message);
 			document.getElementById("avatar").src = message.url; 
-			document.getElementById("avatar_2").src = message.url; 
+			//document.getElementById("avatar_2").src = message.url;
 		}
 		else
 		{

@@ -159,9 +159,11 @@ function updatePrimaryForm(){
             var select = $('#junior_school_no').val();
             switch(select){
                 case '-1':
+                    $('#junior_school_div').show(500);
                     $('#nfls_junior_info').hide(500);
                     break;
                 case '1':
+                    $('#junior_school_div').hide(500);
                     $('#nfls_junior_info').show(500);
                     break;
             }
@@ -171,11 +173,13 @@ function updatePrimaryForm(){
             var select = $('#senior_school_no').val();
             switch(select){
                 case '-1':
+                    $('#senior_school_div').show(500);
                     $('#nfls_international_info').hide(500);
                     $('#nfls_senior_info').hide(500);
                     $('#nfls_senior_general').hide(500);
                     break;
                 case '1':
+                    $('#senior_school_div').hide(500);
                     $('#nfls_international_info').hide(500);
                     $('#nfls_senior_info').show(500);
                     $('#nfls_senior_general').show(500);
@@ -184,9 +188,10 @@ function updatePrimaryForm(){
                 case '3':
                 case '4':
                 case '5':
+                    $('#senior_school_div').hide(500);
                     $('#nfls_international_info').show(500);
-                    $('#nfls_junior_info').hide(500);
-                    $('#nfls_senior_general').hide(500);
+                    $('#nfls_senior_general').show(500);
+                    $('#nfls_senior_info').hide(500);
                     break;
             }
             break;

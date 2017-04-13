@@ -1,3 +1,6 @@
+$(document).ready(function(){
+    $('ul.tabs').tabs();
+});
 function loaddata()
 {
 	$.ajax({
