@@ -1,7 +1,7 @@
 /**
  * Created by hqy on 2017/4/8.
  */
-var url = 'https://v1.dev';
+var url = 'https://local.nfls.io';
 init();
 function init()
 {
