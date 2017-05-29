@@ -95,7 +95,7 @@ function getData() {
         error: function (message) {
         }
     });
-    setTimeout("getData()",50);
+    //setTimeout("getData()",50);
 }
 
 function logout() {

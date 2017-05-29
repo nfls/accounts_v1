@@ -171,13 +171,13 @@
                     <div id="nfls_primary_info">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="primary_school_enter_year" type="text">
+                                <input id="primary_school_graduated_year" type="text">
                                 <label>小学毕业年份</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="primary_school_graduated_year" type="text">
+                                <input id="primary_school_enter_year" type="text">
                                 <label>小学入学年份</label>
                             </div>
                         </div>
@@ -218,13 +218,13 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="junior_school_enter_year" type="text">
+                                <input id="junior_school_graduated_year" type="text">
                                 <label>初中毕业年份</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="junior_school_graduated_year" type="text">
+                                <input id="junior_school_enter_year" type="text">
                                 <label>初中入学年份</label>
                             </div>
                         </div>
@@ -264,13 +264,13 @@
                     <div id="nfls_senior_general">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="senior_school_enter_year" type="text">
+                                <input id="senior_school_graduated_year" type="text">
                                 <label>高中毕业年份</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="senior_school_graduated_year" type="text">
+                                <input id="senior_school_enter_year" type="text">
                                 <label>高中入学年份</label>
                             </div>
                         </div>
@@ -323,6 +323,76 @@
                         <div class="input-field col s12">
                             <input id="senior_remark" type="text">
                             <label>备注</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="row" id="step6" hidden>
+                <p> STEP 6</p>
+                <form class="col s12" id="form6">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <select id="learning_status" onchange="updatePrimaryForm()">
+                                <option value="1">本科</option>
+                                <option value="3">硕士</option>
+                                <option value="3">博士</option>
+                            </select>
+                            <label>当前学历</label>
+                        </div>
+                    </div>
+                    <div class="row" id="undergraduate_info">
+                        <div class="input-field col s12">
+                            <input id="undergraduate_school" type="text">
+                            <label>本科就读院校</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="undergraduate_major" type="text">
+                            <label>主要专业方向</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="undergraduate_start" type="text">
+                            <label>起始时间</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="undergraduate_end" type="text">
+                            <label>毕业时间</label>
+                        </div>
+                    </div>
+                    <div class="row" id="master_info">
+                        <div class="input-field col s12">
+                            <input id="master_school" type="text">
+                            <label>硕士就读院校</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="master_major" type="text">
+                            <label>主要专业方向</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="master_start" type="text">
+                            <label>起始时间</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="master_end" type="text">
+                            <label>毕业时间</label>
+                        </div>
+                    </div>
+                    <div class="row" id="doctor_info">
+                        <div class="input-field col s12">
+                            <input id="doctor_school" type="text">
+                            <label>博士就读院校</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="doctor_major" type="text">
+                            <label>主要专业方向</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="doctor_start" type="text">
+                            <label>起始时间</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="doctor_end" type="text">
+                            <label>毕业时间</label>
                         </div>
                     </div>
                 </form>

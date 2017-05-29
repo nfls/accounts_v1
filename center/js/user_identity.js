@@ -1,7 +1,7 @@
 /**
  * Created by hqy on 2017/4/8.
  */
-var url = 'http://v1.dev';
+var url = 'https://v1.dev';
 init();
 function init()
 {
@@ -141,9 +141,10 @@ function updateInstruction(message){
 function updatePrimaryForm(){
 
     var step = $('#current_step').val();
-
+    console.log(step);
+    console.log(111);
     switch(step){
-        case 2:
+        case "2":
             var select = $('#primary_school_no').val();
             switch(select){
                 case '-1':
@@ -155,7 +156,7 @@ function updatePrimaryForm(){
                     break;
             }
             break;
-        case 3:
+        case "3":
             var select = $('#junior_school_no').val();
             switch(select){
                 case '-1':
@@ -168,7 +169,7 @@ function updatePrimaryForm(){
                     break;
             }
             break;
-        case '4':
+        case "4":
             console.log(12);
             var select = $('#senior_school_no').val();
             switch(select){
