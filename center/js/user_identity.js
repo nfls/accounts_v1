@@ -89,6 +89,11 @@ function submitInfo() {
     });
 }
 function gotoStep(step) {
+    if($('#current_step').val()!=""){
+        $('#step' + $('#current_step').val()).hide(1000);
+    }
+    if(step>1)
+        $('#previous').removeAttr('disabled', 'disabled');
     $('#current_step').val(step);
     console.log($('#current_step').val());
     switch(step){
@@ -112,6 +117,30 @@ function gotoStep(step) {
 
     return 0;
 }
+
+function backStep() {
+    $.ajax({
+        type: 'GET',
+        url: url + '/alumni/auth/back',
+        dataType: 'json',
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        success: function (message) {
+            showMessage(message.message);
+            if (message.code == 200)
+            {
+                init();
+            }
+        },
+        error: function (message) {
+            serverError();
+        }
+    });
+}
+
+
 function updateForm(message) {
     $.each(message,
         function (index, element) {
