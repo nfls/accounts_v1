@@ -7,6 +7,27 @@ function init()
 {
     $.ajax({
         type: 'GET',
+        url: url + '/alumni/auth/status',
+        dataType: 'json',
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        success: function (message) {
+            if (message.code == 200) {
+                updateInstruction(message.message,"status");
+            }
+            else {
+                serverError();
+            }
+
+        },
+        error: function (message) {
+            serverError();
+        }
+    });
+    $.ajax({
+        type: 'GET',
         url: url + '/alumni/auth/getCurrentStep',
         dataType: 'json',
         xhrFields: {
@@ -17,7 +38,7 @@ function init()
             showMessage(message.message);
             if (message.code == 200) {
                 gotoStep(message.step);
-                updateInstruction(message.instructions);
+                updateInstruction(message.instructions,"tips");
             }
 
         },
@@ -158,13 +179,13 @@ function serverError() {
 function showMessage(message) {
     document.getElementById('serverinfo').innerHTML= message;
 }
-function updateInstruction(message){
+function updateInstruction(message,place){
     messageInfo = '';
     $.each(message,function(index,element)
     {
         messageInfo = messageInfo + (index + 1)+ '. ' + element +'<br/>';
     });
-    document.getElementById('tips').innerHTML= messageInfo;
+    document.getElementById(place).innerHTML= messageInfo;
 }
 
 function updatePrimaryForm(){
