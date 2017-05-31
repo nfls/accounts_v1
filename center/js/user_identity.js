@@ -14,13 +14,25 @@ function init()
         },
         crossDomain: true,
         success: function (message) {
-            if (message.code == 200) {
-                updateInstruction(message.message,"status");
-            }
-            else {
+            if (message.code == 200)
+                updateInstruction(message.message,"status",false);
+            else
                 serverError();
-            }
-
+        },
+        error: function (message) {
+            serverError();
+        }
+    });
+    $.ajax({
+        type: 'GET',
+        url: url + '/alumni/auth/instructions',
+        dataType: 'json',
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        success: function (message) {
+            updateInstruction(message.message,"instructions",true);
         },
         error: function (message) {
             serverError();
@@ -38,7 +50,7 @@ function init()
             showMessage(message.message);
             if (message.code == 200) {
                 gotoStep(message.step);
-                updateInstruction(message.instructions,"tips");
+                updateInstruction(message.instructions,"tips",true);
             }
 
         },
@@ -166,11 +178,31 @@ function updateForm(message) {
     $.each(message,
         function (index, element) {
             console.log(index+'='+element);
-            $('#' + index).val(element).change();
+            switch($("#"+index).get(0).tagName){
+                case "INPUT":
+                    $('#' + index).val(element).change();
+                    break;
+                case "P":
+                    $('#' + index).text(element);
+                    break;
+                case "SELECT":
+                    //$('#' + index).attr("value",element).change();
+                    $('#' + index).val(element);
+                    $('#'+index+' option[value='+element+']').attr('selected','selected').change();
+                    break;
+                default:
+                    break;
+            }
+            //$('#' + index).select(element).change();
+
 
             //$('#' + index).focus();
         }
+
     );
+    //$(document).ready(function () {
+        $('select').material_select();
+    //});
 }
 function serverError() {
     showMessage('与服务器通讯出现故障，请检查您的网络或是刷新重试。如果错误反复出现，请与网站管理员联系');
@@ -179,11 +211,14 @@ function serverError() {
 function showMessage(message) {
     document.getElementById('serverinfo').innerHTML= message;
 }
-function updateInstruction(message,place){
+function updateInstruction(message,place,number){
     messageInfo = '';
     $.each(message,function(index,element)
     {
-        messageInfo = messageInfo + (index + 1)+ '. ' + element +'<br/>';
+        if(number)
+            messageInfo = messageInfo + (index + 1)+ '. ' + element +'<br/>';
+        else
+            messageInfo = messageInfo + element +'<br/>';
     });
     document.getElementById(place).innerHTML= messageInfo;
 }
