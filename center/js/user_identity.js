@@ -85,12 +85,12 @@ function submitInfo() {
     step = $('#current_step').val();
     var formInfo = {};
     $.each($('input', '#form' + step), function (k) {
-        console.log(111);
-        if ($(this).attr('id') != null && $(this).is(":visible"))
+        if ($(this).attr('type')=="checkbox"){
+            formInfo[$(this).attr('id')] = ($(this).is(":checked"));
+        } else if ($(this).attr('id') != null && $(this).is(":visible"))
             formInfo[$(this).attr('id')] = $(this).val();
     });
     $.each($('select', '#form' + step), function (k) {
-        console.log(111);
         if ($(this).attr('id') != null)
             formInfo[$(this).attr('id')] = $(this).find('option:selected').attr('value');
     });
@@ -134,16 +134,23 @@ function gotoStep(step) {
             $('#previous').attr('disabled', 'disabled');
             break;
         case 2:
-            $('#nfls_primary_info').hide(1000);
+            $('#nfls_primary_info').hide();
             break;
         case 3:
-            $('#nfls_junior_info').hide(1000);
+            $('#nfls_junior_info').hide();
             break;
         case 4:
-            $('#nfls_international_info').hide(1000);
-            $('#nfls_senior_info').hide(1000);
-            $('#nfls_senior_general').hide(1000);
+            $('#nfls_international_info').hide();
+            $('#nfls_senior_info').hide();
+            $('#nfls_senior_general').hide();
             break;
+        case 6:
+            $('#college_info').hide();
+            $('#master_info').hide();
+            $('#doctor_info').hide();
+            $('#undergraduate_info').hide();
+            $('#other_info').hide();
+
     }
     queryInfo(step);
     $('#step' + step).show(2000);
@@ -226,8 +233,6 @@ function updateInstruction(message,place,number){
 function updatePrimaryForm(){
 
     var step = $('#current_step').val();
-    console.log(step);
-    console.log(111);
     switch(step){
         case "2":
             var select = $('#primary_school_no').val();
@@ -255,7 +260,6 @@ function updatePrimaryForm(){
             }
             break;
         case "4":
-            console.log(12);
             var select = $('#senior_school_no').val();
             switch(select){
                 case '-1':
@@ -285,4 +289,11 @@ function updatePrimaryForm(){
             break;
     }
     console.log(step + " " + select);
+}
+
+function checkboxChanged(name){
+    if ($('#'+name).is(":checked"))
+        $('#'+name+'_info').show(1000);
+    else
+        $('#'+name+'_info').hide(1000);
 }

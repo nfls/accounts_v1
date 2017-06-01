@@ -1,3 +1,6 @@
+<!--
+TO-DO：ui修正 & datepicker
+-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -339,23 +342,39 @@
             <div class="row" id="step5" hidden>
                 <p>STEP 5/8 - 基础认证核对提交</p>
                 <form class="col s12" id="form5">
-                    <p id="confirm_info">aa</p>
+                    <p id="confirm_info"></p>
                 </form>
             </div>
 
             <div class="row" id="step6" hidden>
                 <p>STEP 6/8 - 大学信息</p>
                 <form class="col s12" id="form6">
-                    <div class="row">
+                    <p>
+                        <input type="checkbox" id="college" onchange="checkboxChanged('college')" />
+                        <label for="college">专科</label>
+                    </p>
+                    <div class="row" id="college_info">
                         <div class="input-field col s12">
-                            <select id="learning_status" onchange="updatePrimaryForm()">
-                                <option value="1">本科</option>
-                                <option value="3">硕士</option>
-                                <option value="3">博士</option>
-                            </select>
-                            <label>当前学历</label>
+                            <input id="college_school" type="text">
+                            <label>专科就读院校</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="college_major" type="text">
+                            <label>主要专业方向</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="college_start" type="text" class="yearpicker">
+                            <label>入学年份</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="college_end" type="text" class="yearpicker">
+                            <label>毕业年份</label>
                         </div>
                     </div>
+                    <p>
+                        <input type="checkbox" id="undergraduate" onchange="checkboxChanged('undergraduate')"/>
+                        <label for="undergraduate">本科</label>
+                    </p>
                     <div class="row" id="undergraduate_info">
                         <div class="input-field col s12">
                             <input id="undergraduate_school" type="text">
@@ -366,14 +385,18 @@
                             <label>主要专业方向</label>
                         </div>
                         <div class="input-field col s12">
-                            <input id="undergraduate_start" type="text">
-                            <label>起始时间</label>
+                            <input id="undergraduate_start" type="text" class="yearpicker">
+                            <label>入学年份</label>
                         </div>
                         <div class="input-field col s12">
-                            <input id="undergraduate_end" type="text">
-                            <label>毕业时间</label>
+                            <input id="undergraduate_end" type="text" class="yearpicker">
+                            <label>毕业年份</label>
                         </div>
                     </div>
+                    <p>
+                        <input type="checkbox" id="master" onchange="checkboxChanged('master')"/>
+                        <label for="master">硕士</label>
+                    </p>
                     <div class="row" id="master_info">
                         <div class="input-field col s12">
                             <input id="master_school" type="text">
@@ -384,14 +407,18 @@
                             <label>主要专业方向</label>
                         </div>
                         <div class="input-field col s12">
-                            <input id="master_start" type="text">
-                            <label>起始时间</label>
+                            <input id="master_start" type="text" class="yearpicker">
+                            <label>入学年份</label>
                         </div>
                         <div class="input-field col s12">
-                            <input id="master_end" type="text">
-                            <label>毕业时间</label>
+                            <input id="master_end" type="text" class="yearpicker">
+                            <label>毕业年份</label>
                         </div>
                     </div>
+                    <p>
+                        <input type="checkbox" id="doctor" onchange="checkboxChanged('doctor')"/>
+                        <label for="doctor">博士</label>
+                    </p>
                     <div class="row" id="doctor_info">
                         <div class="input-field col s12">
                             <input id="doctor_school" type="text">
@@ -402,13 +429,43 @@
                             <label>主要专业方向</label>
                         </div>
                         <div class="input-field col s12">
-                            <input id="doctor_start" type="text">
-                            <label>起始时间</label>
+                            <input id="doctor_start" type="text" class="yearpicker">
+                            <label>入学年份</label>
                         </div>
                         <div class="input-field col s12">
-                            <input id="doctor_end" type="text">
-                            <label>毕业时间</label>
+                            <input id="doctor_end" type="text" class="yearpicker">
+                            <label>毕业年份</label>
                         </div>
+                    </div>
+                    <p>
+                        <input type="checkbox" id="other" onchange="checkboxChanged('other')"/>
+                        <label for="other">其他</label>
+                    </p>
+                    <div class="row" id="other_info">
+                        <div class="input-field col s12">
+                            <input id="other_type" type="text">
+                            <label>类型</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="other_school" type="text">
+                            <label>就读院校</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="other_major" type="text">
+                            <label>主要专业方向</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="other_start" type="text" class="yearpicker">
+                            <label>入学年份</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="other_end" type="text" class="yearpicker">
+                            <label>毕业年份</label>
+                        </div>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="college_remark" type="text">
+                        <label>备注</label>
                     </div>
                 </form>
             </div>
@@ -420,7 +477,12 @@
 <script src="js/user_identity.js"></script>
 <script src="js/head_material.js"></script>
 <script>
-
+    $('.yearpicker').pickadate({
+        format:"yyyy",
+        selectMonths: false, // Creates a dropdown to control month
+        selectYears: 15, // Creates a dropdown of 15 years to control year
+        max:true
+    });
 </script>
 </body>
 </html>
