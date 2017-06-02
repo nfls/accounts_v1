@@ -3,8 +3,8 @@
  */
 var url = 'https://local.nfls.io';
 init();
-function init()
-{
+function init() {
+    disableButtons();
     $.ajax({
         type: 'GET',
         url: url + '/alumni/auth/status',
@@ -15,7 +15,7 @@ function init()
         crossDomain: true,
         success: function (message) {
             if (message.code == 200)
-                updateInstruction(message.message,"status",false);
+                updateInstruction(message.message, "status", false);
             else
                 serverError();
         },
@@ -32,7 +32,7 @@ function init()
         },
         crossDomain: true,
         success: function (message) {
-            updateInstruction(message.message,"instructions",true);
+            updateInstruction(message.message, "instructions", true);
         },
         error: function (message) {
             serverError();
@@ -47,10 +47,10 @@ function init()
         },
         crossDomain: true,
         success: function (message) {
-            showMessage(message.message);
+            //showMessage(message.message);
             if (message.code == 200) {
                 gotoStep(message.step);
-                updateInstruction(message.instructions,"tips",true);
+                updateInstruction(message.instructions, "tips", true);
             }
 
         },
@@ -70,9 +70,8 @@ function queryInfo(step) {
         crossDomain: true,
         success: function (message) {
             showMessage(message.message);
-            if (message.code == 200)
-            {
-                updateForm(message.info);
+            if (message.code == 200) {
+                updateForm(message.info,step);
             }
 
         },
@@ -82,10 +81,11 @@ function queryInfo(step) {
     });
 }
 function submitInfo() {
+
     step = $('#current_step').val();
     var formInfo = {};
     $.each($('input', '#form' + step), function (k) {
-        if ($(this).attr('type')=="checkbox"){
+        if ($(this).attr('type') == "checkbox") {
             formInfo[$(this).attr('id')] = ($(this).is(":checked"));
         } else if ($(this).attr('id') != null && $(this).is(":visible"))
             formInfo[$(this).attr('id')] = $(this).val();
@@ -110,13 +110,15 @@ function submitInfo() {
         success: function (message) {
             var messageInfo = '';
             var count = 0;
-            $.each(message.message,function(index,element)
-            {
-                messageInfo = messageInfo + element +'<br/>';
+            $.each(message.message, function (index, element) {
+                messageInfo = messageInfo + element + '<br/>';
                 count++;
             });
-            if(count == 1)
-                init();
+            if (count == 1 && message.code == 200){
+                disableButtons();
+                setTimeout("init()", 2000);
+            }
+
             showMessage(messageInfo);
         },
         error: function (message) {
@@ -125,14 +127,20 @@ function submitInfo() {
     });
 }
 function gotoStep(step) {
-    if($('#current_step').val()!=""){
+    queryInfo(step);
+    enableButtons();
+    if ($('#current_step').val() != "") {
         $('#step' + $('#current_step').val()).hide(1000);
     }
-    if(step>1)
+    if (step > 1) {
         $('#previous').removeAttr('disabled', 'disabled');
+    }
+    initializePicker(step);
+
     $('#current_step').val(step);
-    console.log($('#current_step').val());
-    switch(step){
+    if (step < 9)
+        $('#next').removeAttr('disabled', 'disabled');
+    switch (step) {
         case 1:
             $('#previous').attr('disabled', 'disabled');
             break;
@@ -153,15 +161,22 @@ function gotoStep(step) {
             $('#doctor_info').hide();
             $('#undergraduate_info').hide();
             $('#other_info').hide();
+            break;
+        case 9:
+            $('#next').attr('disabled', 'disabled');
+            break;
+        default:
+            break;
 
     }
-    queryInfo(step);
+
     $('#step' + step).show(2000);
 
     return 0;
 }
 
 function backStep() {
+    disableButtons();
     $.ajax({
         type: 'GET',
         url: url + '/alumni/auth/back',
@@ -172,9 +187,8 @@ function backStep() {
         crossDomain: true,
         success: function (message) {
             showMessage(message.message);
-            if (message.code == 200)
-            {
-                init();
+            if (message.code == 200) {
+                setTimeout("init()", 2000);
             }
         },
         error: function (message) {
@@ -183,70 +197,119 @@ function backStep() {
     });
 }
 
+function disableButtons() {
+    $('#previous').attr('disabled', 'disabled');
+    $('#next').attr('disabled', 'disabled');
+    $('#reset').attr('disabled', 'disabled');
+    $('#clear').attr('disabled', 'disabled');
+}
 
-function updateForm(message) {
-    $.each(message,
-        function (index, element) {
-            switch($("#"+index).get(0).tagName){
-                case "INPUT":
-                    if ($('#' + index).attr('type')=="checkbox") {
-                        $('#' + index).prop('checked', element).change();
-                    }
-                    else{
+
+function enableButtons() {
+    $('#previous').removeAttr('disabled', 'disabled');
+    $('#next').removeAttr('disabled', 'disabled');
+    $('#reset').removeAttr('disabled', 'disabled');
+    $('#clear').removeAttr('disabled', 'disabled');
+}
+
+function initializePicker($step) {
+    if ($step > 1)
+        $.ajax({
+            type: 'GET',
+            url: url + '/alumni/auth/duration',
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            success: function (message) {
+                $('.yearpicker').pickadate({
+                    format: "yyyy",
+                    min: [message.min_year, message.min_month, message.min_day],
+                    max: [message.max, 12, 31],
+                    selectMonths: true,
+                    selectYears: 100
+                });
+            },
+        });
+    else
+        $('.birthdaypicker').pickadate({
+            format: "yyyy/mm/dd",
+            min: [1945, 1, 1],
+            max: new Date(),
+            selectMonths: true,
+            selectYears: 100
+        });
+}
+
+function updateForm(message,step) {
+    if(step==5)
+    {
+        var messageInfo = '';
+        var count = 0;
+        $.each(message, function (index, element) {
+            messageInfo = messageInfo + element + '<br />';
+            count++;
+        });
+        document.getElementById("confirm_info").innerHTML=messageInfo;
+    }
+    else{
+        $.each(message,
+            function (index, element) {
+                switch ($("#" + index).get(0).tagName) {
+                    case "INPUT":
+                        if ($('#' + index).attr('type') == "checkbox") {
+                            $('#' + index).prop('checked', element).change();
+                        }
+                        else {
+                            $('#' + index).val(element).change();
+                        }
+                        break;
+                    case "P":
+                        $('#' + index).text(element);
+                        break;
+                    case "SELECT":
+                        $('#' + index).val(element);
+                        $('#' + index + ' option[value=' + element + ']').attr('selected', 'selected').change();
+                        break;
+                    case "TEXTAREA":
                         $('#' + index).val(element).change();
-                    }
-                    break;
-                case "P":
-                    $('#' + index).text(element);
-                    break;
-                case "SELECT":
-                    $('#' + index).val(element);
-                    $('#'+index+' option[value='+element+']').attr('selected','selected').change();
-                    break;
-                case "TEXTAREA":
-                    $('#' + index).val(element).change();
-                    $('#' + index).trigger('autoresize');
-                    break;
-                default:
-                    break;
+                        $('#' + index).trigger('autoresize');
+                        break;
+                    default:
+                        break;
+                }
             }
-            //$('#' + index).select(element).change();
-
-
-            //$('#' + index).focus();
-        }
-
-    );
-    //$(document).ready(function () {
+        );
         $('select').material_select();
-    //});
+    }
+
 }
 function serverError() {
     showMessage('与服务器通讯出现故障，请检查您的网络或是刷新重试。如果错误反复出现，请与网站管理员联系');
 }
 
 function showMessage(message) {
-    document.getElementById('serverinfo').innerHTML= message;
+    document.getElementById('serverinfo').innerHTML = message;
 }
-function updateInstruction(message,place,number){
+function updateInstruction(message, place, number) {
     messageInfo = '';
-    $.each(message,function(index,element)
-    {
-        if(number)
-            messageInfo = messageInfo + (index + 1)+ '. ' + element +'<br/>';
+    $.each(message, function (index, element) {
+        if (number)
+            messageInfo = messageInfo + (index + 1) + '. ' + element + '<br/>';
         else
-            messageInfo = messageInfo + element +'<br/>';
+            messageInfo = messageInfo + element + '<br/>';
     });
-    document.getElementById(place).innerHTML= messageInfo;
+    document.getElementById(place).innerHTML = messageInfo;
 }
 
-function updatePrimaryForm(){
+function updatePrimaryForm() {
 
     var step = $('#current_step').val();
-    switch(step){
+    switch (step) {
         case "2":
             var select = $('#primary_school_no').val();
-            switch(select){
+            switch (select) {
                 case '-1':
                     $('#nfls_primary_info').hide(500);
                     break;
@@ -258,7 +321,7 @@ function updatePrimaryForm(){
             break;
         case "3":
             var select = $('#junior_school_no').val();
-            switch(select){
+            switch (select) {
                 case '-1':
                     $('#junior_school_div').show(500);
                     $('#nfls_junior_info').hide(500);
@@ -271,7 +334,7 @@ function updatePrimaryForm(){
             break;
         case "4":
             var select = $('#senior_school_no').val();
-            switch(select){
+            switch (select) {
                 case '-1':
                     $('#senior_school_div').show(500);
                     $('#nfls_international_info').hide(500);
@@ -301,9 +364,9 @@ function updatePrimaryForm(){
     console.log(step + " " + select);
 }
 
-function checkboxChanged(name){
-    if ($('#'+name).is(":checked"))
-        $('#'+name+'_info').show(1000);
+function checkboxChanged(name) {
+    if ($('#' + name).is(":checked"))
+        $('#' + name + '_info').show(1000);
     else
-        $('#'+name+'_info').hide(1000);
+        $('#' + name + '_info').hide(1000);
 }

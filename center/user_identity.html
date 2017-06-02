@@ -134,7 +134,7 @@ TO-DO：ui修正 & datepicker
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="birthday" type="text">
+                            <input id="birthday" type="text" class="birthdaypicker">
                             <label>出生日期</label>
                         </div>
                     </div>
@@ -182,13 +182,13 @@ TO-DO：ui修正 & datepicker
                     <div id="nfls_primary_info">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="primary_school_graduated_year" type="text">
+                                <input id="primary_school_graduated_year" type="text" class="yearpicker">
                                 <label>小学毕业年份</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="primary_school_enter_year" type="text">
+                                <input id="primary_school_enter_year" type="text" class="yearpicker">
                                 <label>小学入学年份</label>
                             </div>
                         </div>
@@ -229,13 +229,13 @@ TO-DO：ui修正 & datepicker
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="junior_school_graduated_year" type="text">
+                                <input id="junior_school_graduated_year" type="text" class="yearpicker">
                                 <label>初中毕业年份</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="junior_school_enter_year" type="text">
+                                <input id="junior_school_enter_year" type="text" class="yearpicker">
                                 <label>初中入学年份</label>
                             </div>
                         </div>
@@ -275,13 +275,13 @@ TO-DO：ui修正 & datepicker
                     <div id="nfls_senior_general">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="senior_school_graduated_year" type="text">
+                                <input id="senior_school_graduated_year" type="text" class="yearpicker">
                                 <label>高中毕业年份</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="senior_school_enter_year" type="text">
+                                <input id="senior_school_enter_year" type="text" class="yearpicker">
                                 <label>高中入学年份</label>
                             </div>
                         </div>
@@ -505,7 +505,7 @@ TO-DO：ui修正 & datepicker
                     </div>
                     <div class="input-field col s12">
                         <input id="whatsapp" type="text">
-                        <label>What'sapp</label>
+                        <label>What's app</label>
                     </div>
                     <div class="input-field col s12">
                         <input id="skype" type="text">
@@ -544,6 +544,9 @@ TO-DO：ui修正 & datepicker
                 </form>
             </div>
 
+            <div class="row" id="step9" hidden>
+                <p>您已完成所有内容。待审核通过后，您即可使用在线校友录功能。您也可以返回编辑。前四步已经提交，除审核被退回外不可编辑。</p>
+            </div>
         </div>
 
     </div>
@@ -551,11 +554,7 @@ TO-DO：ui修正 & datepicker
 <script src="js/user_identity.js"></script>
 <script src="js/head_material.js"></script>
 <script>
-    $('.yearpicker').pickadate({
-        format:"yyyy",
-        selectMonths: true,
-        selectYears: 100
-    });
+
 </script>
 </body>
 </html>
