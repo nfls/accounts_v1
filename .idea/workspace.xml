@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c2013e1-9c19-4634-97e1-cea099dd454a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/center/user_identity.html" afterPath="$PROJECT_DIR$/center/user_identity.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/center/js/head_material.js" afterPath="$PROJECT_DIR$/center/js/head_material.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,10 +29,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_identity.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="user_identity.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/center/user_identity.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
+            <state relative-caret-position="-1586">
               <caret line="482" column="47" lean-forward="false" selection-start-line="482" selection-start-column="47" selection-end-line="482" selection-end-column="47" />
               <folding />
             </state>
@@ -101,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="head_material.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="head_material.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/center/js/head_material.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="4" column="31" lean-forward="false" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+            <state relative-caret-position="1467">
+              <caret line="102" column="4" lean-forward="false" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -163,12 +163,12 @@
         <option value="$PROJECT_DIR$/center/messages.html" />
         <option value="$PROJECT_DIR$/center/associated_service.html" />
         <option value="$PROJECT_DIR$/center/personal_info.html" />
-        <option value="$PROJECT_DIR$/center/js/head_material.js" />
         <option value="$PROJECT_DIR$/center/admin/navbar-fixed-top.css" />
         <option value="$PROJECT_DIR$/center/admin/id_censor.html" />
         <option value="$PROJECT_DIR$/center/admin/id_censor.js" />
         <option value="$PROJECT_DIR$/center/js/user_identity.js" />
         <option value="$PROJECT_DIR$/center/user_identity.html" />
+        <option value="$PROJECT_DIR$/center/js/head_material.js" />
       </list>
     </option>
   </component>
@@ -584,12 +584,12 @@
       <workItem from="1496061438072" duration="3781000" />
       <workItem from="1496113408964" duration="7556000" />
       <workItem from="1496190727875" duration="26773000" />
-      <workItem from="1496368894851" duration="12097000" />
+      <workItem from="1496368894851" duration="12173000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121508000" />
+    <option name="totallyTimeSpent" value="121584000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-14" y="-14" width="3868" height="2098" extended-state="6" />
@@ -851,14 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/center/js/head_material.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="4" column="31" lean-forward="false" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/center/admin/id_censor.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
@@ -887,8 +879,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/center/user_identity.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
+        <state relative-caret-position="-1586">
           <caret line="482" column="47" lean-forward="false" selection-start-line="482" selection-start-column="47" selection-end-line="482" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/js/head_material.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1467">
+          <caret line="102" column="4" lean-forward="false" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="4" />
           <folding />
         </state>
       </provider>
