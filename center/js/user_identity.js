@@ -1,7 +1,11 @@
 /**
  * Created by hqy on 2017/4/8.
  */
-var url = 'https://local.nfls.io';
+console.log(window.location.host);
+if(window.location.host == "login.nfls.io")
+    var url = 'https://api.nfls.io';
+else
+    var url = 'https://local.nfls.io';
 init();
 function init() {
     disableButtons();
