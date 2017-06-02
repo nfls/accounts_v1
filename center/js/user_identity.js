@@ -40,7 +40,7 @@ function init()
     });
     $.ajax({
         type: 'GET',
-        url: url + '/alumni/auth/getCurrentStep',
+        url: url + '/alumni/auth/step',
         dataType: 'json',
         xhrFields: {
             withCredentials: true
@@ -89,6 +89,9 @@ function submitInfo() {
             formInfo[$(this).attr('id')] = ($(this).is(":checked"));
         } else if ($(this).attr('id') != null && $(this).is(":visible"))
             formInfo[$(this).attr('id')] = $(this).val();
+    });
+    $.each($('textarea', '#form' + step), function (k) {
+        formInfo[$(this).attr('id')] = $(this).val();
     });
     $.each($('select', '#form' + step), function (k) {
         if ($(this).attr('id') != null)
@@ -184,18 +187,25 @@ function backStep() {
 function updateForm(message) {
     $.each(message,
         function (index, element) {
-            console.log(index+'='+element);
             switch($("#"+index).get(0).tagName){
                 case "INPUT":
-                    $('#' + index).val(element).change();
+                    if ($('#' + index).attr('type')=="checkbox") {
+                        $('#' + index).prop('checked', element).change();
+                    }
+                    else{
+                        $('#' + index).val(element).change();
+                    }
                     break;
                 case "P":
                     $('#' + index).text(element);
                     break;
                 case "SELECT":
-                    //$('#' + index).attr("value",element).change();
                     $('#' + index).val(element);
                     $('#'+index+' option[value='+element+']').attr('selected','selected').change();
+                    break;
+                case "TEXTAREA":
+                    $('#' + index).val(element).change();
+                    $('#' + index).trigger('autoresize');
                     break;
                 default:
                     break;

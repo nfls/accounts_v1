@@ -470,6 +470,80 @@ TO-DO：ui修正 & datepicker
                 </form>
             </div>
 
+            <div class="row" id="step7" hidden>
+                <p>STEP 7/8 - 工作信息</p>
+                <form class="col s12" id="form7">
+                    <div class="input-field col s12">
+                        <textarea id="work_info" class="materialize-textarea"></textarea>
+                        <label for="work_info">工作信息</label>
+                    </div>
+                </form>
+            </div>
+
+            <div class="row" id="step8" hidden>
+                <p>STEP 8/8 - 个人简介</p>
+                <form class="col s12" id="form8">
+                    <div class="input-field col s12">
+                        <textarea id="personal_info" class="materialize-textarea"></textarea>
+                        <label for="personal_info">个人简介</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="wechat" type="text">
+                        <label>微信</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="qq" type="text">
+                        <label>QQ/TIM</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="weibo" type="text">
+                        <label>新浪微博</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="telegram" type="text">
+                        <label>Telegram</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="whatsapp" type="text">
+                        <label>What'sapp</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="skype" type="text">
+                        <label>Skype</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="viber" type="text">
+                        <label>Viber</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="google_talk" type="text">
+                        <label>Google Talk</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="youtube" type="text">
+                        <label>Youtube</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="twitter" type="text">
+                        <label>Twitter</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="facebook" type="text">
+                        <label>Facebook</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="vimeo" type="text">
+                        <label>Vimeo</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="instagram" type="text">
+                        <label>Instagram</label>
+                    </div>
+
+
+                </form>
+            </div>
+
         </div>
 
     </div>
@@ -479,9 +553,8 @@ TO-DO：ui修正 & datepicker
 <script>
     $('.yearpicker').pickadate({
         format:"yyyy",
-        selectMonths: false, // Creates a dropdown to control month
-        selectYears: 15, // Creates a dropdown of 15 years to control year
-        max:true
+        selectMonths: true,
+        selectYears: 100
     });
 </script>
 </body>
