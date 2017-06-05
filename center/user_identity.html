@@ -54,9 +54,6 @@ TO-DO：ui修正 & datepicker
                     <div class="card grey darken-2">
                         <div class="card-content white-text">
                             <span class="card-title">实名认证</span>
-                            <p>此处您可以完成您的实名认证，获得更多校友专属权限。<br/>
-                                本认证共七步，前四步将确认您的校友信息，提交后无法修改，后三步为后续经历填写，可随时修改。<br/>
-                                对于您提供的信息，您可在认证结束后自行修改相关隐私设置，我们将尊重您的设置，不会随意透露给第三方。<br/></p>
                         </div>
                         <div class="card-content white-text">
                             <span class="card-title">认证状态</span>
@@ -76,17 +73,17 @@ TO-DO：ui修正 & datepicker
                         </div>
                         <div class="card-action">
                             <div class="row s12">
-                                <a style="margin:5px" onclick="backStep()" id="previous"
-                                   class="waves-effect waves-light lime accent-2 black-text btn col s5"><i
-                                        class="material-icons left">skip_previous</i>上一步</a>
-                                <a style="margin:5px" onclick="submitInfo()" id="next"
-                                   class="waves-effect waves-light green btn col s5"><i
-                                        class="material-icons left">skip_next</i>下一步</a><br/>
                                 <a style="margin:5px" onclick="init()" id="reset" class="waves-effect waves-light orange btn col s5"><i
                                         class="material-icons left">restore</i>重置</a>
-                                <a style="margin:5px" id="clear"
+                                <a style="margin:5px" onclick="submitInfo(0)" id="clear"
                                    class="waves-effect waves-light red accent-4 btn col s5"><i
-                                        class="material-icons left">mode_edit</i>清空</a>
+                                        class="material-icons left">launch</i>保存</a>
+                                <a style="margin:5px" onclick="submitInfo(-1)" id="previous"
+                                   class="waves-effect waves-light lime accent-2 black-text btn col s5"><i
+                                        class="material-icons left">skip_previous</i>上一步</a>
+                                <a style="margin:5px" onclick="submitInfo(1)" id="next"
+                                   class="waves-effect waves-light green btn col s5"><i
+                                        class="material-icons left">skip_next</i>下一步</a><br/>
                             </div>
                         </div>
                         <p id="current_step" hidden></p>
@@ -153,7 +150,13 @@ TO-DO：ui修正 & datepicker
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="nickname" type="text">
-                            <label>昵称或英文名</label>
+                            <label>昵称</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="english_name" type="text">
+                            <label>英文名</label>
                         </div>
                     </div>
 

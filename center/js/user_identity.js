@@ -2,10 +2,13 @@
  * Created by hqy on 2017/4/8.
  */
 console.log(window.location.host);
-if(window.location.host == "login.nfls.io")
+if(window.location.host == "login.nfls.io"){
     var url = 'https://api.nfls.io';
-else
+}
+else{
     var url = 'https://local.nfls.io';
+}
+
 init();
 function init() {
     disableButtons();
@@ -84,10 +87,10 @@ function queryInfo(step) {
         }
     });
 }
-function submitInfo() {
-
+function submitInfo(action) {
     step = $('#current_step').val();
     var formInfo = {};
+    formInfo['action']=action;
     $.each($('input', '#form' + step), function (k) {
         if ($(this).attr('type') == "checkbox") {
             formInfo[$(this).attr('id')] = ($(this).is(":checked"));
