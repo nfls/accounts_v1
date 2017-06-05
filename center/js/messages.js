@@ -38,7 +38,7 @@ function addMessage(mes,s_title,s_time,type)
 
 	var li = document.createElement("li");
 	li.setAttribute("class","collection-item");
-	li.innerHTML='<span class="blue-text text-darken-2">'+type+'  </span>'+'<a>'+s_title+'</a>'+'<span>'+s_time+'<br>'+mes;
+	li.innerHTML='<span class="blue-text text-darken-2">'+type+'  </span>'+'<a>'+s_title+'  </a>'+'<span>'+s_time+'<br>'+mes;
 	notice_box.appendChild(li);
 	//li.appendChild(block);
 }
