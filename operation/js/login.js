@@ -31,9 +31,9 @@ $('.login').on('submit', function(e) {
 						$this.addClass('ok');
 						$state.html('Welcome back!');
 						setTimeout(function () { 
-							if(returnurl=="")
+							//if(returnurl=="")
 								//window.location.href="https://nfls.io/quickaction.php?action=refreshwiki";
-							else
+							//else
 								//window.location.href="https://nfls.io/quickaction.php?action=refreshwiki&return="+encodeURI(returnurl);
 						}, 1000);
 				}
