@@ -1,5 +1,5 @@
 $.ajax({
-	type: "POST",
+	type: "GET",
 	url: "https://api.nfls.io/center/systemMessage",
     xhrFields: {
         withCredentials: true
