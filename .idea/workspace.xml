@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c2013e1-9c19-4634-97e1-cea099dd454a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/operation/action/conn.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/operation/action/login.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/operation/action/logout.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/operation/action/register.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/operation/js/forget.js" afterPath="$PROJECT_DIR$/operation/js/forget.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/operation/js/login.js" afterPath="$PROJECT_DIR$/operation/js/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/operation/js/register.js" afterPath="$PROJECT_DIR$/operation/js/register.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -43,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/operation/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="69" column="9" lean-forward="true" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
+            <state relative-caret-position="420">
+              <caret line="28" column="61" lean-forward="false" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -63,7 +57,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forget.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="forget.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/operation/js/forget.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
@@ -183,9 +177,9 @@
         <option value="$PROJECT_DIR$/center/js/head_material.js" />
         <option value="$PROJECT_DIR$/center/js/user_identity.js" />
         <option value="$PROJECT_DIR$/center/user_identity.html" />
-        <option value="$PROJECT_DIR$/operation/js/login.js" />
         <option value="$PROJECT_DIR$/operation/js/register.js" />
         <option value="$PROJECT_DIR$/operation/js/forget.js" />
+        <option value="$PROJECT_DIR$/operation/js/login.js" />
       </list>
     </option>
   </component>
@@ -456,12 +450,12 @@
       <workItem from="1496190727875" duration="26773000" />
       <workItem from="1496368894851" duration="12863000" />
       <workItem from="1496511663872" duration="6955000" />
-      <workItem from="1498010861497" duration="281000" />
+      <workItem from="1498010861497" duration="555000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129510000" />
+    <option name="totallyTimeSpent" value="129784000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="982" extended-state="6" />
@@ -725,14 +719,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/operation/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="69" column="9" lean-forward="true" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/operation/js/center.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-285">
@@ -753,6 +739,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="52" lean-forward="false" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/operation/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="61" lean-forward="false" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
           <folding />
         </state>
       </provider>
