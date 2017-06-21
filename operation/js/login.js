@@ -63,13 +63,12 @@ $('.login').on('submit', function(e) {
 function LoginAssociate(user,pass)
 {
 	$.ajax({
-		type: "POST",
+		type: "GET",
 		async: false,
 		url: "https://api.nfls.io/center/wikiLogin",
-		data: 
-		{
-			token: $.cookie('token'),
-		},
+        xhrFields: {
+            withCredentials: true
+        },
 		dataType: "json",
 		success: function (message) {	
 			try
@@ -93,13 +92,12 @@ function LoginAssociate(user,pass)
 	date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
 	//$("#wikilogin").attr({"disabled":"disabled"});
 	$.ajax({
-		type: "POST",
+		type: "GET",
 		async: false,
 		url: "https://api.nfls.io/center/shareLogin",
-		data: 
-		{
-			token: $.cookie('token'),
-		},
+        xhrFields: {
+            withCredentials: true
+        },
 		dataType: "json",
 		success: function (message) {
 			try
@@ -121,14 +119,17 @@ function LoginAssociate(user,pass)
 	});
 	
 	$.ajax({
-		type: "POST",
+		type: "GET",
 		async: false,
-		url: "https://api.nfls.io/center/loginForum",
+		url: "https://api.nfls.io/center/forumLogin",
 		data: 
 		{
 			username: user,
 			password: pass,
 		},
+        xhrFields: {
+            withCredentials: true
+        },
 		dataType: "json",
 		success: function (message) {
 		    var cookie = message.info;
