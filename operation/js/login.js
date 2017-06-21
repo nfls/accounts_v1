@@ -20,7 +20,7 @@ $('.login').on('submit', function(e) {
 			},
 			dataType: "json",
 			success: function (message) {
-				if(message.status=="success")
+				if(message.status=="succeed")
 				{
 					//document.cookie="token="+message.token;
 					var date=new Date(); 
