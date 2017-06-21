@@ -1,6 +1,6 @@
 $.ajax({
 	type: "GET",
-	url: "https://api.nfls.io/center/personalInfo",
+	url: "https://api.nfls.io/center/generalInfo",
 	dataType: "json",
     xhrFields: {
         withCredentials: true
