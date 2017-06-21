@@ -10,7 +10,7 @@ $('.login').on('submit', function(e) {
 	  $state.html('Authenticating');
 		$.ajax({
 			type: "POST",
-			url: "https://app.nfls.io/API/User/User.php?action=RecoverPassword",
+			url: "https://api.nfls.io/center/recover",
 			data: 
 			{
 				email: email,

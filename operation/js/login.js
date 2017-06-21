@@ -12,7 +12,7 @@ $('.login').on('submit', function(e) {
 	  $state.html('Authenticating');
 		$.ajax({
 			type: "POST",
-			url: "https://app.nfls.io/API/User/User.php?action=UserLogin",
+			url: "https://api.nfls.io/center/login",
 			data: 
 			{
 				username: user,
@@ -65,7 +65,7 @@ function LoginAssociate(user,pass)
 	$.ajax({
 		type: "POST",
 		async: false,
-		url: "https://app.nfls.io/API/User/User.php?action=LoginWikiAccountByToken",
+		url: "https://api.nfls.io/center/wikiLogin",
 		data: 
 		{
 			token: $.cookie('token'),
@@ -74,7 +74,8 @@ function LoginAssociate(user,pass)
 		success: function (message) {	
 			try
 			{
-				for(var i in message){
+				var cookie = message.info
+				for(var i in cookie){
 					var ncookie=String(message[i]);
 					ncookie = ncookie.substr(0,ncookie.length-8);
 					document.cookie=ncookie;
@@ -94,7 +95,7 @@ function LoginAssociate(user,pass)
 	$.ajax({
 		type: "POST",
 		async: false,
-		url: "https://app.nfls.io/API/User/User.php?action=LoginShareAccountByToken",
+		url: "https://api.nfls.io/center/shareLogin",
 		data: 
 		{
 			token: $.cookie('token'),
@@ -103,7 +104,8 @@ function LoginAssociate(user,pass)
 		success: function (message) {
 			try
 			{
-			   for(var i in message){
+				var cookie = message.info;
+			   for(var i in cookie){
 					var ncookie=message[i];
 					document.cookie = i + "=" + message[i] + ";" + "expires=" + date.toUTCString() + ";" + "domain=" + "nfls.io" + "; secure; path=/";
 					

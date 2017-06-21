@@ -18,7 +18,7 @@ $('.login').on('submit', function(e) {
 	  $state.html('Registering');
 		$.ajax({
 			type: "POST",
-			url: "action/register.php",
+			url: "https://api.nfls.io/center/register",
 			data: 
 			{
 				username: user,
