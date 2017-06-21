@@ -1,6 +1,6 @@
 $.ajax({
 	type: "POST",
-	url: "https://app.nfls.io/API/User/User.php?action=GetSystemMessage",
+	url: "https://api.nfls.io/center/systemMessage",
 	data: 
 	{
 		token: $.cookie('token'),
@@ -11,6 +11,7 @@ $.ajax({
 		if(message.status=="success")
 		{
 			delete message.status;
+			message = message.info
 			//alert("a");
 			$.each(message,function(i,mes){
 				addMessage(mes.detail,mes.title,mes.time,mes.type);

@@ -19,14 +19,14 @@ else {
 function getData() {
     $.ajax({
         type: "POST",
-        url: "https://app.nfls.io/API/User/User.php?action=GetAvatarByToken",
+        url: "https://api.nfls.io/center/avatar",
         data: {
             token: $.cookie('token'),
         },
         dataType: "json",
         success: function (message) {
             //var json_mes=$.parseJSON(message)
-            if (message.status == "success") {
+            if (message.status == "succeed") {
                 //alert(message);
                 document.getElementById("avatar").src = message.url;
                 //document.getElementById("avatar_2").src = message.url;
@@ -40,14 +40,14 @@ function getData() {
 
     $.ajax({
         type: "POST",
-        url: "https://app.nfls.io/API/User/User.php?action=GetUsernameByToken",
+        url: "https://api.nfls.io/center/username",
         data: {
             token: $.cookie('token'),
         },
         dataType: "json",
         success: function (message) {
             //var json_mes=$.parseJSON(message)
-            if (message.status == "success") {
+            if (message.status == "succeed") {
                 //alert(message);
                 document.getElementById("user_name").innerHTML = message.username;
             }
@@ -57,15 +57,15 @@ function getData() {
 
     $.ajax({
         type: "POST",
-        url: "https://app.nfls.io/API/User/User.php?action=GetPersonalWikiInfoByToken",
+        url: "https://api.nfls.io/center/wikiInfo",
         data: {
             token: $.cookie('token'),
         },
         dataType: "json",
         success: function (message) {
             //var json_mes=$.parseJSON(message)
-            if (message.status == "success") {
-                if (message.id != -1) {
+            if (message.status == "succeed") {
+                if (message.id == 200) {
                     if ($.cookie("nfls_wiki_wiki_Token") == null || $.cookie("nfls_wiki_wiki_UserID") == null || $.cookie("nfls_wiki_wiki_UserName") == null)
                         logout();
                 }
@@ -80,15 +80,12 @@ function getData() {
     });
 
     $.ajax({
-        type: "POST",
-        url: "https://app.nfls.io/API/User/User.php?action=GetPersonalShareInfoByToken",
-        data: {
-            token: $.cookie('token'),
-        },
+        type: "GET",
+        url: "https://api.nfls.io/center/shareInfo",
         dataType: "json",
         success: function (message) {
-            if (message.status == "success") {
-                if (message.id != -1) {
+            if (message.status == "succeed") {
+                if (message.id == 200) {
                     if ($.cookie("c_secure_login") == null || $.cookie("c_secure_pass") == null || $.cookie("c_secure_ssl") == null || $.cookie("c_secure_tracker_ssl") == null)
                         logout();
                 }

@@ -4,18 +4,15 @@ $(document).ready(function(){
 function loaddata()
 {
 	$.ajax({
-		type: "POST",
-		url: "https://app.nfls.io/API/User/User.php?action=GetPersonalForumInfoByToken",
-		data: 
-		{
-			token: $.cookie('token'),
-		},
+		type: "GET",
+		url: "https://api.nfls.io/center/forumInfo",
 		dataType: "json",
 		success: function (message) {
 			//var json_mes=$.parseJSON(message)
-			if(message.status=="success")
+			if(message.status=="succeed")
 			{
 				//alert(message);
+				message = message.info;
 				document.getElementById("forum_id").value=message.id;
 				document.getElementById("forum_username").value=message.username;
 				if(message.last_seen_time==null)
@@ -52,17 +49,14 @@ function loaddata()
 	});
 
 	$.ajax({
-		type: "POST",
-		url: "https://app.nfls.io/API/User/User.php?action=GetPersonalWikiInfoByToken",
-		data: 
-		{
-			token: $.cookie('token'),
-		},
+		type: "GET",
+		url: "https://api.nfls.io/center/wikiInfo",
 		dataType: "json",
 		success: function (message) {
 			//var json_mes=$.parseJSON(message)
-			if(message.status=="success")
+			if(message.status=="succeed")
 			{
+				message = message.info;
 				//alert(message);
 				document.getElementById("wiki_id").value=message.user_id;
 				document.getElementById("wiki_username").value=message.user_name;
@@ -98,17 +92,14 @@ function loaddata()
 	});
 
 	$.ajax({
-		type: "POST",
-		url: "https://app.nfls.io/API/User/User.php?action=GetPersonalShareInfoByToken",
-		data: 
-		{
-			token: $.cookie('token'),
-		},
+		type: "GET",
+		url: "https://api.nfls.io/center/shareInfo",
 		dataType: "json",
 		success: function (message) {
 			//var json_mes=$.parseJSON(message)
-			if(message.status=="success")
+			if(message.status=="succeed")
 			{
+				message = message.info;
 				//alert(message);
 				document.getElementById("share_id").value=message.user_id;
 				document.getElementById("share_username").value=message.user_name;
@@ -149,12 +140,8 @@ function GenerateWikiAccount()
 {
 	$("#wikigen").attr({"disabled":"disabled"});
 	$.ajax({
-		type: "POST",
-		url: "https://app.nfls.io/API/User/User.php?action=CreateWikiAccountByToken",
-		data: 
-		{
-			token: $.cookie('token'),
-		},
+		type: "GET",
+		url: "https://api.nfls.io/center/wikiRegister",
 		dataType: "json",
 		success: function (message) {	
 			location.reload(true);
@@ -170,12 +157,8 @@ function GenerateShareAccount()
 {
 	$("#sharegen").attr({"disabled":"disabled"});
 	$.ajax({
-		type: "POST",
-		url: "https://app.nfls.io/API/User/User.php?action=CreateShareAccountByToken",
-		data: 
-		{
-			token: $.cookie('token'),
-		},
+		type: "GET",
+		url: "https://api.nfls.io/center/shareRegister",
 		dataType: "json",
 		success: function (message) {	
 			location.reload(true);

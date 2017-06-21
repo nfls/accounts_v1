@@ -1,22 +1,19 @@
 $.ajax({
-	type: "POST",
-	url: "https://app.nfls.io/API/User/User.php?action=GetPersonalGeneralInfoByToken",
-	data: 
-	{
-		token: $.cookie('token'),
-	},
+	type: "GET",
+	url: "https://api.nfls.io/center/personalInfo",
 	dataType: "json",
 	success: function (message) {
 		//var json_mes=$.parseJSON(message)
-		if(message.status=="success")
+		if(message.status=="succeed")
 		{
 			//alert(message);
-			document.getElementById("id").value=message.id;
-			document.getElementById("username").value=message.username;
-			document.getElementById("email").value=message.email;
-			document.getElementById("avatar_path").value="https://forum.nfls.io/assets/avatars/"+message.avatar_path;
-			document.getElementById("join_time").value=message.join_time;
-			if(message.is_activated==0)
+			info = message.info;
+			document.getElementById("id").value=info.id;
+			document.getElementById("username").value=info.username;
+			document.getElementById("email").value=info.email;
+			document.getElementById("avatar_path").value="https://forum.nfls.io/assets/avatars/"+info.avatar_path;
+			document.getElementById("join_time").value=info.join_time;
+			if(info.is_activated==0)
 			{
 				var obj = document.getElementById("is_activated");
 				obj.style.display= "none";
