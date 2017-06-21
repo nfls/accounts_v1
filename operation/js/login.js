@@ -123,7 +123,7 @@ function LoginAssociate(user,pass)
 	$.ajax({
 		type: "POST",
 		async: false,
-		url: "https://app.nfls.io/API/User/User.php?action=LoginForumAccountAsSame",
+		url: "https://api.nfls.io/center/loginForum",
 		data: 
 		{
 			username: user,
