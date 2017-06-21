@@ -92,7 +92,7 @@
       <file leaf-file-name="service_inweb.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/center/js/service_inweb.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
+            <state relative-caret-position="-2112">
               <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
               <folding />
             </state>
@@ -102,8 +102,8 @@
       <file leaf-file-name="head_material.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/center/js/head_material.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="109" column="4" lean-forward="false" selection-start-line="109" selection-start-column="4" selection-end-line="109" selection-end-column="4" />
+            <state relative-caret-position="735">
+              <caret line="107" column="6" lean-forward="false" selection-start-line="107" selection-start-column="6" selection-end-line="107" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -443,12 +443,12 @@
       <workItem from="1496190727875" duration="26773000" />
       <workItem from="1496368894851" duration="12863000" />
       <workItem from="1496511663872" duration="6955000" />
-      <workItem from="1498010861497" duration="3101000" />
+      <workItem from="1498010861497" duration="3277000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132330000" />
+    <option name="totallyTimeSpent" value="132506000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="982" extended-state="6" />
@@ -706,14 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/center/js/service_inweb.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/operation/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
@@ -738,10 +730,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/center/js/service_inweb.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2112">
+          <caret line="11" column="10" lean-forward="false" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/center/js/head_material.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="109" column="4" lean-forward="false" selection-start-line="109" selection-start-column="4" selection-end-line="109" selection-end-column="4" />
+        <state relative-caret-position="735">
+          <caret line="107" column="6" lean-forward="false" selection-start-line="107" selection-start-column="6" selection-end-line="107" selection-end-column="6" />
           <folding />
         </state>
       </provider>
