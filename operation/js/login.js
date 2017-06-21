@@ -32,9 +32,9 @@ $('.login').on('submit', function(e) {
 						$state.html('Welcome back!');
 						setTimeout(function () { 
 							if(returnurl=="")
-								window.location.href="https://nfls.io/quickaction.php?action=refreshwiki";
+								//window.location.href="https://nfls.io/quickaction.php?action=refreshwiki";
 							else
-								window.location.href="https://nfls.io/quickaction.php?action=refreshwiki&return="+encodeURI(returnurl);
+								//window.location.href="https://nfls.io/quickaction.php?action=refreshwiki&return="+encodeURI(returnurl);
 						}, 1000);
 				}
 				else
@@ -130,8 +130,9 @@ function LoginAssociate(user,pass)
 			password: pass,
 		},
 		dataType: "json",
-		success: function (message) {	
-			for(var i in message){
+		success: function (message) {
+		    var cookie = message.info;
+			for(var i in cookie){
 				var ncookie=String(message[i]);
 				ncookie = ncookie.substr(0,ncookie.length-8);
 				ncookie = ncookie+ "domain=nfls.io ;expires=" + date.toUTCString()+";";
