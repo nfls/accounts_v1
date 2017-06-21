@@ -119,7 +119,7 @@ function LoginAssociate(user,pass)
 	});
 	
 	$.ajax({
-		type: "GET",
+		type: "POST",
 		async: false,
 		url: "https://api.nfls.io/center/forumLogin",
 		data: 
