@@ -4,10 +4,6 @@ $.ajax({
     xhrFields: {
         withCredentials: true
     },
-	data: 
-	{
-		token: $.cookie('token'),
-	},
 	dataType: "json",
 	success: function (message) {
 		//var message=$.parseJSON(message)
@@ -15,7 +11,7 @@ $.ajax({
 		{
 			delete message.status;
 			//alert("a");
-			$.each(message,function(i,mes){
+			$.each(message.info,function(i,mes){
 				addMessage(mes.detail,mes.title,mes.time,mes.type);
 			});
 			
