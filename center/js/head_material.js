@@ -28,7 +28,7 @@ function getData() {
             //var json_mes=$.parseJSON(message)
             if (message.status == "succeed") {
                 //alert(message);
-                document.getElementById("avatar").src = message.url;
+                document.getElementById("avatar").src = message.info.url;
                 //document.getElementById("avatar_2").src = message.url;
             }
             else {
@@ -49,7 +49,7 @@ function getData() {
             //var json_mes=$.parseJSON(message)
             if (message.status == "succeed") {
                 //alert(message);
-                document.getElementById("user_name").innerHTML = message.username;
+                document.getElementById("user_name").innerHTML = message.info;
             }
 
         },
