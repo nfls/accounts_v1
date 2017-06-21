@@ -7,7 +7,7 @@ $.ajax({
 	dataType: "json",
 	success: function (message) {
 		//var message=$.parseJSON(message)
-		if(message.status=="success")
+		if(message.status=="succeed")
 		{
 			delete message.status;
 			//alert("a");
