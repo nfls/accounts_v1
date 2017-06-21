@@ -18,8 +18,11 @@ else {
 }
 function getData() {
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: "https://api.nfls.io/center/avatar",
+        xhrFields: {
+            withCredentials: true
+        },
         data: {
             token: $.cookie('token'),
         },
@@ -39,8 +42,11 @@ function getData() {
     });
 
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: "https://api.nfls.io/center/username",
+        xhrFields: {
+            withCredentials: true
+        },
         data: {
             token: $.cookie('token'),
         },
@@ -56,12 +62,12 @@ function getData() {
     });
 
     $.ajax({
-        type: "POST",
+        type: "GET",
         url: "https://api.nfls.io/center/wikiInfo",
-        data: {
-            token: $.cookie('token'),
-        },
         dataType: "json",
+        xhrFields: {
+            withCredentials: true
+        },
         success: function (message) {
             //var json_mes=$.parseJSON(message)
             if (message.status == "succeed") {
@@ -82,6 +88,9 @@ function getData() {
     $.ajax({
         type: "GET",
         url: "https://api.nfls.io/center/shareInfo",
+        xhrFields: {
+            withCredentials: true
+        },
         dataType: "json",
         success: function (message) {
             if (message.status == "succeed") {

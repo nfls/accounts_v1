@@ -2,6 +2,9 @@ $.ajax({
 	type: "GET",
 	url: "https://api.nfls.io/center/personalInfo",
 	dataType: "json",
+    xhrFields: {
+        withCredentials: true
+    },
 	success: function (message) {
 		//var json_mes=$.parseJSON(message)
 		if(message.status=="succeed")

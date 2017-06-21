@@ -1,6 +1,9 @@
 $.ajax({
 	type: "POST",
-	url: "https://app.nfls.io/API/User/User.php?action=GetSystemMessage",
+	url: "https://api.nfls.io/center/systemMessage",
+    xhrFields: {
+        withCredentials: true
+    },
 	data: 
 	{
 		token: $.cookie('token'),

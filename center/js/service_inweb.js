@@ -7,6 +7,9 @@ function loaddata()
 		type: "GET",
 		url: "https://api.nfls.io/center/forumInfo",
 		dataType: "json",
+        xhrFields: {
+            withCredentials: true
+        },
 		success: function (message) {
 			//var json_mes=$.parseJSON(message)
 			if(message.status=="succeed")
@@ -52,6 +55,9 @@ function loaddata()
 		type: "GET",
 		url: "https://api.nfls.io/center/wikiInfo",
 		dataType: "json",
+        xhrFields: {
+            withCredentials: true
+        },
 		success: function (message) {
 			//var json_mes=$.parseJSON(message)
 			if(message.status=="succeed")
@@ -95,6 +101,9 @@ function loaddata()
 		type: "GET",
 		url: "https://api.nfls.io/center/shareInfo",
 		dataType: "json",
+        xhrFields: {
+            withCredentials: true
+        },
 		success: function (message) {
 			//var json_mes=$.parseJSON(message)
 			if(message.status=="succeed")
