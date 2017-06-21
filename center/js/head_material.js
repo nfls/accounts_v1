@@ -23,9 +23,6 @@ function getData() {
         xhrFields: {
             withCredentials: true
         },
-        data: {
-            token: $.cookie('token'),
-        },
         dataType: "json",
         success: function (message) {
             //var json_mes=$.parseJSON(message)
@@ -46,9 +43,6 @@ function getData() {
         url: "https://api.nfls.io/center/username",
         xhrFields: {
             withCredentials: true
-        },
-        data: {
-            token: $.cookie('token'),
         },
         dataType: "json",
         success: function (message) {
