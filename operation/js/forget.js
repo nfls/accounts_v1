@@ -17,7 +17,7 @@ $('.login').on('submit', function(e) {
 			},
 			dataType: "json",
 			success: function (message) {
-				if(message.status=="success")
+				if(message.status=="succeed")
 				{
 					$this.addClass('ok');
 					$state.html('An email with a password-reset link has sent to your email. 密码恢复邮件已发送至您的邮箱。');

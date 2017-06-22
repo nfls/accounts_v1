@@ -27,7 +27,7 @@ $('.login').on('submit', function(e) {
 			},
 			dataType: "json",
 			success: function (message) {
-				if(message.status=="success")
+				if(message.status=="succeed")
 				{
 					$this.addClass('ok');
 					$state.html('Register Succeeded! Please check the confirm letter in you email! You may need to login again!');
