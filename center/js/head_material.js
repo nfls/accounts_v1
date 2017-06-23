@@ -105,7 +105,7 @@ function getData() {
 }
 
 function logout() {
-    //$.cookie('token', '', {path: '/', domain: 'nfls.io', secure: true, expires: -1});
-    //window.location.href='https://nfls.io/quickaction.php?action=logout&noreturn=true';
+    $.cookie('token', '', {path: '/', domain: 'nfls.io', secure: true, expires: -1});
+    window.location.href='https://nfls.io/quickaction.php?action=logout&noreturn=true';
     //alert("!1");
 }
