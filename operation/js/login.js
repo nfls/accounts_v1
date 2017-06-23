@@ -77,7 +77,7 @@ function LoginAssociate(user,pass)
 			{
 				var cookie = message.info
 				for(var i in cookie){
-					var ncookie=String(message[i]);
+					var ncookie=String(message.info[i]);
 					ncookie = ncookie.substr(0,ncookie.length-8);
 					document.cookie=ncookie;
 				}
@@ -106,7 +106,7 @@ function LoginAssociate(user,pass)
 			{
 				var cookie = message.info;
 			   for(var i in cookie){
-					var ncookie=message[i];
+					var ncookie=message.info[i];
 					document.cookie = i + "=" + message[i] + ";" + "expires=" + date.toUTCString() + ";" + "domain=" + "nfls.io" + "; secure; path=/";
 					
 				}
@@ -136,7 +136,7 @@ function LoginAssociate(user,pass)
 		success: function (message) {
 		    var cookie = message.info;
 			for(var i in cookie){
-				var ncookie=String(message[i]);
+				var ncookie=String(message.info[i]);
 				ncookie = ncookie.substr(0,ncookie.length-8);
 				if(i==0)
 					ncookie = ncookie+ "domain=nfls.io ;expires=" + date.toUTCString()+";";
