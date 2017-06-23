@@ -200,7 +200,7 @@ footer a, footer a:link {
     <input type="text" placeholder="用户名" id="username" name="username" autofocus/>
     <i class="fa fa-user"></i>
      <input type="email" placeholder="邮箱" id="email" name="email" autofocus/>
-    <i class="fa fa-email"></i>
+    <i class="fa fa-inbox"></i>
     <input type="password" placeholder="密码" id="password" name="password"/>
     <i class="fa fa-key"></i>
     <input type="password" placeholder="确认密码" id="password-repeat" name="password-repeat"/>

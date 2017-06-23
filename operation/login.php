@@ -197,7 +197,7 @@ footer a, footer a:link {
   <form class="login">
     <p class="title">登录</p>
 	<?php
-	echo "<p>警告：用户中心改造中，可能出现无法访问或者排版错误等问题！</p>";
+	echo "<p>我们已知iPad及系统为iOS 9或更早的iPhone上所有浏览器存在兼容性问题。我们正在着手修复。</p>";
 	if(isset($_GET['reason'])){
 		switch($_GET['reason'])
 		{
