@@ -30,11 +30,13 @@ $('.login').on('submit', function(e) {
 					LoginAssociate(user,pass);
 						$this.addClass('ok');
 						$state.html('Welcome back!');
-						setTimeout(function () { 
+						setTimeout(function () {
+							/*
 							if(returnurl=="")
 								window.location.href="https://nfls.io/quickaction.php?action=refreshwiki";
 							else
 								window.location.href="https://nfls.io/quickaction.php?action=refreshwiki&return="+encodeURI(returnurl);
+								*/
 						}, 1000);
 				}
 				else
@@ -136,8 +138,9 @@ function LoginAssociate(user,pass)
 			for(var i in cookie){
 				var ncookie=String(message[i]);
 				ncookie = ncookie.substr(0,ncookie.length-8);
-				ncookie = ncookie+ "domain=nfls.io ;expires=" + date.toUTCString()+";";
-				//console.log(ncookie);
+				if(i==0)
+					ncookie = ncookie+ "domain=nfls.io ;expires=" + date.toUTCString()+";";
+				console.log(ncookie);
 				document.cookie=ncookie;
 				
 			}
