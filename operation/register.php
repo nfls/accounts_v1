@@ -206,8 +206,8 @@ footer a, footer a:link {
     <input type="password" placeholder="确认密码" id="password-repeat" name="password-repeat"/>
     <i class="fa fa-key"></i>
 
-   <a href="https://center.nfls.io/">登录</a>
-   <a href="privacy.php">隐私信息</a>
+   <a href="index.php">登录</a> <br/>
+   <a href="?action=privacy">隐私信息</a>
     <button>
     <button>
       <i class="spinner"></i>
