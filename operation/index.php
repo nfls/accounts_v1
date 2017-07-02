@@ -11,6 +11,8 @@
 				require "register.php";
 			else if($_GET['action']=="forget")
 				require "forget.php";
+			else if($_GET['action']=="privacy")
+				require "privacy.php"
 			else require "login.php";
 		}
 		else require "login.php";
