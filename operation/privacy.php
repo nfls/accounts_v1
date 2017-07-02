@@ -3,7 +3,7 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>登录 - 南京外国语学校在线社区 | Nanjing Foreign Language School Online Community</title>
+    <title>隐私 - 南京外国语学校在线社区 | Nanjing Foreign Language School Online Community</title>
 	<meta name="keywords" content="NFLS, 南外, 南京外国语学校, 南京外校, Nanjing Foreign Language School">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">

@@ -2,7 +2,7 @@
  * Created by hqy on 2017/4/8.
  */
 console.log(window.location.host);
-if(window.location.host == "login.nfls.io"){
+if(window.location.host == "login.nfls.io" || window.location.host == "center.nfls.io") {
     var url = 'https://api.nfls.io';
 }
 else{
