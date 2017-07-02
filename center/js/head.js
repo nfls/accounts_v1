@@ -1,8 +1,5 @@
-if(window.location.host != "login.nfls.io"){
-
-}
-else {
-
+if(window.location.host == "center.nfls.io" || window.location.host == "login.nfls.io"){
+    
     if ($.cookie("token") == null || $.cookie("flarum_remember") == null)
         logout();
     $(".button-collapse").sideNav();
@@ -15,6 +12,9 @@ else {
         }
     );
     getData();
+}
+else {
+
 }
 function getData() {
     $.ajax({

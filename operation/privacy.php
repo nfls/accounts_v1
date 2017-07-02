@@ -3,7 +3,7 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>注册 - 南京外国语学校在线社区 | Nanjing Foreign Language School Online Community</title>
+    <title>登录 - 南京外国语学校在线社区 | Nanjing Foreign Language School Online Community</title>
 	<meta name="keywords" content="NFLS, 南外, 南京外国语学校, 南京外校, Nanjing Foreign Language School">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -72,6 +72,16 @@
   animation: none;
   transform: rotateZ(-45deg);
 }
+.login input {
+  display: block;
+  padding: 15px 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  border: 1px solid #ddd;
+  transition: border-width 0.2s ease;
+  border-radius: 2px;
+  color: #ccc;
+}
 .login.error button {
   background-color: #ff0000;
 }
@@ -82,16 +92,6 @@
   height: 20px;
   animation: none;
   transform: rotateZ(-45deg);
-}
-.login input {
-  display: block;
-  padding: 15px 10px;
-  margin-bottom: 10px;
-  width: 100%;
-  border: 1px solid #ddd;
-  transition: border-width 0.2s ease;
-  border-radius: 2px;
-  color: #ccc;
 }
 .login input + i.fa {
   color: #fff;
@@ -193,32 +193,25 @@ footer a, footer a:link {
   </head>
 
   <body>
-
     <div class="wrapper">
   <form class="login">
-    <p class="title">注册</p>
-    <input type="text" placeholder="用户名" id="username" name="username" autofocus/>
-    <i class="fa fa-user"></i>
-     <input type="email" placeholder="邮箱" id="email" name="email" autofocus/>
-    <i class="fa fa-inbox"></i>
-    <input type="password" placeholder="密码" id="password" name="password"/>
-    <i class="fa fa-key"></i>
-    <input type="password" placeholder="确认密码" id="password-repeat" name="password-repeat"/>
-    <i class="fa fa-key"></i>
-
-   <a href="https://center.nfls.io/">登录</a>
-   <a href="privacy.php">隐私信息</a>
-    <button>
-    <button>
-      <i class="spinner"></i>
-      <span class="state">注册</span>
-    </button>
+    <p class="title">NFLS.IO 隐私信息相关说明</p>
+	<p>
+说明：本站校友会板块是为南京外国语学校校友会定制的板块。南京外国语学校校友会是由校友发起，官方支持的组织。此网站前身是南外校友会黑板报。本站相关功能是基于原黑板报网站的相关文稿设计和开发。<br/>
+1.所有您向本站提交的信息均采用加密协议传输，数据库加密保存，第三方无法获取。<br/>
+2.我们在未经您的同意下不会将相关信息提交给第三方。<br/>
+3.您可以自行设定您隐私的公开程度。但过于保密的隐私设定可能会影响您的使用体验。<br/>
+4.我们使用Cookie来确认用户信息以及用于改善用户体验。<br/>
+	</p>
+    <a href="?action=register">注册</a>
   </form>
   </p>
 </div>
         <script src="ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-        <script src="js/register.js"></script>
+        <script src="js/login.js"></script>
+		<script src="https://login.nfls.io/center/service_inweb.js"></script>
+		<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 
     
     
