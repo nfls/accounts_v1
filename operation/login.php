@@ -197,7 +197,7 @@ footer a, footer a:link {
   <form class="login">
     <p class="title">登录</p>
 	<?php
-	echo "<p>我们已知iPad及系统为iOS 9或更早的iPhone上所有浏览器存在兼容性问题。我们正在着手修复。</p>";
+	//echo "<p>我们已知iPad及系统为iOS 9或更早的iPhone上所有浏览器存在兼容性问题。我们正在着手修复。</p>";
 	if(isset($_GET['reason'])){
 		switch($_GET['reason'])
 		{
@@ -218,7 +218,7 @@ footer a, footer a:link {
     <input type="password" placeholder="密码" id="password" name="password"/>
     <i class="fa fa-key"></i>
     <img id="captcha" width="100%"></img>
-    <input type="password" placeholder="验证码" id="captcha" name="captcha"/>
+    <input type="text" placeholder="验证码" id="captcha" name="captcha"/>
     <i class="fa fa-flask"></i>
 	<input type="hidden" id="returnurl" value=<?php 
 	if(isset($_SERVER['HTTP_REFERER']))
