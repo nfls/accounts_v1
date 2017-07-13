@@ -4,7 +4,7 @@ loadCaptcha()
 $('.login').on('submit', function (e) {
     var pass = document.getElementById("password").value;
     var user = document.getElementById("username").value;
-    var captcha = document.getElementById("captcha").value;
+    var captcha = document.getElementById("captcha_text").value;
     var returnurl = document.getElementById("returnurl").value;
     e.preventDefault();
     if (working) return;
