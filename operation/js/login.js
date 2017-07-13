@@ -20,7 +20,7 @@ $('.login').on('submit', function (e) {
             username: user,
             password: pass,
             session: session,
-            capthca: captcha
+            captcha: captcha
         },
         dataType: "json",
         success: function (message) {
