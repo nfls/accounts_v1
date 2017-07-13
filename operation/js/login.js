@@ -1,8 +1,10 @@
 var working = false;
+var session = "";
 loadCaptcha()
 $('.login').on('submit', function (e) {
     var pass = document.getElementById("password").value;
     var user = document.getElementById("username").value;
+    var captcha = document.getElementById("captcha").value;
     var returnurl = document.getElementById("returnurl").value;
     e.preventDefault();
     if (working) return;
@@ -17,24 +19,35 @@ $('.login').on('submit', function (e) {
         data: {
             username: user,
             password: pass,
+            session: session,
+            capthca: captcha
         },
         dataType: "json",
         success: function (message) {
             if (message.status == "succeed") {
-                //document.cookie="token="+message.token;
-                var date = new Date();
-                //alert("token=" + message.token + ";" + "expires=" + date.getTime()+30*24*60*60*1000 + ";" + "domain=" + "nfls.io" + "; secure");
-                date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
-                document.cookie = "token=" + message.info + ";" + "expires=" + date.toUTCString() + 30 * 24 * 60 * 60 * 1000 + ";" + "domain=" + "nfls.io" + "; secure; path=/";
-                LoginAssociate(user, pass);
-                $this.addClass('ok');
-                $state.html('Welcome back!');
-                setTimeout(function () {
-                    if (returnurl == "")
-                        window.location.href = "https://nfls.io/quickaction.php?action=refreshwiki";
-                    else
-                        window.location.href = "https://nfls.io/quickaction.php?action=refreshwiki&return=" + encodeURI(returnurl);
-                }, 1000);
+                if(message.info.status == "success" ){
+                    //document.cookie="token="+message.token;
+                    var date = new Date();
+                    //alert("token=" + message.token + ";" + "expires=" + date.getTime()+30*24*60*60*1000 + ";" + "domain=" + "nfls.io" + "; secure");
+                    date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
+                    document.cookie = "token=" + message.info + ";" + "expires=" + date.toUTCString() + 30 * 24 * 60 * 60 * 1000 + ";" + "domain=" + "nfls.io" + "; secure; path=/";
+                    LoginAssociate(user, pass);
+                    $this.addClass('ok');
+                    $state.html('Welcome back!');
+                    setTimeout(function () {
+                        if (returnurl == "")
+                            window.location.href = "https://nfls.io/quickaction.php?action=refreshwiki";
+                        else
+                            window.location.href = "https://nfls.io/quickaction.php?action=refreshwiki&return=" + encodeURI(returnurl);
+                    }, 1000);
+                } else {
+                    $this.addClass('error');
+                    $state.html(message.info.message);
+                    setTimeout(function () {
+                        window.location.href = "index.php";
+                    }, 3000);
+                }
+
             }
             else {
                 $this.addClass('error');
@@ -64,6 +77,7 @@ function loadCaptcha(){
         url: "https://api.nfls.io/center/loginCaptcha",
         success: function (message){
             document.getElementById('captcha').setAttribute( 'src', message["info"]["captcha"] );
+            session = message["info"]["session"];
         }
     })
 }
