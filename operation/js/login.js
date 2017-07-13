@@ -1,4 +1,5 @@
 var working = false;
+loadCaptcha()
 $('.login').on('submit', function (e) {
     var pass = document.getElementById("password").value;
     var user = document.getElementById("username").value;

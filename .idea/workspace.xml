@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c2013e1-9c19-4634-97e1-cea099dd454a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/center/admin/id_censor.html" afterPath="$PROJECT_DIR$/center/admin/id_censor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/center/admin/id_censor.js" afterPath="$PROJECT_DIR$/center/admin/id_censor.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/operation/js/login.js" afterPath="$PROJECT_DIR$/operation/js/login.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/operation/login.php" afterPath="$PROJECT_DIR$/operation/login.php" />
     </list>
@@ -60,21 +58,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/operation/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="218" column="28" lean-forward="false" selection-start-line="218" selection-start-column="28" selection-end-line="218" selection-end-column="28" />
+            <state relative-caret-position="388">
+              <caret line="219" column="21" lean-forward="false" selection-start-line="219" selection-start-column="21" selection-end-line="219" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/operation/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="64" column="84" lean-forward="false" selection-start-line="64" selection-start-column="84" selection-end-line="64" selection-end-column="84" />
+            <state relative-caret-position="15">
+              <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -162,8 +160,8 @@
         <option value="$PROJECT_DIR$/center/admin/list.html" />
         <option value="$PROJECT_DIR$/center/admin/id_censor.html" />
         <option value="$PROJECT_DIR$/center/admin/id_censor.js" />
-        <option value="$PROJECT_DIR$/operation/login.php" />
         <option value="$PROJECT_DIR$/operation/js/login.js" />
+        <option value="$PROJECT_DIR$/operation/login.php" />
       </list>
     </option>
   </component>
@@ -486,12 +484,12 @@
       <workItem from="1499785657713" duration="152000" />
       <workItem from="1499794726262" duration="599000" />
       <workItem from="1499812291829" duration="10684000" />
-      <workItem from="1499905458214" duration="6856000" />
+      <workItem from="1499905458214" duration="6973000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162807000" />
+    <option name="totallyTimeSpent" value="162924000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1887" height="978" extended-state="0" />
@@ -761,18 +759,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/operation/login.php">
+    <entry file="file://$PROJECT_DIR$/operation/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="218" column="28" lean-forward="false" selection-start-line="218" selection-start-column="28" selection-end-line="218" selection-end-column="28" />
+        <state relative-caret-position="15">
+          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/operation/js/login.js">
+    <entry file="file://$PROJECT_DIR$/operation/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="64" column="84" lean-forward="false" selection-start-line="64" selection-start-column="84" selection-end-line="64" selection-end-column="84" />
+        <state relative-caret-position="388">
+          <caret line="219" column="21" lean-forward="false" selection-start-line="219" selection-start-column="21" selection-end-line="219" selection-end-column="21" />
           <folding />
         </state>
       </provider>
