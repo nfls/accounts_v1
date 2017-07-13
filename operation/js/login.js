@@ -63,7 +63,7 @@ function loadCaptcha(){
         type: "GET",
         url: "https://api.nfls.io/center/loginCaptcha",
         success: function (message){
-            document.getElementById('captcha').setAttribute( 'src', message["captcha"] );
+            document.getElementById('captcha').setAttribute( 'src', message["info"]["captcha"] );
         }
     })
 }
