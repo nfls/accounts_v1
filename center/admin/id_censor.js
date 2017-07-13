@@ -1,72 +1,152 @@
 /**
  * Created by mmlmm on 2017/5/31.
  */
-url="https://local.nfls.io/"
+url = "https://api.nfls.io/"
 $.ajax({
     type: "GET",
-    url: url+"admin/auth/list",
+    url: url + "admin/auth/list",
     dataType: "json",
     success: function (message) {
-        $.each(message,function(i,mes){
-            loadList(mes);
+        $.each(message, function (i, mes) {
+            loadList(mes, i);
         });
+        loadDetail(message[0]["id"]);
     },
     error: function (message) {
         ///转跳
     }
 });
-//<div class="panel-footer">Panel footer</div>
-/*
-
-
- */
-function loadList(mes){
-    var box=document.getElementById("index_row");
-    var container = document.createElement("div");
-    container.setAttribute("class","col-md-6");
-    var panel =  document.createElement("div");
-    panel.setAttribute("class","panel panel-default");
-    var title =  document.createElement("div");
-    title.setAttribute("class","panel-heading");
-    var title_text = document.createElement("h3");
-    title_text.setAttribute("class","panel-title");
-
-    // exchange body and footer
-    var footer =  document.createElement("div");
-    footer.setAttribute("class","panel-footer");
-
-    var content = document.createElement("div");
-    content.setAttribute("class","panel-body");
-    content.innerHTML = ' <div class="input-group"><span class="input-group-addon" id="basic-addon1">小学索引</span><input type="text" class="form-control" aria-describedby="basic-addon1"></div><br/>' +
-        '<div class="input-group"><span class="input-group-addon" id="basic-addon2">初中索引</span><input type="text" class="form-control" aria-describedby="basic-addon2"></div><br/>' +
-        '<div class="input-group"><span class="input-group-addon" id="basic-addon3">高中索引</span><input type="text" class="form-control" aria-describedby="basic-addon3"></div><br/>' +
-        '<div class="btn-group" role="group" aria-label="...">'+
-        '<button type="button" class="btn btn-default">通过</button>'+
-        '<button type="button" class="btn btn-default">拒绝</button>'+
-        '<button type="button" class="btn btn-default">忽略</button>'+
-        '</div>';
-    var output = "<p>";
-    $.each(mes,function(i,content){
-        if(i=="id")
-            title_text.innerHTML =  "实名认证请求 - 用户ID：" + content;
-        else
-            output = output + converter(i,content) + "<br />";
-    });
-    output = output + "</p>";
-    footer.innerHTML = output;
-    title.appendChild(title_text);
-    panel.appendChild(title);
-    panel.appendChild(content);
-    panel.appendChild(footer);
-    container.appendChild(panel);
-    box.appendChild(container);
+functionChange(1);
+function functionChange(i) {
+    switch (i) {
+        case 1:
+            $('#user_other_info').hide();
+            break;
+    }
 }
-function converter(source,index){
-    var output = translator(source);
-    var combined = "";
-    switch (source){
+function loadList(mes, i) {
+    document.getElementById("submit_user_list").innerHTML += '<tr><th>' + (i + 1).toString() + '</th>' + '<th>' + mes["id"] + '</th>' + '<th>' + mes["email"] + '</th>' + '<th>' + mes["realname"] + '</th>' + '<th>' + mes["submit_time"] + '</th><th><button type="button" class="btn btn-default" onclick="loadDetail(' + mes["id"] + ')">审核</button></th></tr>';
+}
+function loadDetail(id) {
+    $(this).closest('form').find("input[type=text], textarea").val("");
+    $.each($('input', '#index_row'), function (k) {
+        $(this).val("");
+    });
+    $.each($('textarea', '#index_row'), function (k) {
+        $(this).val("");
+    });
+    $.ajax({
+        type: "POST",
+        url: url + "admin/auth/detail",
+        dataType: "json",
+        data: {
+            "id": id
+        },
+        success: function (message) {
+            $('#current_user').text("当前用户邮箱：" + message["email"]);
+            updateForm(message);
+        },
+        error: function (message) {
+            ///转跳
+        }
+    });
+}
+function updateForm(message) {
+    $.each(message,
+        function (index, element) {
+            element = converter(index, element);
+            switch ($("#" + index).get(0).tagName) {
+                case "INPUT":
+                    if ($('#' + index).attr('type') == "checkbox") {
+                        $('#' + index).prop('checked', element).change();
+                    }
+                    else {
+                        $('#' + index).val(element).change();
+                    }
+                    break;
+                case "P":
+                    $('#' + index).text(element);
+                    break;
+                case "SELECT":
+                    $('#' + index).val(element);
+                    $('#' + index + ' option[value=' + element + ']').attr('selected', 'selected').change();
+                    break;
+                case "TEXTAREA":
+                    $('#' + index).val(element).change();
+                    $('#' + index).trigger('autoresize');
+                    break;
+                default:
+                    break;
+            }
+        }
+    );
+}
+
+function updateRegion(step, select) {
+    step = step.toString();
+    //select = select.toString();
+    switch (step) {
+        case "2":
+            switch (select) {
+                case '-1':
+                    $('#nfls_primary_info').hide();
+                    break;
+                case '1':
+                case '2':
+                    $('#nfls_primary_info').show();
+                    break;
+            }
+            break;
+        case "3":
+            switch (select) {
+                case '-1':
+                    $('#junior_school_div').show();
+                    $('#nfls_junior_info').hide();
+                    break;
+                case '1':
+                    $('#junior_school_div').hide();
+                    $('#nfls_junior_info').show();
+                    break;
+            }
+            break;
+        case "4":
+            switch (select) {
+                case '-1':
+                    $('#senior_school_div').show();
+                    $('#nfls_international_info').hide();
+                    $('#nfls_senior_info').hide();
+                    $('#nfls_senior_general').hide();
+                    break;
+                case '1':
+                    $('#senior_school_div').hide();
+                    $('#nfls_international_info').hide();
+                    $('#nfls_senior_info').show();
+                    $('#nfls_senior_general').show();
+                    break;
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                    $('#senior_school_div').hide();
+                    $('#nfls_international_info').show();
+                    $('#nfls_senior_general').show();
+                    $('#nfls_senior_info').hide();
+                    break;
+            }
+            break;
+        default:
+            break;
+    }
+    console.log(step + " " + select);
+}
+
+function converter(source, index) {
+    //var output = translator(source);
+    var combined = index;
+    switch (source) {
         case "primary_school_no":
-            switch(index){
+            updateRegion(2, index);
+            switch (index) {
                 case "-1":
                     combined = "其他学校";
                     break;
@@ -79,7 +159,8 @@ function converter(source,index){
             }
             break;
         case "junior_school_no":
-            switch(index){
+            updateRegion(3, index);
+            switch (index) {
                 case "-1":
                     combined = "其他学校";
                     break;
@@ -89,7 +170,8 @@ function converter(source,index){
             }
             break;
         case "senior_school_no":
-            switch(index){
+            updateRegion(4, index);
+            switch (index) {
                 case "-1":
                     combined = "其他学校";
                     break;
@@ -110,12 +192,10 @@ function converter(source,index){
         default:
             combined = index;
     }
-    if(index=="")
-        return output;
-    return output + "：" + combined;
+    return combined;
 }
-function translator(source){
-    switch(source){
+function translator(source) {
+    switch (source) {
         case "email":
             return "电子邮箱";
         case "usedname":
@@ -139,7 +219,8 @@ function translator(source){
         case "primary_school_no":
             return "小学就读学校";
         case "primary_school_name":
-            return "其他/小学学校全名";s
+            return "其他/小学学校全名";
+            s
         case "primary_school_enter_year":
             return "小学入学年份";
         case "primary_school_graduated_year":
