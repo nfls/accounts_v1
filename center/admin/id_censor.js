@@ -1,7 +1,7 @@
 /**
  * Created by mmlmm on 2017/5/31.
  */
-url = "https://api.nfls.io/"
+url = "https://api.nfls.io/";
 $.ajax({
     type: "GET",
     url: url + "admin/auth/list",
@@ -28,6 +28,7 @@ function loadList(mes, i) {
     document.getElementById("submit_user_list").innerHTML += '<tr><th>' + (i + 1).toString() + '</th>' + '<th>' + mes["id"] + '</th>' + '<th>' + mes["email"] + '</th>' + '<th>' + mes["realname"] + '</th>' + '<th>' + mes["submit_time"] + '</th><th><button type="button" class="btn btn-default" onclick="loadDetail(' + mes["id"] + ')">审核</button></th></tr>';
 }
 function loadDetail(id) {
+    $.cookie("current_id",id);
     $(this).closest('form').find("input[type=text], textarea").val("");
     $.each($('input', '#index_row'), function (k) {
         $(this).val("");
@@ -45,6 +46,27 @@ function loadDetail(id) {
         success: function (message) {
             $('#current_user').text("当前用户邮箱：" + message["email"]);
             updateForm(message);
+            loadIndex(id);
+        },
+        error: function (message) {
+            ///转跳
+        }
+    });
+}
+function loadIndex(id){
+    $.ajax({
+        type: "POST",
+        url: url + "admin/auth/index",
+        dataType: "json",
+        data: {
+            "id": id
+        },
+        success: function (message) {
+            $('#primary_index').val(message["primary"]).change();
+            $('#junior_index').val(message["junior"]).change();
+            $('#senior_inter_index').val(message["senior_inter"]).change();
+            $('#senior_general_index').val(message["senior_general"]).change();
+
         },
         error: function (message) {
             ///转跳
@@ -138,6 +160,11 @@ function updateRegion(step, select) {
             break;
     }
     console.log(step + " " + select);
+}
+
+function editUser(){
+    $.cookie("admin",true);
+    window.href.location = "../user_identity.html";
 }
 
 function converter(source, index) {

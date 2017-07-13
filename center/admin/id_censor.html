@@ -22,7 +22,7 @@
     <script src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <script src="../../bower_components/jquery.cookie/jquery.cookie.js"></script>
 </head>
 
 <body>
@@ -64,7 +64,7 @@
                 <div class="btn-group" role="group" aria-label="...">
                     <button type="button" class="btn btn-success">通过</button>
                     <button type="button" class="btn btn-danger">拒绝</button>
-                    <button type="button" class="btn btn-default">修改</button>
+                    <button type="button" class="btn btn-default" onclick="editUser()">修改</button>
                     <button type="button" class="btn btn-warning">忽略</button>
                 </div>
                 <br />
@@ -83,6 +83,7 @@
                     <span class="input-group-addon" id="senior_general_index_">普高索引</span>
                     <input type="text" class="form-control" id="senior_general_index" aria-describedby="senior_general_index_">
                 </div>
+                <br/>
                 <div class="input-group">
                     <span class="input-group-addon" id="senior_inter_index_">国际部索引</span>
                     <input type="text" class="form-control" id="senior_inter_index" aria-describedby="senior_inter_index_">
