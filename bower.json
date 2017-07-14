@@ -19,6 +19,7 @@
     "materialize": "^0.98.1",
     "jquery.cookie": "jquery-cookie#^1.4.1",
     "jquery-validation": "^1.16.0",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "urijs": "uri.js#^1.18.10"
   }
 }
