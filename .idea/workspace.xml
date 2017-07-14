@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9c2013e1-9c19-4634-97e1-cea099dd454a" name="Default" comment="" />
+    <list default="true" id="9c2013e1-9c19-4634-97e1-cea099dd454a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/center/admin/id_censor.js" afterPath="$PROJECT_DIR$/center/admin/id_censor.js" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -28,8 +30,8 @@
       <file leaf-file-name="id_censor.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/center/admin/id_censor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="754">
-              <caret line="185" column="13" lean-forward="true" selection-start-line="185" selection-start-column="13" selection-end-line="185" selection-end-column="13" />
+            <state relative-caret-position="285">
+              <caret line="30" column="43" lean-forward="false" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -89,7 +91,7 @@
         <entry file="file://$PROJECT_DIR$/operation/js/forget.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="686">
-              <caret line="53" column="25" lean-forward="true" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
+              <caret line="53" column="25" lean-forward="false" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -109,7 +111,7 @@
         <entry file="file://$PROJECT_DIR$/center/admin/id_censor.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="424">
-              <caret line="91" column="41" lean-forward="true" selection-start-line="91" selection-start-column="41" selection-end-line="91" selection-end-column="41" />
+              <caret line="91" column="41" lean-forward="false" selection-start-line="91" selection-start-column="41" selection-end-line="91" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -199,8 +201,8 @@
         <option value="$PROJECT_DIR$/operation/login.php" />
         <option value="$PROJECT_DIR$/operation/register.php" />
         <option value="$PROJECT_DIR$/operation/forget.php" />
-        <option value="$PROJECT_DIR$/center/admin/id_censor.js" />
         <option value="$PROJECT_DIR$/center/js/user_identity.js" />
+        <option value="$PROJECT_DIR$/center/admin/id_censor.js" />
       </list>
     </option>
   </component>
@@ -527,12 +529,12 @@
       <workItem from="1499905458214" duration="7042000" />
       <workItem from="1499968263034" duration="772000" />
       <workItem from="1499977619884" duration="1471000" />
-      <workItem from="1499985852774" duration="2860000" />
+      <workItem from="1499985852774" duration="3477000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168096000" />
+    <option name="totallyTimeSpent" value="168713000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1887" height="978" extended-state="0" />
@@ -793,7 +795,7 @@
     <entry file="file://$PROJECT_DIR$/center/admin/id_censor.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="424">
-          <caret line="91" column="41" lean-forward="true" selection-start-line="91" selection-start-column="41" selection-end-line="91" selection-end-column="41" />
+          <caret line="91" column="41" lean-forward="false" selection-start-line="91" selection-start-column="41" selection-end-line="91" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -809,7 +811,7 @@
     <entry file="file://$PROJECT_DIR$/operation/js/forget.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="686">
-          <caret line="53" column="25" lean-forward="true" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
+          <caret line="53" column="25" lean-forward="false" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -824,8 +826,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/center/admin/id_censor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="754">
-          <caret line="185" column="13" lean-forward="true" selection-start-line="185" selection-start-column="13" selection-end-line="185" selection-end-column="13" />
+        <state relative-caret-position="285">
+          <caret line="30" column="43" lean-forward="false" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
           <folding />
         </state>
       </provider>

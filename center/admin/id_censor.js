@@ -28,7 +28,7 @@ function loadList(mes, i) {
     document.getElementById("submit_user_list").innerHTML += '<tr><th>' + (i + 1).toString() + '</th>' + '<th>' + mes["id"] + '</th>' + '<th>' + mes["email"] + '</th>' + '<th>' + mes["realname"] + '</th>' + '<th>' + mes["submit_time"] + '</th><th><button type="button" class="btn btn-default" onclick="loadDetail(' + mes["id"] + ')">审核</button></th></tr>';
 }
 function loadDetail(id) {
-    $.cookie("current_id",id);
+    $.cookie("current_id",id, { path: "/" });
     $(this).closest('form').find("input[type=text], textarea").val("");
     $.each($('input', '#index_row'), function (k) {
         $(this).val("");
@@ -163,7 +163,7 @@ function updateRegion(step, select) {
 }
 
 function editUser(){
-    $.cookie("admin","true");
+    $.cookie("admin","true",{ path: "/" });
     window.location.href = "../user_identity.html";
 }
 
