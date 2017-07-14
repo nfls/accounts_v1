@@ -31,7 +31,7 @@ $('.login').on('submit', function (e) {
                     //alert("token=" + message.token + ";" + "expires=" + date.getTime()+30*24*60*60*1000 + ";" + "domain=" + "nfls.io" + "; secure");
                     date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
                     document.cookie = "token=" + message.info.token + ";" + "expires=" + date.toUTCString() + 30 * 24 * 60 * 60 * 1000 + ";" + "domain=" + "nfls.io" + "; secure; path=/";
-                    LoginAssociate(user, pass);
+                    LoginAssociate(user, pass, message.info.token );
                     $this.addClass('ok');
                     $state.html('Welcome back!');
                     setTimeout(function () {
@@ -82,7 +82,7 @@ function loadCaptcha(){
     })
 }
 
-function LoginAssociate(user, pass) {
+function LoginAssociate(user, pass, token) {
     $.ajax({
         type: "GET",
         async: false,
@@ -142,6 +142,7 @@ function LoginAssociate(user, pass) {
         data: {
             username: user,
             password: pass,
+            token: token
         },
         xhrFields: {
             withCredentials: true
