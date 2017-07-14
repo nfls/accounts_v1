@@ -217,10 +217,10 @@ footer a, footer a:link {
     <i class="fa fa-user"></i>
     <input type="password" placeholder="密码" id="password" name="password"/>
     <i class="fa fa-key"></i>
-    <img id="captcha" width="100%"></img>
-    <input type="text" placeholder="验证码" id="captcha_text" name="captcha"/>
+    <img id="captcha" width="100%" onclick="loadCaptcha()"></img>
+    <input type="text" placeholder="验证码" id="captcha_text"  name="captcha"/>
     <i class="fa fa-flask"></i>
-	<input type="hidden" id="returnurl" value=<?php 
+	<input type="hidden" id="returnurl" value=<?php
 	if(isset($_SERVER['HTTP_REFERER']))
 		echo '"'.$_SERVER['HTTP_REFERER'].'"' ;
 	else

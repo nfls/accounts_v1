@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9c2013e1-9c19-4634-97e1-cea099dd454a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/operation/forget.php" afterPath="$PROJECT_DIR$/operation/forget.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/operation/js/forget.js" afterPath="$PROJECT_DIR$/operation/js/forget.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/operation/js/login.js" afterPath="$PROJECT_DIR$/operation/js/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/operation/js/register.js" afterPath="$PROJECT_DIR$/operation/js/register.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/operation/login.php" afterPath="$PROJECT_DIR$/operation/login.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/operation/register.php" afterPath="$PROJECT_DIR$/operation/register.php" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -55,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/operation/login.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="413">
-              <caret line="219" column="4" lean-forward="false" selection-start-line="219" selection-start-column="4" selection-end-line="221" selection-end-column="31" />
+              <caret line="219" column="58" lean-forward="false" selection-start-line="219" selection-start-column="58" selection-end-line="219" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -84,8 +82,8 @@
       <file leaf-file-name="register.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/operation/register.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="644">
-              <caret line="211" column="25" lean-forward="false" selection-start-line="211" selection-start-column="25" selection-end-line="211" selection-end-column="25" />
+            <state relative-caret-position="584">
+              <caret line="207" column="58" lean-forward="false" selection-start-line="207" selection-start-column="58" selection-end-line="207" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -94,8 +92,8 @@
       <file leaf-file-name="forget.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/operation/forget.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="208" column="9" lean-forward="true" selection-start-line="208" selection-start-column="9" selection-end-line="208" selection-end-column="9" />
+            <state relative-caret-position="555">
+              <caret line="200" column="59" lean-forward="false" selection-start-line="200" selection-start-column="59" selection-end-line="200" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -200,11 +198,11 @@
         <option value="$PROJECT_DIR$/center/admin/list.html" />
         <option value="$PROJECT_DIR$/center/admin/id_censor.html" />
         <option value="$PROJECT_DIR$/center/admin/id_censor.js" />
-        <option value="$PROJECT_DIR$/operation/login.php" />
         <option value="$PROJECT_DIR$/operation/index.php" />
         <option value="$PROJECT_DIR$/operation/js/forget.js" />
         <option value="$PROJECT_DIR$/operation/js/register.js" />
         <option value="$PROJECT_DIR$/operation/js/login.js" />
+        <option value="$PROJECT_DIR$/operation/login.php" />
         <option value="$PROJECT_DIR$/operation/register.php" />
         <option value="$PROJECT_DIR$/operation/forget.php" />
       </list>
@@ -532,12 +530,12 @@
       <workItem from="1499905458214" duration="7042000" />
       <workItem from="1499968263034" duration="772000" />
       <workItem from="1499977619884" duration="1471000" />
-      <workItem from="1499985852774" duration="1768000" />
+      <workItem from="1499985852774" duration="1863000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167004000" />
+    <option name="totallyTimeSpent" value="167099000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1887" height="978" extended-state="0" />
@@ -814,23 +812,23 @@
     <entry file="file://$PROJECT_DIR$/operation/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="413">
-          <caret line="219" column="4" lean-forward="false" selection-start-line="219" selection-start-column="4" selection-end-line="221" selection-end-column="31" />
+          <caret line="219" column="58" lean-forward="false" selection-start-line="219" selection-start-column="58" selection-end-line="219" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/operation/register.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="211" column="25" lean-forward="false" selection-start-line="211" selection-start-column="25" selection-end-line="211" selection-end-column="25" />
+        <state relative-caret-position="584">
+          <caret line="207" column="58" lean-forward="false" selection-start-line="207" selection-start-column="58" selection-end-line="207" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/operation/forget.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="208" column="9" lean-forward="true" selection-start-line="208" selection-start-column="9" selection-end-line="208" selection-end-column="9" />
+        <state relative-caret-position="555">
+          <caret line="200" column="59" lean-forward="false" selection-start-line="200" selection-start-column="59" selection-end-line="200" selection-end-column="59" />
           <folding />
         </state>
       </provider>

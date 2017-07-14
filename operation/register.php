@@ -205,7 +205,7 @@ footer a, footer a:link {
     <i class="fa fa-key"></i>
     <input type="password" placeholder="确认密码" id="password-repeat" name="password-repeat"/>
     <i class="fa fa-key"></i>
-    <img id="captcha" width="100%"></img>
+    <img id="captcha" width="100%" onclick="loadCaptcha()"></img>
     <input type="text" placeholder="验证码" id="captcha_text" name="captcha"/>
     <i class="fa fa-flask"></i>
 
