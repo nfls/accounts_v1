@@ -205,7 +205,7 @@ footer a, footer a:link {
       <i class="spinner"></i>
       <span class="state">发送恢复邮件</span>
     </button>
-	<a href="https://login.nfls.io/">登录</a>
+	<a href="?action=login">登录</a>
   </form>
   </p>
 </div>

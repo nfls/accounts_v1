@@ -209,7 +209,7 @@ footer a, footer a:link {
     <input type="text" placeholder="验证码" id="captcha_text" name="captcha"/>
     <i class="fa fa-flask"></i>
 
-   <a href="index.php">登录</a> <br/>
+   <a href="?action=login">登录</a> <br/>
    <a href="?action=privacy">隐私信息</a>
     <button>
     <button>

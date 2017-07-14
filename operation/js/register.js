@@ -45,7 +45,7 @@ $('.login').on('submit', function (e) {
                 $this.addClass('ok');
                 $state.html('注册成功！请检查您邮箱内的确认邮件。');
                 setTimeout(function () {
-                    window.location.href = "https://center.nfls.io";
+                    window.location.href = "index.php?action=login";
                 }, 5000);
 
             }
@@ -64,7 +64,7 @@ $('.login').on('submit', function (e) {
             $this.removeClass('ok loading');
             working = false;
             alert("请求错误，请稍后再试！");
-            window.location.href = "index.php";
+            window.location.href = "index.php?action=register";
         }
     });
 

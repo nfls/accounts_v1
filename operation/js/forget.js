@@ -35,14 +35,14 @@ $('.login').on('submit', function (e) {
                 $this.addClass('ok');
                 $state.html('密码恢复邮件已发送至您的邮箱。');
                 setTimeout(function () {
-                    window.location.href = "https://login.nfls.io/operation";
+                    window.location.href = "index.php?action=login";
                 }, 5000);
             }
             else {
                 $this.addClass('error');
                 $state.html('没有账户与此邮箱关联。');
                 setTimeout(function () {
-                    window.location.href = "forget.php";
+                    window.location.href = "index.php?action=forget";
                 }, 3000);
 
             }
@@ -53,7 +53,7 @@ $('.login').on('submit', function (e) {
             $this.removeClass('ok loading');
             working = false;
             alert("请求错误，请稍后再试！");
-            window.location.href = "index.php";
+            window.location.href = "index.php?action=login";
         }
     });
 
