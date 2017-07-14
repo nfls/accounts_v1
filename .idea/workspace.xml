@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c2013e1-9c19-4634-97e1-cea099dd454a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/center/admin/id_censor.js" afterPath="$PROJECT_DIR$/center/admin/id_censor.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/center/js/user_identity.js" afterPath="$PROJECT_DIR$/center/js/user_identity.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/center/user_identity.html" afterPath="$PROJECT_DIR$/center/user_identity.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,17 +18,17 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="user_identity.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user_identity.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/center/js/user_identity.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-720">
-              <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+            <state relative-caret-position="225">
+              <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="id_censor.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="id_censor.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/center/admin/id_censor.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
@@ -47,21 +48,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/operation/js/login.js">
+      <file leaf-file-name="user_identity.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/center/user_identity.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="66" column="58" lean-forward="false" selection-start-line="66" selection-start-column="58" selection-end-line="66" selection-end-column="58" />
+            <state relative-caret-position="554">
+              <caret line="59" column="42" lean-forward="false" selection-start-line="59" selection-start-column="42" selection-end-line="59" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/operation/js/register.js">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/operation/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="728">
-              <caret line="66" column="61" lean-forward="false" selection-start-line="66" selection-start-column="61" selection-end-line="66" selection-end-column="61" />
+            <state relative-caret-position="748">
+              <caret line="66" column="58" lean-forward="false" selection-start-line="66" selection-start-column="58" selection-end-line="66" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -153,6 +154,7 @@
       <find>college</find>
       <find>post</find>
       <find>本科</find>
+      <find>cookie</find>
     </findStrings>
     <replaceStrings>
       <replace>../bower</replace>
@@ -191,7 +193,6 @@
         <option value="$PROJECT_DIR$/center/js/messages.js" />
         <option value="$PROJECT_DIR$/center/js/head_material.js" />
         <option value="$PROJECT_DIR$/center/js/head.js" />
-        <option value="$PROJECT_DIR$/center/user_identity.html" />
         <option value="$PROJECT_DIR$/center/admin/list.html" />
         <option value="$PROJECT_DIR$/center/admin/id_censor.html" />
         <option value="$PROJECT_DIR$/operation/index.php" />
@@ -201,8 +202,9 @@
         <option value="$PROJECT_DIR$/operation/login.php" />
         <option value="$PROJECT_DIR$/operation/register.php" />
         <option value="$PROJECT_DIR$/operation/forget.php" />
-        <option value="$PROJECT_DIR$/center/js/user_identity.js" />
         <option value="$PROJECT_DIR$/center/admin/id_censor.js" />
+        <option value="$PROJECT_DIR$/center/user_identity.html" />
+        <option value="$PROJECT_DIR$/center/js/user_identity.js" />
       </list>
     </option>
   </component>
@@ -529,12 +531,12 @@
       <workItem from="1499905458214" duration="7042000" />
       <workItem from="1499968263034" duration="772000" />
       <workItem from="1499977619884" duration="1471000" />
-      <workItem from="1499985852774" duration="3477000" />
+      <workItem from="1499985852774" duration="3649000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168713000" />
+    <option name="totallyTimeSpent" value="168885000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1887" height="978" extended-state="0" />
@@ -737,14 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/center/user_identity.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="3" lean-forward="false" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/jquery.cookie/bower.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -816,18 +810,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/center/js/user_identity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-720">
-          <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/center/admin/id_censor.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="30" column="43" lean-forward="false" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/user_identity.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="554">
+          <caret line="59" column="42" lean-forward="false" selection-start-line="59" selection-start-column="42" selection-end-line="59" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/center/js/user_identity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
           <folding />
         </state>
       </provider>

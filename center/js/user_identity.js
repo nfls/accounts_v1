@@ -8,8 +8,9 @@ if(window.location.host == "login.nfls.io" || window.location.host == "center.nf
 else{
     var url = 'https://local.nfls.io';
 }
-if($.cookie("admin") == "true")
-    alert("Admin mode enabled.");
+if($.cookie("admin") == "true"){
+    $("#admin").text("您已进入管理员模式，您当前在修改UID：" + $.cookie("id") + "的认证信息");
+}
 
     init();
 function init() {
