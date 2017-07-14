@@ -1,9 +1,9 @@
 <?php
 	ini_set("session.cookie_domain",'.nfls.io');
 	session_start();
-	die("服务器维护。预计7月底开放。");
+	//die("服务器维护。预计7月底开放。");
 	if(isset($_COOKIE['token']))
-		Header("Location:https://login.nfls.io");
+		Header("Location:https://center.nfls.io");
 	else
 		if(isset($_GET['action']))
 		{

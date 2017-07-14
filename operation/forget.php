@@ -198,6 +198,9 @@ footer a, footer a:link {
   <p class="title">找回密码</p>
 	 <input type="text" placeholder="邮箱" id="email" name="email" autofocus/>
 	 <i class="fa fa-user"></i>
+	 <img id="captcha" width="100%"></img>
+         <input type="text" placeholder="验证码" id="captcha_text" name="captcha"/>
+         <i class="fa fa-flask"></i>
 	 <button>
       <i class="spinner"></i>
       <span class="state">发送恢复邮件</span>

@@ -41,7 +41,7 @@ $('.login').on('submit', function (e) {
         },
         dataType: "json",
         success: function (message) {
-            if (message.info.status == "succeed") {
+            if (message.info.status == "success") {
                 $this.addClass('ok');
                 $state.html('注册成功！请检查您邮箱内的确认邮件。');
                 setTimeout(function () {
