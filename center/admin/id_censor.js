@@ -164,7 +164,7 @@ function updateRegion(step, select) {
 
 function editUser(){
     $.cookie("admin",true);
-    window.href.location = "../user_identity.html";
+    window.location.href = "../user_identity.html";
 }
 
 function converter(source, index) {
