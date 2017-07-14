@@ -30,7 +30,7 @@ $('.login').on('submit', function (e) {
                     var date = new Date();
                     //alert("token=" + message.token + ";" + "expires=" + date.getTime()+30*24*60*60*1000 + ";" + "domain=" + "nfls.io" + "; secure");
                     date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
-                    document.cookie = "token=" + message.info + ";" + "expires=" + date.toUTCString() + 30 * 24 * 60 * 60 * 1000 + ";" + "domain=" + "nfls.io" + "; secure; path=/";
+                    document.cookie = "token=" + message.info.token + ";" + "expires=" + date.toUTCString() + 30 * 24 * 60 * 60 * 1000 + ";" + "domain=" + "nfls.io" + "; secure; path=/";
                     LoginAssociate(user, pass);
                     $this.addClass('ok');
                     $state.html('Welcome back!');
@@ -93,7 +93,7 @@ function LoginAssociate(user, pass) {
         dataType: "json",
         success: function (message) {
             try {
-                var cookie = message.info
+                var cookie = message.info;
                 for (var i in cookie) {
                     var ncookie = String(message.info[i]);
                     ncookie = ncookie.substr(0, ncookie.length - 8);
