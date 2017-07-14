@@ -8,7 +8,7 @@ if(window.location.host == "login.nfls.io" || window.location.host == "center.nf
 else{
     var url = 'https://local.nfls.io';
 }
-if($.cookie("admin") == true)
+if($.cookie("admin") == "true")
     alert("Admin mode enabled.");
 
     init();

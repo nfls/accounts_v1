@@ -163,7 +163,7 @@ function updateRegion(step, select) {
 }
 
 function editUser(){
-    $.cookie("admin",true);
+    $.cookie("admin","true");
     window.location.href = "../user_identity.html";
 }
 
