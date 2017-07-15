@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c2013e1-9c19-4634-97e1-cea099dd454a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/center/js/user_identity.js" afterPath="$PROJECT_DIR$/center/js/user_identity.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/center/user_identity.html" afterPath="$PROJECT_DIR$/center/user_identity.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -52,8 +50,8 @@
       <file leaf-file-name="user_identity.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/center/user_identity.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="666">
-              <caret line="525" column="25" lean-forward="true" selection-start-line="525" selection-start-column="25" selection-end-line="525" selection-end-column="25" />
+            <state relative-caret-position="7056">
+              <caret line="521" column="46" lean-forward="true" selection-start-line="521" selection-start-column="46" selection-end-line="521" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -517,12 +515,12 @@
       <workItem from="1499985852774" duration="3760000" />
       <workItem from="1500051042070" duration="572000" />
       <workItem from="1500082311320" duration="889000" />
-      <workItem from="1500124623978" duration="1250000" />
+      <workItem from="1500124623978" duration="1364000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171707000" />
+    <option name="totallyTimeSpent" value="171821000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1887" height="978" extended-state="0" />
@@ -813,8 +811,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/center/user_identity.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="525" column="25" lean-forward="true" selection-start-line="525" selection-start-column="25" selection-end-line="525" selection-end-column="25" />
+        <state relative-caret-position="7056">
+          <caret line="521" column="46" lean-forward="true" selection-start-line="521" selection-start-column="46" selection-end-line="521" selection-end-column="46" />
           <folding />
         </state>
       </provider>
