@@ -7,4 +7,5 @@ tests
 **/.*
 .tmp
 .sass-cache
+/.idea/
 bower_components
