@@ -167,6 +167,27 @@ function editUser(){
     window.location.href = "../user_identity.html";
 }
 
+function acceptIdentity(){
+    $.ajax({
+        type: "POST",
+        url: url + "admin/auth/accept",
+        dataType: "json",
+        data: {
+            "id": $.cookie("current_id"),
+            "primary": $('#primary_index').val(),
+            "junior": $('#junior_index').val(),
+            "senior": $('#senior_index').val()
+        },
+        success: function (message) {
+
+
+        },
+        error: function (message) {
+            ///转跳
+        }
+    });
+}
+
 function converter(source, index) {
     //var output = translator(source);
     var combined = index;
