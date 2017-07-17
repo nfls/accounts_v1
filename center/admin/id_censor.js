@@ -190,6 +190,43 @@ function acceptIdentity(){
     });
 }
 
+function denyIdentity(){
+    $.ajax({
+        type: "POST",
+        url: url + "admin/auth/deny",
+        dataType: "json",
+        data: {
+            "id": $.cookie("current_id"),
+            "message": $('#message').val()
+        },
+        success: function (message) {
+
+
+        },
+        error: function (message) {
+            ///转跳
+        }
+    });
+}
+
+function ignoreIdentity(){
+    $.ajax({
+        type: "POST",
+        url: url + "admin/auth/ignore",
+        dataType: "json",
+        data: {
+            "id": $.cookie("current_id"),
+            "message": $('#message').val()
+        },
+        success: function (message) {
+
+
+        },
+        error: function (message) {
+            ///转跳
+        }
+    });
+}
 function converter(source, index) {
     //var output = translator(source);
     var combined = index;
