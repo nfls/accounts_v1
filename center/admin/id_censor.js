@@ -176,7 +176,9 @@ function acceptIdentity(){
             "id": $.cookie("current_id"),
             "primary": $('#primary_index').val(),
             "junior": $('#junior_index').val(),
-            "senior": $('#senior_index').val()
+            "senior_general": $('#senior_general_index').val(),
+            "senior_inter": $('#senior_inter_index').val(),
+            "message": $('#message').val()
         },
         success: function (message) {
 
