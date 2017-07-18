@@ -16,6 +16,17 @@ $.ajax({
         ///转跳
     }
 });
+$.ajax({
+    type: "GET",
+    url: url + "admin/auth/instructions",
+    dataType: "json",
+    success: function (message) {
+        $('#instructions').text(message);
+    },
+    error: function (message) {
+        ///转跳
+    }
+});
 functionChange(1);
 function functionChange(i) {
     switch (i) {
@@ -215,8 +226,7 @@ function ignoreIdentity(){
         url: url + "admin/auth/ignore",
         dataType: "json",
         data: {
-            "id": $.cookie("current_id"),
-            "message": $('#message').val()
+            "id": $.cookie("current_id")
         },
         success: function (message) {
 
