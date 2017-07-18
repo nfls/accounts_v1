@@ -21,7 +21,7 @@ $.ajax({
     url: url + "admin/auth/instructions",
     dataType: "json",
     success: function (message) {
-        $('#instructions').text(message);
+        $('#instructions').html(message);
     },
     error: function (message) {
         ///转跳
