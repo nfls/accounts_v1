@@ -2,6 +2,7 @@
  * Created by mmlmm on 2017/5/31.
  */
 url = "https://api.nfls.io/";
+var ids = [];
 $.ajax({
     type: "GET",
     url: url + "admin/auth/list",
@@ -9,8 +10,9 @@ $.ajax({
     success: function (message) {
         $.each(message, function (i, mes) {
             loadList(mes, i);
+            ids.push(mes["id"]);
         });
-        loadDetail(message[0]["id"]);
+        loadDetail(ids[0]);
     },
     error: function (message) {
         ///转跳
@@ -192,8 +194,15 @@ function acceptIdentity(){
             "message": $('#message').val()
         },
         success: function (message) {
-
-
+            if(message.code == 200){
+                loadDetail(ids[ids.indexOf($.cookie("current_user")) + 1]);
+            } else {
+                var notices = "";
+                for(notice in message.info){
+                    notices += notice;
+                }
+                alert(notices);
+            }
         },
         error: function (message) {
             ///转跳
