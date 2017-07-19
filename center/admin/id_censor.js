@@ -7,6 +7,9 @@ $.ajax({
     type: "GET",
     url: url + "admin/auth/list",
     dataType: "json",
+    xhrFields: {
+        withCredentials: true
+    },
     success: function (message) {
         $.each(message, function (i, mes) {
             loadList(mes, i);
@@ -22,6 +25,9 @@ $.ajax({
     type: "GET",
     url: url + "admin/auth/instructions",
     dataType: "json",
+    xhrFields: {
+        withCredentials: true
+    },
     success: function (message) {
         $('#instructions').html(message);
     },
@@ -71,6 +77,9 @@ function loadIndex(id){
         type: "POST",
         url: url + "admin/auth/index",
         dataType: "json",
+        xhrFields: {
+            withCredentials: true
+        },
         data: {
             "id": id
         },
@@ -185,6 +194,9 @@ function acceptIdentity(){
         type: "POST",
         url: url + "admin/auth/accept",
         dataType: "json",
+        xhrFields: {
+            withCredentials: true
+        },
         data: {
             "id": $.cookie("current_id"),
             "primary": $('#primary_index').val(),
@@ -215,6 +227,9 @@ function denyIdentity(){
         type: "POST",
         url: url + "admin/auth/deny",
         dataType: "json",
+        xhrFields: {
+            withCredentials: true
+        },
         data: {
             "id": $.cookie("current_id"),
             "message": $('#message').val()
@@ -234,6 +249,9 @@ function ignoreIdentity(){
         type: "POST",
         url: url + "admin/auth/ignore",
         dataType: "json",
+        xhrFields: {
+            withCredentials: true
+        },
         data: {
             "id": $.cookie("current_id")
         },
