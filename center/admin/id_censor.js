@@ -3,39 +3,43 @@
  */
 url = "https://api.nfls.io/";
 var ids = [];
-$.ajax({
-    type: "GET",
-    url: url + "admin/auth/list",
-    dataType: "json",
-    xhrFields: {
-        withCredentials: true
-    },
-    success: function (message) {
-        $.each(message, function (i, mes) {
-            loadList(mes, i);
-            ids.push(mes["id"]);
-        });
-        loadDetail(ids[0]);
-    },
-    error: function (message) {
-        ///转跳
-    }
-});
-$.ajax({
-    type: "GET",
-    url: url + "admin/auth/instructions",
-    dataType: "json",
-    xhrFields: {
-        withCredentials: true
-    },
-    success: function (message) {
-        $('#instructions').html(message);
-    },
-    error: function (message) {
-        ///转跳
-    }
-});
-functionChange(1);
+initialize();
+function initialize(){
+    document.getElementById("submit_user_list").innerHTML//to=dol
+    $.ajax({
+        type: "GET",
+        url: url + "admin/auth/list",
+        dataType: "json",
+        xhrFields: {
+            withCredentials: true
+        },
+        success: function (message) {
+            $.each(message, function (i, mes) {
+                loadList(mes, i);
+                ids.push(mes["id"]);
+            });
+            loadDetail(ids[0]);
+        },
+        error: function (message) {
+            ///转跳
+        }
+    });
+    $.ajax({
+        type: "GET",
+        url: url + "admin/auth/instructions",
+        dataType: "json",
+        xhrFields: {
+            withCredentials: true
+        },
+        success: function (message) {
+            $('#instructions').html(message);
+        },
+        error: function (message) {
+            ///转跳
+        }
+    });
+    functionChange(1);
+}
 function functionChange(i) {
     switch (i) {
         case 1:
@@ -268,6 +272,20 @@ function converter(source, index) {
     //var output = translator(source);
     var combined = index;
     switch (source) {
+        case "gender":
+            switch(index){
+                case "1":
+                    combined = "其他/保密";
+                    break;
+                case "2":
+                    combined = "男";
+                    break;
+                case "3":
+                    combined = "女";
+                    break;
+
+            }
+            break;
         case "primary_school_no":
             updateRegion(2, index);
             switch (index) {

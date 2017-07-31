@@ -15,6 +15,23 @@ $('.login').on('submit', function (e) {
     $state.html('Authenticating');
     $.ajax({
         type: "POST",
+        url: "https://api.nfls.io/center/notice",
+        dataType: "json",
+        success: function (message) {
+            if (message.status == "succeed") {
+                if(message.info.allow == true){
+                    $("#login_frame").show();
+                }
+                if(message.info.message != ""){
+                    $("#notice").html(message.info.message);
+                } else {
+                    $("#notice").hide();
+                }
+            }
+        }
+    });
+    $.ajax({
+        type: "POST",
         url: "https://api.nfls.io/center/login",
         data: {
             username: user,

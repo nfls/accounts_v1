@@ -196,8 +196,8 @@ footer a, footer a:link {
     <div class="wrapper">
   <form class="login">
     <p class="title">登录</p>
+    <p id="notice></p>
 	<?php
-	//echo "<p>我们已知iPad及系统为iOS 9或更早的iPhone上所有浏览器存在兼容性问题。我们正在着手修复。</p>";
 	if(isset($_GET['reason'])){
 		switch($_GET['reason'])
 		{
@@ -213,6 +213,7 @@ footer a, footer a:link {
 		}
 	}
 	?>
+	<div id="login_frame" hidden>
     <input type="text" placeholder="用户名" id="username" name="username" autofocus/>
     <i class="fa fa-user"></i>
     <input type="password" placeholder="密码" id="password" name="password"/>
@@ -234,6 +235,7 @@ footer a, footer a:link {
       <i class="spinner"></i>
       <span class="state">登录</span>
     </button>
+    </div>
   </form>
   </p>
 </div>
