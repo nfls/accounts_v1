@@ -1,6 +1,23 @@
 var working = false;
 var session = "";
-loadCaptcha()
+loadCaptcha();
+$.ajax({
+    type: "POST",
+    url: "https://api.nfls.io/center/notice",
+    dataType: "json",
+    success: function (message) {
+        if (message.status == "succeed") {
+            if(message.info.allow == true){
+                $("#login_frame").show();
+            }
+            if(message.info.message != ""){
+                $("#notice").html(message.info.message);
+            } else {
+                $("#notice").hide();
+            }
+        }
+    }
+});
 $('.login').on('submit', function (e) {
     var pass = document.getElementById("password").value;
     var user = document.getElementById("username").value;
@@ -13,23 +30,6 @@ $('.login').on('submit', function (e) {
         $state = $this.find('button > .state');
     $this.addClass('loading');
     $state.html('Authenticating');
-    $.ajax({
-        type: "POST",
-        url: "https://api.nfls.io/center/notice",
-        dataType: "json",
-        success: function (message) {
-            if (message.status == "succeed") {
-                if(message.info.allow == true){
-                    $("#login_frame").show();
-                }
-                if(message.info.message != ""){
-                    $("#notice").html(message.info.message);
-                } else {
-                    $("#notice").hide();
-                }
-            }
-        }
-    });
     $.ajax({
         type: "POST",
         url: "https://api.nfls.io/center/login",
