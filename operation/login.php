@@ -196,7 +196,7 @@ footer a, footer a:link {
     <div class="wrapper">
   <form class="login">
     <p class="title">登录</p>
-    <p id="notice></p>
+    <p id="notice"></p>
 	<?php
 	if(isset($_GET['reason'])){
 		switch($_GET['reason'])
