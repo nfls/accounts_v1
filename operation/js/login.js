@@ -2,7 +2,7 @@ var working = false;
 var session = "";
 loadCaptcha();
 $.ajax({
-    type: "POST",
+    type: "GET",
     url: "https://api.nfls.io/center/notice",
     dataType: "json",
     success: function (message) {
