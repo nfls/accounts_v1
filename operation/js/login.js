@@ -6,6 +6,7 @@ $.ajax({
     url: "https://api.nfls.io/center/notice",
     dataType: "json",
     success: function (message) {
+        console.log(message);
         if (message.status == "succeed") {
             if(message.info.allow == true){
                 $("#login_frame").show();
