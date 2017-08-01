@@ -63,6 +63,9 @@ function loadDetail(id) {
         type: "POST",
         url: url + "admin/auth/detail",
         dataType: "json",
+        xhrFields: {
+            withCredentials: true
+        },
         data: {
             "id": id
         },
