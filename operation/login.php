@@ -225,7 +225,7 @@ footer a, footer a:link {
 	if(isset($_SERVER['HTTP_REFERER']))
 		echo '"'.$_SERVER['HTTP_REFERER'].'"' ;
 	else
-	    if(isset($_GET['redir'))
+	    if(isset($_GET['redir']))
 	        echo "https://".$_GET['redir'].".nfls.io";
 	    else
 		    echo '""';
