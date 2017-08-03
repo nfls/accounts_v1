@@ -225,7 +225,10 @@ footer a, footer a:link {
 	if(isset($_SERVER['HTTP_REFERER']))
 		echo '"'.$_SERVER['HTTP_REFERER'].'"' ;
 	else
-		echo '""';
+	    if(isset($_GET['redir'))
+	        echo "https://".$_GET['redir'].".nfls.io";
+	    else
+		    echo '""';
 	?>
 	/>
     <a href="?action=forget">忘记密码</a>
