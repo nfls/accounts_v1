@@ -1,3 +1,3 @@
 <?php
-header("Location:personal_info.html")
+header("Location:info.html")
 ?>
