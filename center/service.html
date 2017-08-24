@@ -13,24 +13,6 @@
     <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="../bower_components/materialize/dist/js/materialize.min.js"></script>
     <script src="../bower_components/jquery.cookie/jquery.cookie.js"></script>
-    </body>
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-92193639-8', 'auto');
-        ga('send', 'pageview');
-
-    </script>
 </head>
 <body>
 <header>
@@ -44,32 +26,37 @@
     </nav>
     <div class="container">
     </div>
-    <ul id="nav-mobile" class="side-nav fixed">
-        <li>
-            <div class="userView blue">
-                <img class="circle" id="avatar">
-                <span class="white-text name" id="user_name"></span>
-                <!--<span class="white-text email">tianzundibei@163.com</span>-->
-            </div>
-        </li>
-        <li><a class="waves-effect" href="personal_info.html">账户综合信息</a></li>
-        <li><a class="waves-effect" href="associated_service.html">站内关联服务</a></li>
-        <li><a class="waves-effect" href="messages.html">消息与通知</a></li>
-        <li><a class="waves-effect" href="user_identity.html">实名认证</a></li>
-        <li><a class="waves-effect" href="https://nfls.io/quickaction.php?action=logout&noreturn=true">退出</a></li>
-    </ul>
+
+
 </header>
 <main>
-    <div class="container col s12 m9 l10">
-        <div class="container col s12 m9 l10">
+    <div class="row">
+        <div class="col s12 m4 l3">
+            <ul id="nav-mobile" class="side-nav fixed">
+                <li>
+                    <div class="userView blue">
+                        <img class="circle" id="avatar">
+                        <span class="white-text name" id="user_name"></span>
+                        <!--<span class="white-text email">tianzundibei@163.com</span>-->
+                    </div>
+                </li>
+                <li><a class="waves-effect" href="info.html">账户综合信息</a></li>
+                <li><a class="waves-effect" href="service.html">站内关联服务</a></li>
+                <li><a class="waves-effect" href="messages.html">消息与通知</a></li>
+                <li><a class="waves-effect" href="graduates.html">毕业生查询</a></li>
+                <li><a class="waves-effect" href="alumni.html">校友实名认证</a></li>
+                <li><a class="waves-effect" href="student.html">学生实名认证</a></li>
+                <li><a class="waves-effect" href="https://nfls.io/quickaction.php?action=logout&noreturn=true">退出</a>
+                </li>
+            </ul>
 
+        </div>
+        <div class="container col s12 m12 l9">
             <div class="section">
                 <ul id="tabs-swipe-demo" class="tabs">
                     <li class="tab col s3"><a class="active" href="#test-swipe-1">论坛</a></li>
                     <li class="tab col s3"><a href="#test-swipe-2">百科</a></li>
                     <li class="tab col s3"><a href="#test-swipe-3">车管所</a></li>
-                    <li class="tab col s3"><a href="#test-swipe-4">MC</a></li>
-                    <li class="tab col s3"><a href="#test-swipe-5">下载</a></li>
                 </ul>
                 <div id="test-swipe-1" class="section">
                     <!----------------------------tab 1---------------------------->
@@ -363,56 +350,6 @@
                                 </div>
                             </form>
                         </div>
-
-
-                        <!----------------end of tab 3------------------------- -->
-                    </div>
-                </div>
-
-
-                <div id="test-swipe-4" class="section">
-                    <div class="x_panel">
-                        <div class="x_title">
-                            <h2><i class="fa fa-cloud-upload"></i>
-                                <h5>Minecraft PC (JAVA VER.) Server mc.nfls.io</h5>
-                            </h2>
-
-                            <ul class="nav navbar-right panel_toolbox">
-                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content">
-                            <p>状态：建设中</p>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-------------------end of tab 4------------------------- -->
-                <div id="test-swipe-5" class="section">
-                    <div class="x_panel">
-                        <div class="x_title">
-                            <h2><i class="fa fa-cloud-upload"></i>
-                                <h5>下载中心（学习资料） dl.nfls.io</h5>
-                            </h2>
-
-                            <ul class="nav navbar-right panel_toolbox">
-                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="x_content">
-                            <p>状态：已激活</p>
-                            <div class="clearfix"></div>
-                            <div class="ln_solid"></div>
-                            <div class="form-group">
-                                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                                    <button type="button" class="btn btn-success" onclick="GotoDl()">进入下载中心</button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -422,7 +359,7 @@
 
 <script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 <script src="js/head_material.js"></script>
-<script src="js/service_inweb.js"></script>
+<script src="js/service.js"></script>
 <script>loaddata();</script>
 </body>
 </html>

@@ -20,6 +20,7 @@ TO-DO：ui修正 & datepicker
     <script type="text/javascript" src="../bower_components/materialize/dist/js/materialize.min.js"></script>
     <script src="../bower_components/jquery.cookie/jquery.cookie.js"></script>
     <script src="../bower_components/jquery-validation/dist/jquery.validate.js"></script>
+
 </head>
 <body>
 <header>
@@ -31,24 +32,27 @@ TO-DO：ui修正 & datepicker
             </div>
         </div>
     </nav>
-    <div class="container">
-    </div>
-    <ul id="nav-mobile" class="side-nav fixed">
-        <li>
-            <div class="userView blue">
-                <img class="circle" id="avatar">
-                <span class="white-text name" id="user_name"></span>
-                <!--<span class="white-text email">tianzundibei@163.com</span>-->
-            </div>
-        </li>
-        <li><a class="waves-effect" href="personal_info.html">账户综合信息</a></li>
-        <li><a class="waves-effect" href="associated_service.html">站内关联服务</a></li>
-        <li><a class="waves-effect" href="messages.html">消息与通知</a></li>
-        <li><a class="waves-effect" href="user_identity.html">实名认证</a></li>
-        <li><a class="waves-effect" href="https://nfls.io/quickaction.php?action=logout&noreturn=true">退出</a></li>
-    </ul>
 </header>
 <main>
+    <div class="col s12 m4 l3">
+        <ul id="nav-mobile" class="side-nav fixed">
+            <li>
+                <div class="userView blue">
+                    <img class="circle" id="avatar">
+                    <span class="white-text name" id="user_name"></span>
+                    <!--<span class="white-text email">tianzundibei@163.com</span>-->
+                </div>
+            </li>
+            <li><a class="waves-effect" href="info.html">账户综合信息</a></li>
+            <li><a class="waves-effect" href="service.html">站内关联服务</a></li>
+            <li><a class="waves-effect" href="messages.html">消息与通知</a></li>
+            <li><a class="waves-effect" href="graduates.html">毕业生查询</a></li>
+            <li><a class="waves-effect" href="alumni.html">校友实名认证</a></li>
+            <li><a class="waves-effect" href="student.html">学生实名认证</a></li>
+            <li><a class="waves-effect" href="https://nfls.io/quickaction.php?action=logout&noreturn=true">退出</a></li>
+        </ul>
+
+    </div>
     <div class="container col s12 m9 l10">
         <div class="container col s12 m9 l10">
 
@@ -173,8 +177,7 @@ TO-DO：ui修正 & datepicker
                         <div class="input-field col s12">
                             <select id="primary_school_no" onchange="updatePrimaryForm()">
                                 <option value="-1">其他学校</option>
-                                <option value="1">南京外国语学校小学部（4年制）</option>
-                                <option value="2">南京外国语学校小学部（2年制）</option>
+                                <option value="1">基础教育小学课程</option>
                             </select>
                             <label>小学就读学校</label>
                         </div>
@@ -215,7 +218,8 @@ TO-DO：ui修正 & datepicker
                         <div class="input-field col s12">
                             <select id="junior_school_no" onchange="updatePrimaryForm()">
                                 <option value="-1">其他学校</option>
-                                <option value="1">南京外国语学校初中部</option>
+                                <option value="1">普通初中课程</option>
+                                <option value="2">基础教育初中课程</option>
                             </select>
                             <label>初中就读学校</label>
                         </div>
@@ -263,11 +267,14 @@ TO-DO：ui修正 & datepicker
                         <div class="input-field col s12">
                             <select id="senior_school_no" onchange="updatePrimaryForm()">
                                 <option value="-1">其他学校</option>
-                                <option value="1">南京外国语学校普高</option>
-                                <option value="2">南京外国语学校IB国际课程（国际文凭）班</option>
-                                <option value="3">南京外国语学校剑桥国际课程（A-Level）班</option>
-                                <option value="4">南京外国语学校中加（BCA）实验班</option>
-                                <!--<option value="5">南京外国语学校优飞核心课程班（中澳班）</option>-->
+                                <option value="1">普通高中课程</option>
+                                <option value="2">IB国际课程</option>
+                                <option value="3">A-Level国际课程</option>
+                                <option value="4">中加国际课程</option>
+                                <option value="5">新南威尔士大学预科课程</option>
+                                <option value="6">中师课程</option>
+                                <option value="7">日语代培课程</option>
+                                <option value="8">基础教育高中课程</option>
                             </select>
                             <label>高中就读学校</label>
                         </div>
@@ -567,7 +574,7 @@ TO-DO：ui修正 & datepicker
     </div>
 </main>
 <script>
-    document.write("<s"+"cript type='text/javascript' src='js/user_identity.js?"+Math.random()+"'></scr"+"ipt>");
+    document.write("<s"+"cript type='text/javascript' src='js/alumni.js?"+Math.random()+"'></scr"+"ipt>");
 </script>
 <script src="js/head_material.js"></script>
 <script>
