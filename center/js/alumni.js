@@ -158,9 +158,10 @@ function gotoStep(step) {
             $('#nfls_junior_info').hide();
             break;
         case 4:
-            $('#nfls_international_info').hide();
-            $('#nfls_senior_info').hide();
-            $('#nfls_senior_general').hide();
+            $('#senior_school_div').hide(500);
+            $('#nfls_international_info').hide(500);
+            $('#nfls_senior_info').hide(500);
+            $('#nfls_senior_general').hide(500);
             break;
         case 6:
             $('#college_info').hide();
@@ -230,6 +231,7 @@ function initializePicker($step) {
             },
             crossDomain: true,
             success: function (message) {
+                /*
                 $('.yearpicker').pickadate({
                     format: "yyyy",
                     min: [message.min_year, message.min_month, message.min_day],
@@ -237,6 +239,7 @@ function initializePicker($step) {
                     selectMonths: true,
                     selectYears: 100
                 });
+                */
             },
         });
     else
@@ -334,6 +337,7 @@ function updatePrimaryForm() {
                     $('#nfls_junior_info').hide(500);
                     break;
                 case '1':
+                case '2':
                     $('#junior_school_div').hide(500);
                     $('#nfls_junior_info').show(500);
                     break;
@@ -342,6 +346,12 @@ function updatePrimaryForm() {
         case "4":
             var select = $('#senior_school_no').val();
             switch (select) {
+                case '-2':
+                    $('#senior_school_div').hide(500);
+                    $('#nfls_international_info').hide(500);
+                    $('#nfls_senior_info').hide(500);
+                    $('#nfls_senior_general').hide(500);
+                    break;
                 case '-1':
                     $('#senior_school_div').show(500);
                     $('#nfls_international_info').hide(500);
@@ -358,8 +368,16 @@ function updatePrimaryForm() {
                 case '3':
                 case '4':
                 case '5':
+                case '8':
                     $('#senior_school_div').hide(500);
                     $('#nfls_international_info').show(500);
+                    $('#nfls_senior_general').show(500);
+                    $('#nfls_senior_info').hide(500);
+                    break;
+                case '6':
+                case '7':
+                    $('#senior_school_div').hide(500);
+                    $('#nfls_international_info').hide(500);
                     $('#nfls_senior_general').show(500);
                     $('#nfls_senior_info').hide(500);
                     break;

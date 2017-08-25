@@ -44,6 +44,7 @@ TO-DO：ui修正 & datepicker
                 </div>
             </li>
             <li><a class="waves-effect" href="info.html">账户综合信息</a></li>
+            <li><a class="waves-effect" href="security.html">安全与隐私</a></li>
             <li><a class="waves-effect" href="service.html">站内关联服务</a></li>
             <li><a class="waves-effect" href="messages.html">消息与通知</a></li>
             <li><a class="waves-effect" href="graduates.html">毕业生查询</a></li>
@@ -80,7 +81,8 @@ TO-DO：ui修正 & datepicker
                         </div>
                         <div class="card-action">
                             <div class="row s12">
-                                <a style="margin:5px" onclick="init()" id="reset" class="waves-effect waves-light orange btn col s5"><i
+                                <a style="margin:5px" onclick="init()" id="reset"
+                                   class="waves-effect waves-light orange btn col s5"><i
                                         class="material-icons left">restore</i>重置</a>
                                 <a style="margin:5px" onclick="submitInfo(0)" id="clear"
                                    class="waves-effect waves-light red accent-4 btn col s5"><i
@@ -140,24 +142,6 @@ TO-DO：ui修正 & datepicker
                         <div class="input-field col s12">
                             <input id="birthday" type="text" class="birthdaypicker">
                             <label>出生日期</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="phone_domestic" type="text">
-                            <label>手机号码（国内）</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="phone_international" type="text">
-                            <label>手机号码（国外）</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="nickname" type="text">
-                            <label>昵称</label>
                         </div>
                     </div>
                     <div class="row">
@@ -266,14 +250,15 @@ TO-DO：ui修正 & datepicker
                     <div class="row">
                         <div class="input-field col s12">
                             <select id="senior_school_no" onchange="updatePrimaryForm()">
+                                <option value="-2">无高中学历</option>
                                 <option value="-1">其他学校</option>
                                 <option value="1">普通高中课程</option>
                                 <option value="2">IB国际课程</option>
                                 <option value="3">A-Level国际课程</option>
                                 <option value="4">中加国际课程</option>
                                 <option value="5">新南威尔士大学预科课程</option>
-                                <option value="6">中师课程</option>
-                                <option value="7">日语代培课程</option>
+                                <option value="6">日语代培课程</option>
+                                <option value="7">中师课程</option>
                                 <option value="8">基础教育高中课程</option>
                             </select>
                             <label>高中就读学校</label>
@@ -363,7 +348,7 @@ TO-DO：ui修正 & datepicker
                 <form class="col s12" id="form6">
                     <p>STEP 6/8 - 大学信息</p>
                     <p>
-                        <input type="checkbox" id="college" onchange="checkboxChanged('college')" />
+                        <input type="checkbox" id="college" onchange="checkboxChanged('college')"/>
                         <label for="college">专科</label>
                     </p>
                     <div class="row" id="college_info">
@@ -487,8 +472,20 @@ TO-DO：ui修正 & datepicker
                 <form class="col s12" id="form7">
                     <p>STEP 7/8 - 工作信息</p>
                     <div class="input-field col s12">
+                        <input id="career" type="text" class="yearpicker">
+                        <label>从事行业</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="company_name" type="text" class="yearpicker">
+                        <label>公司名称</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="job" type="text" class="yearpicker">
+                        <label>职称</label>
+                    </div>
+                    <div class="input-field col s12">
                         <textarea id="work_info" class="materialize-textarea"></textarea>
-                        <label for="work_info">工作信息</label>
+                        <label for="work_info">工作简介</label>
                     </div>
                 </form>
             </div>
@@ -499,6 +496,26 @@ TO-DO：ui修正 & datepicker
                     <div class="input-field col s12">
                         <textarea id="personal_info" class="materialize-textarea"></textarea>
                         <label for="personal_info">个人简介</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="phone_domestic" type="text">
+                        <label>手机号码（国内）</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="phone_international" type="text">
+                        <label>手机号码（国外）</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="nickname" type="text">
+                        <label>昵称</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="live_place" type="text">
+                        <label>常住地区</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="clubs" type="text">
+                        <label>在南外参加过的社团</label>
                     </div>
                     <div class="input-field col s12">
                         <input id="wechat" type="text">
@@ -560,7 +577,10 @@ TO-DO：ui修正 & datepicker
                         <input id="instagram" type="text">
                         <label>Instagram</label>
                     </div>
-
+                    <div class="input-field col s12">
+                        <input id="other_com" type="text">
+                        <label>其他</label>
+                    </div>
 
 
                 </form>
@@ -574,7 +594,7 @@ TO-DO：ui修正 & datepicker
     </div>
 </main>
 <script>
-    document.write("<s"+"cript type='text/javascript' src='js/alumni.js?"+Math.random()+"'></scr"+"ipt>");
+    document.write("<s" + "cript type='text/javascript' src='js/alumni.js?" + Math.random() + "'></scr" + "ipt>");
 </script>
 <script src="js/head_material.js"></script>
 <script>
