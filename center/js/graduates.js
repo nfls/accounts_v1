@@ -32,30 +32,42 @@ function loadCaptcha(){
 function submit(){
     var name = document.getElementById("name").value;
     var captcha = document.getElementById("captcha_text").value;
-
-    $.ajax({
-        type: "POST",
-        url: "https://api.nfls.io/student/query",
-        xhrFields: {
-            withCredentials: true
-        },
-        data: {
-            name: name,
-            session: session,
-            captcha: captcha
-        },
-        dataType: "json",
-        success: function (message) {
-            $("#list").empty();
-            if(message.code == 200 ){
-                $.each(message.info, function(index,value){
-                   $("#list").append('<li class="collection-item">' + value + '</li>');
-                });
-                $("#message").text("查询成功！");
-            } else {
-                $("#message").text(message.info);
+    if(name != "" && captcha != ""){
+        $.ajax({
+            type: "POST",
+            url: "https://api.nfls.io/student/query",
+            xhrFields: {
+                withCredentials: true
+            },
+            data: {
+                name: name,
+                session: session,
+                captcha: captcha
+            },
+            dataType: "json",
+            success: function (message) {
+                $("#list").empty();
+                if(message.code == 200 ){
+                    i = 0
+                    $.each(message.info, function(index,value){
+                        $("#list").append('<li class="collection-item">' + value + '</li>');
+                        i++;
+                    });
+                    if(i>0)
+                        $("#list").show();
+                    else
+                        $("#list").hide();
+                    $("#message").text("查询成功！共 "+i+"条结果。");
+                } else {
+                    $("#message").text(message.info);
+                    $("#list").hide();
+                }
+                loadCaptcha();
+                $("#captcha_text").val("");
             }
-        }
+        })
+    } else {
+        $("#message").text("请填写所有的字段！");
+    }
 
-    })
 }

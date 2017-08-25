@@ -1,0 +1,184 @@
+<!--
+TO-DO：ui修正 & datepicker
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="0">
+    <title>NFLS.IO 用户中心 | User Center</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link type="text/css" rel="stylesheet" href="../bower_components/materialize/dist/css/materialize.min.css"
+          media="screen,projection"/>
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../bower_components/materialize/dist/js/materialize.min.js"></script>
+    <script src="../bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script src="../bower_components/jquery-validation/dist/jquery.validate.js"></script>
+
+</head>
+<body>
+<header>
+    <nav class="top-nav blue">
+        <div class="container">
+            <div class="nav-wrapper blue"><a class="page-title"></a>
+                <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
+                    <i class="material-icons">menu</i></a>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="col s12 m4 l3">
+        <ul id="nav-mobile" class="side-nav fixed">
+            <li>
+                <div class="userView blue">
+                    <img class="circle" id="avatar">
+                    <span class="white-text name" id="user_name"></span>
+                    <!--<span class="white-text email">tianzundibei@163.com</span>-->
+                </div>
+            </li>
+            <li><a class="waves-effect" href="info.html">账户综合信息</a></li>
+            <li><a class="waves-effect" href="security.html">安全与隐私</a></li>
+            <li><a class="waves-effect" href="service.html">站内关联服务</a></li>
+            <li><a class="waves-effect" href="messages.html">消息与通知</a></li>
+            <li><a class="waves-effect" href="graduates.html">毕业生查询</a></li>
+            <li><a class="waves-effect" href="alumni.html">校友实名认证</a></li>
+            <li><a class="waves-effect" href="student.html">学生实名认证</a></li>
+            <li><a class="waves-effect" href="https://nfls.io/quickaction.php?action=logout&noreturn=true">退出</a></li>
+        </ul>
+
+    </div>
+    <div class="container col s12 m9 l10">
+        <div class="container col s12 m9 l10">
+            <div class="row">
+                <div class="col s12">
+                    <div class="card blue lighten-5">
+                        <div class="card-content black-text">
+                            <span class="card-title">密码修改</span>
+                        </div>
+                        <div class="card-action">
+                            <div class="row s12">
+                                <div class="col s12">
+                                    <img id="captcha_password" width="300px" onclick="loadCaptcha()">
+                                </div>
+                                <div class="input-field col s12">
+                                    <input id="captcha_password_text" type="text">
+                                    <label>验证码</label>
+                                </div>
+                                <a onclick="changePassword()"
+                                   class="waves-effect waves-light red accent-4 btn col s12"><i
+                                        class="material-icons left">create</i>修改
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="card blue lighten-5">
+                        <div class="card-content black-text">
+                            <span class="card-title">邮箱修改</span>
+                        </div>
+                        <div class="card-action">
+                            <div class="row s12">
+                                <div class="input-field col s12">
+                                    <input id="password_email" type="password">
+                                    <label>当前账户密码</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <input id="email" type="email">
+                                    <label>新的邮箱</label>
+                                </div>
+                                <div class="col s12">
+                                    <img id="captcha_email" width="300px" onclick="loadCaptcha()">
+                                </div>
+                                <div class="input-field col s12">
+                                    <input id="captcha_email_text" type="text">
+                                    <label>验证码</label>
+                                </div>
+                                <a onclick="changeEmail()"
+                                   class="waves-effect waves-light red accent-4 btn col s12"><i
+                                        class="material-icons left">create</i>修改
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="card blue lighten-5">
+                        <div class="card-content">
+                            <span class="card-title">清除所有登录设备（需要重新登录）</span>
+                        </div>
+                        <div class="card-action">
+                            <div class="row s12">
+                                <div class="input-field col s12">
+                                    <input id="password_reset" type="password">
+                                    <label>当前账户密码</label>
+                                </div>
+                                <div class="col s12">
+                                    <img id="captcha_reset" width="300px" onclick="loadCaptcha()">
+                                </div>
+                                <div class="input-field col s12">
+                                    <input id="captcha_reset_text" type="text">
+                                    <label>验证码</label>
+                                </div>
+                                <a onclick="changeToken()"
+                                   class="waves-effect waves-light red accent-4 btn col s12"><i
+                                        class="material-icons left">phonelink_erase</i>清除
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="card blue lighten-5">
+                        <div class="card-content">
+                            <span class="card-title">二次认证</span>
+                        </div>
+                        <div class="card-action">
+                            <div class="row s12">
+                                <p>
+                                    1. 我们推荐使用Google Authenticator，Authy作为二次认证客户端。您可使用客户端扫描下方二维码，或手动输入下面的字符（如果询问用户名随便起一个自己能记住的就行了，看到"基于时间"一类的字样一定要打勾），完成后，
+                                    您需要将显示的代码填入下方对于框内确认开启；<br/>
+                                    2. 开启二次认证后，所有敏感操作军训要输入二次认证码，二次认证码基于时间生成，可确保您的账户不被盗取；<br/>
+                                    3. 一旦启用二次认证，部分查询限额将会得到提升；<br/>
+                                    4. 如果丢失手机等需要取消的话，请联系管理员；<br/>
+                                    5. iOS设备上在激活二次认证后可使用Touch ID进行快速认证。<br/>
+                                </p>
+                                <div class="col s12">
+                                    <img id="2fa_barcode" width="300px">
+                                </div>
+                                <div class="input-field col s12">
+                                    <input id="password_2fa" type="password">
+                                    <label>当前账户密码</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <input id="code_2fa" type="password">
+                                    <label>二次认证代码</label>
+                                </div>
+                                <a onclick="enable2fa()"
+                                   class="waves-effect waves-light red accent-4 lighten-3 btn col s12"><i
+                                        class="material-icons left">security</i>启用
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/security.js"></script>
+    <script src="js/head_material.js"></script>
+</main>
+</body>

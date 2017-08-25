@@ -60,7 +60,9 @@ TO-DO：ui修正 & datepicker
             <div class="row" id="step1">
                 <form class="col s12" id="form1">
                     <div class="row">
-                        <p id="info"></p>
+                        <div class="col s12">
+                            <p id="info"></p>
+                        </div>
                         <div class="input-field col s12">
                             <input id="name" type="text">
                             <label>姓名</label>
@@ -76,9 +78,11 @@ TO-DO：ui修正 & datepicker
                             <a style="margin:5px" onclick="submit()" id="submit" class="waves-effect waves-light orange btn col s5"><i
                                     class="material-icons left">done</i>提交</a>
                         </div>
-                        <p id="message"></p>
                         <div class="col s12">
-                            <ul id="list" class="collection">
+                            <p id="message"></p>
+                        </div>
+                        <div class="col s12">
+                            <ul id="list" class="collection" hidden>
                             </ul>
                         </div>
                     </div>
@@ -86,6 +90,7 @@ TO-DO：ui修正 & datepicker
             </div>
         </div>
     </div>
+    <script src="js/head_material.js"></script>
     <script src="js/graduates.js"></script>
 </main>
 </body>
