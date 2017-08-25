@@ -156,21 +156,27 @@ TO-DO：ui修正 & datepicker
                                     4. 如果丢失手机等需要取消的话，请联系管理员；<br/>
                                     5. iOS设备上在激活二次认证后可使用Touch ID进行快速认证。<br/>
                                 </p>
-                                <div class="col s12">
-                                    <img id="2fa_barcode" width="300px">
+                                <div id = "enable_zone">
+                                    <div class="col s12">
+                                        <img id="2fa_barcode" width="300px">
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="key_2fa" type="text" disabled>
+                                        <label>认证密钥</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="password_2fa" type="password">
+                                        <label>当前账户密码</label>
+                                    </div>
+                                    <div class="input-field col s12">
+                                        <input id="code_2fa" type="password">
+                                        <label>认证码</label>
+                                    </div>
+                                    <a onclick="enable2fa()"
+                                       class="waves-effect waves-light red accent-4 lighten-3 btn col s12"><i
+                                            class="material-icons left">security</i>启用
+                                    </a>
                                 </div>
-                                <div class="input-field col s12">
-                                    <input id="password_2fa" type="password">
-                                    <label>当前账户密码</label>
-                                </div>
-                                <div class="input-field col s12">
-                                    <input id="code_2fa" type="password">
-                                    <label>二次认证代码</label>
-                                </div>
-                                <a onclick="enable2fa()"
-                                   class="waves-effect waves-light red accent-4 lighten-3 btn col s12"><i
-                                        class="material-icons left">security</i>启用
-                                </a>
                             </div>
                         </div>
                     </div>
