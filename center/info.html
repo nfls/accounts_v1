@@ -26,105 +26,94 @@
 
 <!-- page content -->
 <main>
-    <div class="col s12 m4 l3">
-        <ul id="nav-mobile" class="side-nav fixed">
-            <li>
-                <div class="userView blue">
-                    <img class="circle" id="avatar">
-                    <span class="white-text name" id="user_name"></span>
-                    <!--<span class="white-text email">tianzundibei@163.com</span>-->
-                </div>
-            </li>
-            <li><a class="waves-effect" href="info.html">账户综合信息</a></li>
-            <li><a class="waves-effect" href="security.html">安全与隐私</a></li>
-            <li><a class="waves-effect" href="service.html">站内关联服务</a></li>
-            <li><a class="waves-effect" href="messages.html">消息与通知</a></li>
-            <li><a class="waves-effect" href="graduates.html">毕业生查询</a></li>
-            <li><a class="waves-effect" href="alumni.html">校友实名认证</a></li>
-            <li><a class="waves-effect" href="student.html">学生实名认证</a></li>
-            <li><a class="waves-effect" href="https://nfls.io/quickaction.php?action=logout&noreturn=true">退出</a></li>
-        </ul>
+    <div class="row">
+        <div class="col s12 m4 l3">
+            <ul id="nav-mobile" class="side-nav fixed">
+                <li>
+                    <div class="userView blue">
+                        <img class="circle" id="avatar">
+                        <span class="white-text name" id="user_name"></span>
+                        <!--<span class="white-text email">tianzundibei@163.com</span>-->
+                    </div>
+                </li>
+                <li><a class="waves-effect" href="info.html">账户综合信息</a></li>
+                <li><a class="waves-effect" href="security.html">安全与隐私</a></li>
+                <li><a class="waves-effect" href="service.html">站内关联服务</a></li>
+                <li><a class="waves-effect" href="messages.html">消息与通知</a></li>
+                <li><a class="waves-effect" href="graduates.html">毕业生查询</a></li>
+                <li><a class="waves-effect" href="alumni.html">校友实名认证</a></li>
+                <li><a class="waves-effect" href="student.html">学生实名认证</a></li>
+                <li><a class="waves-effect" href="https://nfls.io/quickaction.php?action=logout&noreturn=true">退出</a>
+                </li>
+            </ul>
 
-    </div>
-    <div class="container col s12 m11 l11">
-        <div class="container">
-            <div class="row">
-                <div class="col s12">
-                    <div class="container">
-                        <!--  Outer row  -->
-                        <div class="row">
-
-                            <div class="section">
-                                <div class="section scrollspy" id="personalinfo">
-                                    <p class="promo-caption">用户信息</p>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input disabled value="Loading" id="id" type="text" class="validate">
-                                            <label>用户ID</label>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input disabled value="Loading" id="join_time" type="text" class="validate">
-                                            <label>加入时间</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input disabled value="Loading" id="username" type="text" class="validate">
-                                            <label>用户名</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input disabled value="Loading" id="email" type="text" class="validate">
-                                            <label>邮箱</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input disabled value="Loading" id="avatar_path" type="text"
-                                                   class="validate">
-                                            <label>头像地址</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input disabled value="gpd穿女装" id="password" type="password"
-                                                   class="validate">
-                                            <label>密码</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="checkbox col-md-9 col-sm-9 col-xs-12" id="not_activated">
-                                        <label><input type="checkbox" class="flat"
-                                                      disabled="disabled">未激活（请验证您的邮箱）</label>
-                                    </div>
-                                    <div class="checkbox col-md-9 col-sm-9 col-xs-12" id="is_activated">
-                                        <input type="checkbox" class="flat" disabled="disabled" checked="checked">已激活
-                                    </div>
-
-                                    <div class="ln_solid"></div>
-
-                                    <div class="form-group">
-                                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                                            <button type="button" class="btn btn-danger" onclick="edit()">修改</button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        </form>
+        </div>
+        <div class="container col s12 m12 l9">
+            <div class="section scrollspy" id="personalinfo">
+                <p class="promo-caption">用户信息</p>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input disabled value="Loading" id="id" type="text" class="validate">
+                        <label>用户ID</label>
                     </div>
                 </div>
+
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input disabled value="Loading" id="join_time" type="text" class="validate">
+                        <label>加入时间</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input disabled value="Loading" id="username" type="text" class="validate">
+                        <label>用户名</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input disabled value="Loading" id="email" type="text" class="validate">
+                        <label>邮箱</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input disabled value="Loading" id="avatar_path" type="text"
+                               class="validate">
+                        <label>头像地址</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input disabled value="gpd穿女装" id="password" type="password"
+                               class="validate">
+                        <label>密码</label>
+                    </div>
+                </div>
+
+                <div class="checkbox col-md-9 col-sm-9 col-xs-12" id="not_activated">
+                    <label><input type="checkbox" class="flat"
+                                  disabled="disabled">未激活（请验证您的邮箱）</label>
+                </div>
+                <div class="checkbox col-md-9 col-sm-9 col-xs-12" id="is_activated">
+                    <input type="checkbox" class="flat" disabled="disabled" checked="checked">已激活
+                </div>
+
+                <div class="ln_solid"></div>
+
+                <div class="form-group">
+                    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                        <button type="button" class="btn btn-danger" onclick="edit()">修改</button>
+                    </div>
+                </div>
+
             </div>
+
         </div>
     </div>
 </main>

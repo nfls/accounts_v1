@@ -13,7 +13,7 @@ $.ajax({
     success: function (message) {
         $("#list").empty();
         if(message.code == 200 ){
-            $("#info").text(message.info);
+            $("#info").html(message.info);
         } else {
             $("#info").text("服务器异常，请稍候再试");
         }
@@ -78,7 +78,9 @@ function selectItem(index){
             } else {
                 $("#message").text('"' + $("#class_" + index).html() + '"记录添加失败。');
             }
-
+        },
+        error: function(message){
+            $("#message").text('"' + $("#class_" + index).html() + '"记录添加失败。');
         }
     });
 }
@@ -101,6 +103,9 @@ function deselectItem(index){
                 $("#message").text("删除失败。");
             }
 
+        },
+        error: function (message){
+            $("#message").text("删除失败。");
         }
     });
 }
