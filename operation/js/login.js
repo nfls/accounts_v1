@@ -49,14 +49,13 @@ $('.login').on('submit', function (e) {
                     //alert("token=" + message.token + ";" + "expires=" + date.getTime()+30*24*60*60*1000 + ";" + "domain=" + "nfls.io" + "; secure");
                     date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
                     document.cookie = "token=" + message.info.token + ";" + "expires=" + date.toUTCString() + 30 * 24 * 60 * 60 * 1000 + ";" + "domain=" + "nfls.io" + "; secure; path=/";
-                    LoginAssociate(user, pass, message.info.token );
                     $this.addClass('ok');
                     $state.html('Welcome back!');
                     setTimeout(function () {
                         if (returnurl == "")
-                            window.location.href = "https://nfls.io/quickaction.php?action=refreshwiki";
+                            window.location.href = "https://center.nfls.io/center/";
                         else
-                            window.location.href = "https://nfls.io/quickaction.php?action=refreshwiki&return=" + encodeURI(returnurl);
+                            window.location.href = returnurl;
                     }, 1000);
                 } else {
                     $this.addClass('error');
@@ -98,89 +97,4 @@ function loadCaptcha(){
             session = message["info"]["session"];
         }
     })
-}
-
-function LoginAssociate(user, pass, token) {
-    $.ajax({
-        type: "GET",
-        async: false,
-        url: "https://api.nfls.io/center/wikiLogin",
-        xhrFields: {
-            withCredentials: true
-        },
-        dataType: "json",
-        success: function (message) {
-            try {
-                var cookie = message.info;
-                for (var i in cookie) {
-                    var ncookie = String(message.info[i]);
-                    ncookie = ncookie.substr(0, ncookie.length - 8);
-                    document.cookie = ncookie;
-                }
-            }
-            catch (err) {
-
-            }
-        },
-        error: function (message) {
-        }
-    });
-    var date = new Date();
-    date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
-    //$("#wikilogin").attr({"disabled":"disabled"});
-    $.ajax({
-        type: "GET",
-        async: false,
-        url: "https://api.nfls.io/center/shareLogin",
-        xhrFields: {
-            withCredentials: true
-        },
-        dataType: "json",
-        success: function (message) {
-            try {
-                var cookie = message.info;
-                for (var i in cookie) {
-                    var ncookie = message.info[i];
-                    document.cookie = i + "=" + message[i] + ";" + "expires=" + date.toUTCString() + ";" + "domain=" + "nfls.io" + "; secure; path=/";
-
-                }
-            }
-            catch (err) {
-            }
-
-        },
-        error: function (message) {
-        }
-    });
-
-    $.ajax({
-        type: "POST",
-        async: false,
-        url: "https://api.nfls.io/center/forumLogin",
-        data: {
-            username: user,
-            password: pass,
-            token: token
-        },
-        xhrFields: {
-            withCredentials: true
-        },
-        dataType: "json",
-        success: function (message) {
-            var cookie = message.info;
-            for (var i in cookie) {
-                var ncookie = String(message.info[i]);
-                ncookie = ncookie.substr(0, ncookie.length - 8);
-                if (i == 0)
-                    ncookie = ncookie + "domain=nfls.io ;expires=" + date.toUTCString() + ";";
-                console.log(ncookie);
-                document.cookie = ncookie;
-
-            }
-        },
-        error: function (message) {
-        }
-    });
-
-
 }

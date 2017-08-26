@@ -11,11 +11,11 @@ if (window.location.host == "center.nfls.io" || window.location.host == "login.n
         m.parentNode.insertBefore(a, m)
     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
     ga('create', 'UA-92193639-8', 'auto');
-    ga('send', 'pageview');if ($.cookie("token") == null || $.cookie("flarum_remember") == null)
+    ga('send', 'pageview');
+    if ($.cookie("token") == null)
         logout();
-    getData();
-
 }
+getData();
 
 $(".button-collapse").sideNav();
 $('.collapsible').collapsible();
@@ -67,53 +67,6 @@ function getData() {
         },
     });
 
-    $.ajax({
-        type: "GET",
-        url: "https://api.nfls.io/center/wikiInfo",
-        dataType: "json",
-        xhrFields: {
-            withCredentials: true
-        },
-        success: function (message) {
-            //var json_mes=$.parseJSON(message)
-            if (message.status == "succeed") {
-                if (message.id == 200) {
-                    if ($.cookie("nfls_wiki_wiki_Token") == null || $.cookie("nfls_wiki_wiki_UserID") == null || $.cookie("nfls_wiki_wiki_UserName") == null)
-                        logout();
-                }
-            }
-            else {
-
-            }
-
-        },
-        error: function (message) {
-        }
-    });
-
-    $.ajax({
-        type: "GET",
-        url: "https://api.nfls.io/center/shareInfo",
-        xhrFields: {
-            withCredentials: true
-        },
-        dataType: "json",
-        success: function (message) {
-            if (message.status == "succeed") {
-                if (message.id == 200) {
-                    if ($.cookie("c_secure_login") == null || $.cookie("c_secure_pass") == null || $.cookie("c_secure_ssl") == null || $.cookie("c_secure_tracker_ssl") == null)
-                        logout();
-                }
-            }
-            else {
-
-            }
-
-        },
-        error: function (message) {
-        }
-    });
-    //setTimeout("getData()",50);
 }
 
 function logout() {
