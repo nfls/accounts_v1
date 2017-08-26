@@ -31,6 +31,18 @@ function get2fakey(){
         }
     })
 }
+function changeToken(){
+    $.ajax({
+        type: "GET",
+        url: "https://api.nfls.io/center/regenToken",
+        xhrFields: {
+            withCredentials: true
+        },
+        success: function (message) {
+            location.reload();
+        }
+    })
+}
 function enable2fa(){
     $.ajax({
         type: "POST",
