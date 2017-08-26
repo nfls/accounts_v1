@@ -48,6 +48,9 @@ function getData() {
             }
 
         },
+        error: function (message) {
+            logout();
+        }
     });
 
     $.ajax({
