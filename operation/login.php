@@ -245,7 +245,6 @@ footer a, footer a:link {
         <script src="ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
         <script src="js/login.js"></script>
-		<script src="https://login.nfls.io/center/service_inweb.js"></script>
 		<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 
     

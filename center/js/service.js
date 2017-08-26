@@ -96,53 +96,6 @@ function loaddata()
 		error: function (message) {
 		}
 	});
-
-	$.ajax({
-		type: "GET",
-		url: "https://api.nfls.io/center/shareInfo",
-		dataType: "json",
-        xhrFields: {
-            withCredentials: true
-        },
-		success: function (message) {
-			//var json_mes=$.parseJSON(message)
-			if(message.status=="succeed")
-			{
-				message = message.info;
-				//alert(message);
-				document.getElementById("share_id").value=message.user_id;
-				document.getElementById("share_username").value=message.user_name;
-				document.getElementById("share_regtime").value=message.user_registration;
-				document.getElementById("share_logtime").value=message.user_touched;
-				document.getElementById("share_ip").value=message.user_ip;
-				if(message.user_ip=="")
-					document.getElementById("share_ip").placeholder="无";
-				document.getElementById("share_downloaded").value=message.user_downloaded;
-				document.getElementById("share_uploaded").value=message.user_uploaded;
-				if(message.id==-1)
-				{
-					var obj = document.getElementById("share_is_activated");
-					obj.style.display= "none";
-					var obj = document.getElementById("details_share");
-					obj.style.display= "none";
-				}
-				else
-				{
-					var obj = document.getElementById("share_not_activated");
-					obj.style.display= "none";
-				}
-					
-				//document.getElementById("wiki_username").value=message.username;
-			}
-			else
-			{
-
-			}
-				
-		},
-		error: function (message) {
-		}
-	});
 }
 
 function GenerateWikiAccount()
