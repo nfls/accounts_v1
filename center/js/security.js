@@ -3,6 +3,7 @@
  */
 get2fakey();
 $("#enable_zone").hide();
+getCardCount();
 function edit()
 {
     window.location.href="https://forum.nfls.io/settings";
@@ -36,6 +37,24 @@ function changeToken(){
         }
     })
 }
+function changeUsername(){
+    $.ajax({
+        type: "POST",
+        url: "https://api.nfls.io/center/rename",
+        data: {
+            name: $("#username").val()
+        },
+        xhrFields: {
+            withCredentials: true
+        },
+        success: function (message){
+            location.reload();
+        },
+        error: function (message) {
+            location.reload();
+        }
+    })
+}
 function enable2fa(){
     $.ajax({
         type: "POST",
@@ -52,6 +71,18 @@ function enable2fa(){
         },
         error: function (message) {
             $("#result").text("开启失败！请重新输入再试。");
+        }
+    })
+}
+function getCardCount(){
+    $.ajax({
+        type: "GET",
+        url: "https://api.nfls.io/center/card",
+        xhrFields: {
+            withCredentials: true
+        },
+        success: function (message) {
+            $("#info").text("提示：您当前共有 " + message.info.rename_cards + "张改名卡");
         }
     })
 }
