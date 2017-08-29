@@ -406,6 +406,8 @@ function selectClub(selected){
     $.each(selected, function(index,value){
         str = value + ",";
     });
+    if(str == "")
+        str == " ";
     $("#clubs").val(str);
 }
 
