@@ -1,18 +1,11 @@
 /**
  * Created by hqy on 2017/8/25.
  */
-loadCaptcha();
 get2fakey();
 $("#enable_zone").hide();
-function loadCaptcha(){
-    $.ajax({
-        type: "GET",
-        url: "https://api.nfls.io/center/loginCaptcha",
-        success: function (message){
-            document.getElementById('captcha_email').setAttribute( 'src', message["info"]["captcha"] );
-            session = message["info"]["session"];
-        }
-    })
+function edit()
+{
+    window.location.href="https://forum.nfls.io/settings";
 }
 function get2fakey(){
     $.ajax({

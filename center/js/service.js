@@ -103,6 +103,9 @@ function GenerateWikiAccount()
 	$("#wikigen").attr({"disabled":"disabled"});
 	$.ajax({
 		type: "GET",
+        xhrFields: {
+            withCredentials: true
+        },
 		url: "https://api.nfls.io/center/wikiRegister",
 		dataType: "json",
 		success: function (message) {	

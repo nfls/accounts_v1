@@ -295,6 +295,12 @@ function updateForm(message,step) {
     }
 
 }
+$( "select" )
+    .change(function () {
+        setTimeout(function(){
+            $('select').material_select();
+        },500);
+    });
 function serverError() {
     showMessage('与服务器通讯出现故障，请检查您的网络或是刷新重试。如果错误反复出现，请与网站管理员联系');
 }

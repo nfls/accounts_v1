@@ -62,51 +62,19 @@ TO-DO：ui修正 & datepicker
                 <div class="col s12">
                     <div class="card blue lighten-5">
                         <div class="card-content black-text">
-                            <span class="card-title">密码修改/清除登录</span>
+                            <span class="card-title">操作</span>
                         </div>
                         <div class="card-action">
-                            <div class="row s12"><a onclick="changePassword()"
-                                                    class="waves-effect waves-light blue lighten-3 btn col s12"><i
-                                    class="material-icons left">create</i>修改密码
-                                </a>
-                            </div>
                             <div class="row s12">
-                                <a onclick="changeToken()"
+                                <a onclick="edit()"
                                    class="waves-effect waves-light blue lighten-3 btn col s12"><i
                                         class="material-icons left">phonelink_erase</i>清除登录
                                 </a>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12">
-                    <div class="card blue lighten-5">
-                        <div class="card-content black-text">
-                            <span class="card-title">邮箱修改</span>
-                        </div>
-                        <div class="card-action">
-                            <div class="row s12">
-                                <div class="input-field col s12">
-                                    <input id="password_email" type="password">
-                                    <label>当前账户密码</label>
-                                </div>
-                                <div class="input-field col s12">
-                                    <input id="email" type="email">
-                                    <label>新的邮箱</label>
-                                </div>
-                                <div class="col s12">
-                                    <img id="captcha_email" width="300px" onclick="loadCaptcha()">
-                                </div>
-                                <div class="input-field col s12">
-                                    <input id="captcha_email_text" type="text">
-                                    <label>验证码</label>
-                                </div>
-                                <a onclick="changeEmail()"
-                                   class="waves-effect waves-light blue lighten-3 btn col s12"><i
-                                        class="material-icons left">create</i>修改
-                                </a>
+                            <div class="row s12"><a onclick="edit()"
+                                                    class="waves-effect waves-light blue lighten-3 btn col s12"><i
+                                    class="material-icons left">create</i>修改密码或邮箱
+                            </a>
                             </div>
                         </div>
                     </div>
