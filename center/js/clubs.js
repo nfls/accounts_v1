@@ -9,25 +9,23 @@ now = 0;
 loadInfo();
 submit();
 id = 0;
+selected = [];
 if(window.opener == null)
     $("#save").attr('disabled','disabled');
 else
     $("#save").removeAttr('disabled');
+
 function dataCheck(){
     var select = $('#school_country').val();
-    if($("#school_shortName").val() == "" || $("#school_name").val() == "")
+    if($("#club_name").val() == "" || $("#club_comments").val() == "")
         return false;
-    if(select != "CN"){
-        if($("#school_chineseName").val() == "" || $("#school_chineseShortName").val() == "")
-            return false;
-    }
     return true;
 }
 function save(){
     if(window.opener != null){
         if(dataCheck()){
             saveInfo();
-            window.opener.selectUni(id);
+            window.opener.selectClub(selected);
             window.close();
         } else {
             saveInfo();
@@ -37,17 +35,52 @@ function save(){
     }
 
 }
-function newSchool(){
+function addToMyList(){
+    if(window.opener != null){
+        if(dataCheck()){
+            saveInfo();
+            selected.push(id);
+            reloadMyList();
+        } else {
+            saveInfo();
+        }
+    } else {
+        $("#message").text("通讯错误！请重新使用实名认证中的相关表格中打开本页面！");
+    }
+}
+function reloadMyList(){
+    $.uniqueSort(selected);
+    $("#list_chosen").empty();
+    $.each(selected,function(index,value){
+        $.ajax({
+            type: "POST",
+            url: "https://api.nfls.io/club/get",
+            xhrFields: {
+                withCredentials: true
+            },
+            data: {
+                id: value
+            },
+            dataType: "json",
+            success: function (message) {
+                $("#list_chosen").append('<li id="class_remove_' + value + '"onclick="removeItem(' + value + ')" class="collection-item">' + message.info.name + '</li>');
+            }
+        });
+    })
+}
+
+function removeItem(value){
+    index = selected.indexOf(value);
+    if (index > -1) {
+        selected.splice(index, 1);
+    }
+    reloadMyList();
+}
+
+function newClub(){
     action = "new";
-    $("#school_name").val("").change();
-    $("#school_name").prop('disabled', false);
-    $("#school_shortName").val("").change();
-    $("#school_chineseName").val("").change();
-    $("#school_chineseShortName").val("").change();
-    $("#school_comments").val("").change();
-    $("#school_added_by").val("").change();
-    $("#school_country").val("CN");
-    $('#school_country option[value=CN]').attr('selected', 'selected').change();
+    $("#club_name").val("").change();
+    $("#club_comments").val("").change();
     $("#form1").show(1000);
     $('select').material_select();
     id = 0;
@@ -55,7 +88,7 @@ function newSchool(){
 function loadInfo() {
     $.ajax({
         type: "GET",
-        url: "https://api.nfls.io/university/intro",
+        url: "https://api.nfls.io/club/intro",
         xhrFields: {
             withCredentials: true
         },
@@ -65,40 +98,18 @@ function loadInfo() {
         }
     });
 }
-function previous(){
-    if(current - count < 0){
-        $("#message").text("已经是第一页了！");
-    } else {
-        current = current - count;
-        submit();
-    }
-}
-function next(){
-    if(count > now){
-        $("#message").text("已经是最后一页了！");
-        console.log(now);
-    } else {
-        current = current + count;
-        submit();
-    }
-}
 function newQuery(){
-    action = "";
-    current = 0;
-    count = 20;
-    now = 0;
     submit();
 }
 function submit() {
     $.ajax({
         type: "POST",
-        url: "https://api.nfls.io/university/list",
+        url: "https://api.nfls.io/club/list",
         xhrFields: {
             withCredentials: true
         },
         data: {
-            name: $("#name").val(),
-            startFrom: current - 1
+            name: $("#name").val()
         },
         dataType: "json",
         success: function (message) {
@@ -125,17 +136,12 @@ function submit() {
     });
 }
 function updateForm(){
-    var select = $('#school_country').val();
-    if(select == "CN")
-        $("#translation").hide(1000);
-    else
-        $("#translation").show(1000);
 }
 
 function selectItem(i){
     $.ajax({
         type: "POST",
-        url: "https://api.nfls.io/university/get",
+        url: "https://api.nfls.io/club/get",
         xhrFields: {
             withCredentials: true
         },
@@ -144,15 +150,9 @@ function selectItem(i){
         },
         dataType: "json",
         success: function (message) {
-            $("#school_name").val(message.info.name).change();
-            $("#school_name").prop('disabled', true);
-            $("#school_shortName").val(message.info.shortName).change();
-            $("#school_chineseName").val(message.info.chineseName).change();
-            $("#school_chineseShortName").val(message.info.chineseShortName).change();
-            $("#school_comments").val(message.info.comment).change();
-            $("#school_added_by").val(message.info.added_by).change();
-            $("#school_country").val(message.info.country);
-            $('#school_country' + ' option[value=' + message.info.country + ']').attr('selected', 'selected').change();
+            $("#club_name").val(message.info.name).change();
+            $("#club_comments").val(message.info.comment).change();
+            $("#club_added_by").val(message.info.added_by).change();
             $("#form1").show(1000);
             $('select').material_select();
             action = "edit";
@@ -160,24 +160,21 @@ function selectItem(i){
         }
     });
 }
+
 function saveInfo(){
     if(!dataCheck())
         $("#message").text("请填写大学的英文名，英文简称，中文名和中文简称等相关信息！");
     else
         $.ajax({
             type: "POST",
-            url: "https://api.nfls.io/university/" + action,
+            url: "https://api.nfls.io/club/" + action,
             xhrFields: {
                 withCredentials: true
             },
             data: {
                 id: id,
-                name: $("#school_name").val(),
-                shortName: $("#school_shortName").val(),
-                chineseName: $("#school_chineseName").val(),
-                chineseShortName: $("#school_chineseShortName").val(),
-                comment: $("#school_comments").val(),
-                country: $("#school_country").find('option:selected').attr('value')
+                name: $("#club_name").val(),
+                comment: $("#club_comments").val()
             },
             dataType: "json",
             success: function (message) {

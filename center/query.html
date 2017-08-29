@@ -48,6 +48,8 @@ TO-DO：ui修正 & datepicker
                 <li><a class="waves-effect" href="security.html">安全与隐私</a></li>
                 <li><a class="waves-effect" href="service.html">站内关联服务</a></li>
                 <li><a class="waves-effect" href="messages.html">系统通知</a></li>
+                <li><a class="waves-effect" href="query.html">大学名单查询与修改</a></li>
+                <li><a class="waves-effect" href="clubs.html">社团名单查询与修改</a></li>
                 <li><a class="waves-effect" href="alumni.html">校友实名认证</a></li>
                 <li><a class="waves-effect" href="student.html">学生实名认证</a></li>
                 <li><a class="waves-effect" href="https://nfls.io/quickaction.php?action=logout&noreturn=true">退出</a>
@@ -72,21 +74,23 @@ TO-DO：ui修正 & datepicker
                                     <label>学校简写（本地语言）</label>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input id="school_chineseName" type="text">
-                                    <label>学校全名（中文）</label>
+                            <div id = "translation">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="school_chineseName" type="text">
+                                        <label>学校全名（中文）</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="school_chineseShortName" type="text">
+                                        <label>学校简写（中文）</label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="school_chineseShortName" type="text">
-                                    <label>学校简写（中文）</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <select id="school_country">
+                                    <select id="school_country" onchange="updateForm()">
                                         <option value="AF">Afghanistan</option>
                                         <option value="AX">Åland Islands</option>
                                         <option value="AL">Albania</option>
@@ -352,12 +356,25 @@ TO-DO：ui修正 & datepicker
                                     <label>添加者</label>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <a style="margin:5px" onclick="saveInfo()" id="saveInfo"
+                                       class="waves-effect waves-light yellow btn col s5 black-text"><i
+                                            class="material-icons left">done</i>更新大学名称</a>
+                                    <a style="margin:5px" onclick="save()" id="save"
+                                       class="waves-effect waves-light green btn col s5" disabled="false"><i
+                                            class="material-icons left">launch</i>选择这个大学</a>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
                 </form>
                 <form class="col s12" id="form2">
                     <div class="row">
+                        <div class="col s12">
+                            <p id="message"></p>
+                        </div>
+                        <div class="divider"></div>
                         <div class="col s12">
                             <p id="info"></p>
                         </div>
@@ -366,8 +383,18 @@ TO-DO：ui修正 & datepicker
                             <label>学校名称</label>
                         </div>
                         <div class="col s12">
-                            <a style="margin:5px" onclick="submit()" id="submit" class="waves-effect waves-light orange btn col s12"><i
-                                    class="material-icons left">done</i>提交</a>
+                            <a style="margin:5px" onclick="newQuery()" id="submit"
+                               class="waves-effect waves-light orange btn col s5"><i
+                                    class="material-icons left">done</i>提交查询</a>
+                            <a style="margin:5px" onclick="newSchool()" id="new"
+                               class="waves-effect waves-light red accent-4 btn col s5"><i
+                                    class="material-icons left">add</i>新建学校</a>
+                            <a style="margin:5px" onclick="previous()" id="previous"
+                               class="waves-effect waves-light lime accent-2 black-text btn col s5"><i
+                                    class="material-icons left">skip_previous</i>上一页</a>
+                            <a style="margin:5px" onclick="next()" id="next"
+                               class="waves-effect waves-light green btn col s5"><i
+                                    class="material-icons left">skip_next</i>下一页</a><br/>
                         </div>
                         <div class="col s12">
                             <ul id="list" class="collection" hidden>

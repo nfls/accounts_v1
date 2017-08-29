@@ -1,0 +1,141 @@
+<!--
+TO-DO：ui修正 & datepicker
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="0">
+    <title>NFLS.IO 用户中心 | User Center</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link type="text/css" rel="stylesheet" href="../bower_components/materialize/dist/css/materialize.min.css"
+          media="screen,projection"/>
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="../bower_components/materialize/dist/js/materialize.min.js"></script>
+    <script src="../bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script src="../bower_components/jquery-validation/dist/jquery.validate.js"></script>
+
+</head>
+<body>
+<header>
+    <nav class="top-nav blue">
+        <div class="container">
+            <div class="nav-wrapper blue"><a class="page-title"></a>
+                <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
+                    <i class="material-icons">menu</i></a>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="row">
+        <div class="col s12 m4 l3">
+            <ul id="nav-mobile" class="side-nav fixed">
+                <li>
+                    <div class="userView blue">
+                        <img class="circle" id="avatar">
+                        <span class="white-text name" id="user_name"></span>
+                        <!--<span class="white-text email">tianzundibei@163.com</span>-->
+                    </div>
+                </li>
+                <li><a class="waves-effect" href="info.html">账户综合信息</a></li>
+                <li><a class="waves-effect" href="security.html">安全与隐私</a></li>
+                <li><a class="waves-effect" href="service.html">站内关联服务</a></li>
+                <li><a class="waves-effect" href="messages.html">系统通知</a></li>
+                <li><a class="waves-effect" href="query.html">大学名单查询与修改</a></li>
+                <li><a class="waves-effect" href="clubs.html">社团名单查询与修改</a></li>
+                <li><a class="waves-effect" href="alumni.html">校友实名认证</a></li>
+                <li><a class="waves-effect" href="student.html">学生实名认证</a></li>
+                <li><a class="waves-effect" href="https://nfls.io/quickaction.php?action=logout&noreturn=true">退出</a>
+            </ul>
+
+        </div>
+        <div class="container col s12 m12 l9">
+
+            <div class="row">
+                <form class="col s12 " id="form1" hidden>
+                    <div class = "blue lighten-5 card">
+                        <div class = "card-content">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="club_name" type="text">
+                                    <label>社团名称</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="club_comments" type="text">
+                                    <label>备注</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="club_added_by" type="text" disabled>
+                                    <label>添加者</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <a style="margin:5px" onclick="saveInfo()" id="saveInfo"
+                                       class="waves-effect waves-light yellow btn col s5 black-text"><i
+                                            class="material-icons left">done</i>更新社团名称</a>
+                                    <a style="margin:5px" onclick="addToMyList()" id="addToMyList"
+                                       class="waves-effect waves-light yellow btn col s5 black-text"><i
+                                            class="material-icons left">done</i>添加到我的列表下</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <form class="col s12" id="form2">
+                    <div class="row">
+                        <div class="col s12">
+                            <p id="message"></p>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="col s12">
+                            <p id="info"></p>
+                        </div>
+                        <div class = "col s12">
+                            <p> 已选择的社团（单击删除）</p>
+                        </div>
+                        <div class="col s12">
+                            <ul id="list_chosen" class="collection">
+                            </ul>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="name" type="text">
+                            <label>社团名称</label>
+                        </div>
+                        <div class="col s12">
+                            <a style="margin:5px" onclick="newQuery()" id="submit"
+                               class="waves-effect waves-light orange btn col s5"><i
+                                    class="material-icons left">done</i>提交查询</a>
+                            <a style="margin:5px" onclick="newClub()" id="new"
+                               class="waves-effect waves-light red accent-4 btn col s5"><i
+                                    class="material-icons left">add</i>新建社团</a>
+                            <a style="margin:5px" onclick="save()" id="save"
+                               class="waves-effect waves-light green btn col s10" disabled="false"><i
+                                    class="material-icons left">launch</i>保存至认证表格</a>
+                        </div>
+                        <div class="col s12">
+                            <ul id="list" class="collection" hidden>
+                            </ul>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/head_material.js"></script>
+    <script src="js/clubs.js"></script>
+</main>
+</body>

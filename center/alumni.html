@@ -48,6 +48,8 @@ TO-DO：ui修正 & datepicker
                 <li><a class="waves-effect" href="security.html">安全与隐私</a></li>
                 <li><a class="waves-effect" href="service.html">站内关联服务</a></li>
                 <li><a class="waves-effect" href="messages.html">系统通知</a></li>
+                <li><a class="waves-effect" href="query.html">大学名单查询与修改</a></li>
+                <li><a class="waves-effect" href="clubs.html">社团名单查询与修改</a></li>
                 <li><a class="waves-effect" href="alumni.html">校友实名认证</a></li>
                 <li><a class="waves-effect" href="student.html">学生实名认证</a></li>
                 <li><a class="waves-effect" href="https://nfls.io/quickaction.php?action=logout&noreturn=true">退出</a>
@@ -358,8 +360,8 @@ TO-DO：ui修正 & datepicker
                     </p>
                     <div class="row" id="college_info">
                         <div class="input-field col s12">
-                            <input id="college_school" type="text">
-                            <label>专科就读院校</label>
+                            <input id="college_school" value=" " type="text" onclick="uniselect('college')" readonly>
+                            <label>专科就读院校ID</label>
                         </div>
                         <div class="input-field col s12">
                             <input id="college_major" type="text">
@@ -380,8 +382,8 @@ TO-DO：ui修正 & datepicker
                     </p>
                     <div class="row" id="undergraduate_info">
                         <div class="input-field col s12">
-                            <input id="undergraduate_school" type="text">
-                            <label>本科就读院校</label>
+                            <input id="undergraduate_school" value=" " type="text" onclick="uniselect('undergraduate')" readonly>
+                            <label>本科就读院校ID</label>
                         </div>
                         <div class="input-field col s12">
                             <input id="undergraduate_major" type="text">
@@ -402,8 +404,8 @@ TO-DO：ui修正 & datepicker
                     </p>
                     <div class="row" id="master_info">
                         <div class="input-field col s12">
-                            <input id="master_school" type="text">
-                            <label>硕士就读院校</label>
+                            <input id="master_school" value=" " type="text" onclick="uniselect('master')" readonly>
+                            <label>硕士就读院校ID</label>
                         </div>
                         <div class="input-field col s12">
                             <input id="master_major" type="text">
@@ -424,8 +426,8 @@ TO-DO：ui修正 & datepicker
                     </p>
                     <div class="row" id="doctor_info">
                         <div class="input-field col s12">
-                            <input id="doctor_school" type="text">
-                            <label>博士就读院校</label>
+                            <input id="doctor_school" value=" " type="text" onclick="uniselect('doctor')" readonly>
+                            <label>博士就读院校ID</label>
                         </div>
                         <div class="input-field col s12">
                             <input id="doctor_major" type="text">
@@ -769,7 +771,7 @@ TO-DO：ui修正 & datepicker
                         <label>常住国家</label>
                     </div>
                     <div class="input-field col s12">
-                        <input id="clubs" type="text">
+                        <input id="clubs" type="text" value=" " readonly onclick="clubselect()">
                         <label>在南外参加过的社团</label>
                     </div>
                     <div class="input-field col s12">

@@ -395,3 +395,30 @@ function checkboxChanged(name) {
     else
         $('#' + name + '_info').hide(1000);
 }
+var currentReigion = "";
+document.getElementById('college_school').style.pointerEvents = 'auto';
+function selectUni(id){
+    $("#"+currentReigion+"_school").val(id);
+}
+
+function selectClub(selected){
+    str = "";
+    $.each(selected, function(index,value){
+        str = value + ",";
+    });
+    $("#clubs").val(str);
+}
+
+function uniselect(str){
+    currentReigion = str;
+    window.open("query.html");
+}
+
+function clubselect(){
+    form = window.open("clubs.html");
+    form.onload = function() {
+        form.selected = $("#clubs").val().split(",");
+        form.reloadMyList();
+    }
+
+}
