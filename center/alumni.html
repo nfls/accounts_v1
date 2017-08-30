@@ -259,7 +259,8 @@ TO-DO：ui修正 & datepicker
                         <div class="input-field col s12">
                             <select id="senior_school_no" onchange="updatePrimaryForm()">
                                 <option value="-2">无高中学历</option>
-                                <option value="-1">其他学校</option>
+                                <option value="-1">其他国内学校</option>
+                                <option value="-3">其他国外学校（如美高）</option>
                                 <option value="1">普通高中课程</option>
                                 <option value="2">IB国际课程</option>
                                 <option value="3">A-Level国际课程</option>
@@ -356,13 +357,35 @@ TO-DO：ui修正 & datepicker
                 <form class="col s12" id="form6">
                     <p>STEP 6/8 - 大学信息</p>
                     <p>
+                        <input type="checkbox" id="summer" onchange="checkboxChanged('summer')"/>
+                        <label for="summer">夏校</label>
+                    </p>
+                    <div class="row" id="summer_info">
+                        <div class="input-field col s12">
+                            <input id="summer_school" type="text" onclick="uniselect('summer')" readonly>
+                            <label onclick="uniselect('summer')">夏校就读院校ID</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="summer_major" type="text">
+                            <label>主要专业方向</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="summer_start" type="text" class="yearpicker">
+                            <label>入学年份</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="summer_end" type="text" class="yearpicker">
+                            <label>毕业年份</label>
+                        </div>
+                    </div>
+                    <p>
                         <input type="checkbox" id="college" onchange="checkboxChanged('college')"/>
                         <label for="college">专科</label>
                     </p>
                     <div class="row" id="college_info">
                         <div class="input-field col s12">
-                            <input id="college_school" value=" " type="text" onclick="uniselect('college')" readonly>
-                            <label>专科就读院校ID</label>
+                            <input id="college_school" type="text" onclick="uniselect('college')" readonly>
+                            <label onclick="uniselect('college')">专科就读院校ID</label>
                         </div>
                         <div class="input-field col s12">
                             <input id="college_major" type="text">
@@ -383,8 +406,8 @@ TO-DO：ui修正 & datepicker
                     </p>
                     <div class="row" id="undergraduate_info">
                         <div class="input-field col s12">
-                            <input id="undergraduate_school" value=" " type="text" onclick="uniselect('undergraduate')" readonly>
-                            <label>本科就读院校ID</label>
+                            <input id="undergraduate_school" type="text" onclick="uniselect('undergraduate')" readonly>
+                            <label onclick="uniselect('undergraduate')">本科就读院校ID</label>
                         </div>
                         <div class="input-field col s12">
                             <input id="undergraduate_major" type="text">
@@ -405,8 +428,8 @@ TO-DO：ui修正 & datepicker
                     </p>
                     <div class="row" id="master_info">
                         <div class="input-field col s12">
-                            <input id="master_school" value=" " type="text" onclick="uniselect('master')" readonly>
-                            <label>硕士就读院校ID</label>
+                            <input id="master_school" type="text" onclick="uniselect('master')" readonly>
+                            <label onclick="uniselect('master')">硕士就读院校ID</label>
                         </div>
                         <div class="input-field col s12">
                             <input id="master_major" type="text">
@@ -427,8 +450,8 @@ TO-DO：ui修正 & datepicker
                     </p>
                     <div class="row" id="doctor_info">
                         <div class="input-field col s12">
-                            <input id="doctor_school" value=" " type="text" onclick="uniselect('doctor')" readonly>
-                            <label>博士就读院校ID</label>
+                            <input id="doctor_school" type="text" onclick="uniselect('doctor')" readonly>
+                            <label onclick="uniselect('doctor')">博士就读院校ID</label>
                         </div>
                         <div class="input-field col s12">
                             <input id="doctor_major" type="text">
@@ -492,6 +515,19 @@ TO-DO：ui修正 & datepicker
                         <label>职称</label>
                     </div>
                     <div class="input-field col s12">
+                        <select id="work_country" class="crs-country" data-region-id="work_region">
+                        </select>
+                        <label>常住国家</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <select id="work_region"></select>
+                        <label>省/洲/地区</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="work_city" type="text">
+                        <label>城市</label>
+                    </div>
+                    <div class="input-field col s12">
                         <textarea id="work_info" class="materialize-textarea"></textarea>
                         <label for="work_info">工作简介</label>
                     </div>
@@ -531,8 +567,8 @@ TO-DO：ui修正 & datepicker
                         <label>城市</label>
                     </div>
                     <div class="input-field col s12">
-                        <input id="clubs" type="text" value=" " readonly onclick="clubselect()">
-                        <label>在南外参加过的社团</label>
+                        <input id="clubs" type="text" readonly onclick="clubselect()">
+                        <label onclick="clubselect()">在南外参加过的社团</label>
                     </div>
                     <div class="input-field col s12">
                         <input id="wechat" type="text">

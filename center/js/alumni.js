@@ -95,14 +95,14 @@ function submitInfo(action) {
         if ($(this).attr('type') == "checkbox") {
             formInfo[$(this).attr('id')] = ($(this).is(":checked"));
         } else if ($(this).attr('id') != null && $(this).is(":visible"))
-            formInfo[$(this).attr('id')] = $(this).val();
+            formInfo[$(this).attr('id')] = getData_($(this).val());
     });
     $.each($('textarea', '#form' + step), function (k) {
-        formInfo[$(this).attr('id')] = $(this).val();
+        formInfo[$(this).attr('id')] = getData_($(this).val());
     });
     $.each($('select', '#form' + step), function (k) {
         if ($(this).attr('id') != null)
-            formInfo[$(this).attr('id')] = $(this).find('option:selected').attr('value');
+            formInfo[$(this).attr('id')] = getData_($(this).find('option:selected').attr('value'));
     });
     var jsonData = JSON.stringify(formInfo);
     $.ajax({
@@ -132,6 +132,13 @@ function submitInfo(action) {
             serverError();
         }
     });
+}
+function getData_(data){
+    if(isNaN(data)){
+        return data;
+    } else {
+        return parseInt(data);
+    }
 }
 function gotoStep(step) {
     queryInfo(step);
@@ -164,6 +171,7 @@ function gotoStep(step) {
             $('#nfls_senior_general').hide(500);
             break;
         case 6:
+            $('#summer_info').hide();
             $('#college_info').hide();
             $('#master_info').hide();
             $('#doctor_info').hide();
@@ -359,6 +367,7 @@ function updatePrimaryForm() {
                     $('#nfls_senior_general').hide(500);
                     break;
                 case '-1':
+                case '-3':
                     $('#senior_school_div').show(500);
                     $('#nfls_international_info').hide(500);
                     $('#nfls_senior_info').hide(500);
@@ -404,7 +413,7 @@ function checkboxChanged(name) {
 var currentReigion = "";
 document.getElementById('college_school').style.pointerEvents = 'auto';
 function selectUni(id){
-    $("#"+currentReigion+"_school").val(id);
+    $("#"+currentReigion+"_school").val(id).change();
 }
 
 function selectClub(selected){
@@ -412,9 +421,7 @@ function selectClub(selected){
     $.each(selected, function(index,value){
         str = value + ",";
     });
-    if(str == "")
-        str == " ";
-    $("#clubs").val(str);
+    $("#clubs").val(str).change();
 }
 
 function uniselect(str){
