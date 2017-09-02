@@ -16,7 +16,6 @@ else
     $("#save").removeAttr('disabled');
 
 function dataCheck(){
-    var select = $('#school_country').val();
     if($("#club_name").val() == "" || $("#club_comments").val() == "")
         return false;
     return true;
@@ -163,7 +162,7 @@ function selectItem(i){
 
 function saveInfo(){
     if(!dataCheck())
-        $("#message").text("请填写大学的英文名，英文简称，中文名和中文简称等相关信息！");
+        $("#message").text("请填写社团的名称和备注等相关信息！");
     else
         $.ajax({
             type: "POST",

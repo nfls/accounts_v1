@@ -98,7 +98,7 @@ function submit() {
         },
         data: {
             name: $("#name").val(),
-            startFrom: current - 1
+            startFrom: current
         },
         dataType: "json",
         success: function (message) {
