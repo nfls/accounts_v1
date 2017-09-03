@@ -334,7 +334,7 @@ function updatePrimaryForm() {
         case "2":
             var select = $('#primary_school_no').val();
             switch (select) {
-                case '-1':
+                case '0':
                     $('#nfls_primary_info').hide(500);
                     break;
                 case '1':
@@ -346,7 +346,7 @@ function updatePrimaryForm() {
         case "3":
             var select = $('#junior_school_no').val();
             switch (select) {
-                case '-1':
+                case '0':
                     $('#junior_school_div').show(500);
                     $('#nfls_junior_info').hide(500);
                     break;
@@ -360,37 +360,37 @@ function updatePrimaryForm() {
         case "4":
             var select = $('#senior_school_no').val();
             switch (select) {
-                case '-2':
+                case '0':
                     $('#senior_school_div').hide(500);
-                    $('#nfls_international_info').hide(500);
-                    $('#nfls_senior_info').hide(500);
-                    $('#nfls_senior_general').hide(500);
-                    break;
-                case '-1':
-                case '-3':
-                    $('#senior_school_div').show(500);
                     $('#nfls_international_info').hide(500);
                     $('#nfls_senior_info').hide(500);
                     $('#nfls_senior_general').hide(500);
                     break;
                 case '1':
+                case '2':
+                    $('#senior_school_div').show(500);
+                    $('#nfls_international_info').hide(500);
+                    $('#nfls_senior_info').hide(500);
+                    $('#nfls_senior_general').hide(500);
+                    break;
+                case '3':
                     $('#senior_school_div').hide(500);
                     $('#nfls_international_info').hide(500);
                     $('#nfls_senior_info').show(500);
                     $('#nfls_senior_general').show(500);
                     break;
-                case '2':
-                case '3':
                 case '4':
                 case '5':
-                case '8':
+                case '6':
+                case '7':
+                case '10':
                     $('#senior_school_div').hide(500);
                     $('#nfls_international_info').show(500);
                     $('#nfls_senior_general').show(500);
                     $('#nfls_senior_info').hide(500);
                     break;
-                case '6':
-                case '7':
+                case '8':
+                case '9':
                     $('#senior_school_div').hide(500);
                     $('#nfls_international_info').hide(500);
                     $('#nfls_senior_general').show(500);
