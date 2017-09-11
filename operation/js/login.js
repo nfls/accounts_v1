@@ -56,13 +56,13 @@ $('.login').on('submit', function (e) {
                             window.location.href = "https://center.nfls.io/center/";
                         else
                             window.location.href = "https://api.nfls.io/redirect?to=" + encodeURIComponent(returnurl);
-                    }, 1000);
+                    }, 500);
                 } else {
                     $this.addClass('error');
                     $state.html(message.info.message);
                     setTimeout(function () {
-                        window.location.href = "index.php?action=login";
-                    }, 3000);
+                        window.location.href = "index.php?action=login&redir="+returnurl;
+                    }, 1500);
                 }
 
             }
@@ -71,7 +71,7 @@ $('.login').on('submit', function (e) {
                 $state.html(message.message);
                 setTimeout(function () {
                     window.location.href = "index.php?action=login";
-                }, 3000);
+                }, 1500);
 
             }
 
