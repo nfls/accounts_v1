@@ -222,7 +222,9 @@ footer a, footer a:link {
     <input type="text" placeholder="验证码" id="captcha_text"  name="captcha"/>
     <i class="fa fa-flask"></i>
 	<input type="hidden" id="returnurl" value=<?php
-	    if(isset($_SERVER['HTTP_REFERER']))
+	    if(isset($_GET['redir']))
+	        echo '"'.$_GET['redir'].'"';
+	    else if(isset($_SERVER['HTTP_REFERER']))
             echo '"'.$_SERVER['HTTP_REFERER'].'"' ;
         else
 		    echo '""';
