@@ -55,7 +55,7 @@ $('.login').on('submit', function (e) {
                         if (returnurl == "")
                             window.location.href = "https://center.nfls.io/center/";
                         else
-                            window.location.href = "https://api.nfls.io/redirect?to=" + encodeURIComponent(returnurl);
+                            window.location.href = returnurl;
                     }, 500);
                 } else {
                     $this.addClass('error');
