@@ -46,7 +46,7 @@ $('.login').on('submit', function (e) {
                 $state.html('注册成功！请检查您邮箱内的确认邮件。');
                 setTimeout(function () {
                     window.location.href = "index.php?action=login";
-                }, 5000);
+                }, 2000);
 
             }
             else {
@@ -54,7 +54,7 @@ $('.login').on('submit', function (e) {
                 $state.html(message.info.message);
                 setTimeout(function () {
                     window.location.href = "index.php?action=register";
-                }, 5000);
+                }, 1000);
 
             }
 

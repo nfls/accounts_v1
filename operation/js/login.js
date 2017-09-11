@@ -61,7 +61,7 @@ $('.login').on('submit', function (e) {
                     $this.addClass('error');
                     $state.html(message.info.message);
                     setTimeout(function () {
-                        window.location.href = "index.php?action=login&redir="+encodeURI(returnurl);
+                        window.location.href = "index.php?action=login&redir="+encodeURIComponent(returnurl);
                     }, 1500);
                 }
 

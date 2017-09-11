@@ -36,14 +36,14 @@ $('.login').on('submit', function (e) {
                 $state.html('密码恢复邮件已发送至您的邮箱。');
                 setTimeout(function () {
                     window.location.href = "index.php?action=login";
-                }, 5000);
+                }, 2000);
             }
             else {
                 $this.addClass('error');
                 $state.html('没有账户与此邮箱关联。');
                 setTimeout(function () {
                     window.location.href = "index.php?action=forget";
-                }, 3000);
+                }, 1000);
 
             }
 
