@@ -203,23 +203,22 @@ footer a, footer a:link {
 		switch($_GET['reason'])
 		{
 			case "notlogin":
-				echo "<p>您需要登录才能进行操作！</p>";
+				echo "<p>您需要登录才能进行操作！<br/> Login required.</p>";
 				break;
 			case "logout":
-				echo "<p>您已退出！（您看到此界面有可能是部分操作需要重新登陆）</p>";
+				echo "<p>您已退出！<br/> You have successfully logout.</p>";
 				break;
 			default:
-				echo "<p>未知的原因。</p>";
 				break;
 		}
 	}
 	?>
-    <input type="text" placeholder="用户名" id="username" name="username" autofocus/>
+    <input type="text" placeholder="用户名 / Username" id="username" name="username" autofocus/>
     <i class="fa fa-user"></i>
-    <input type="password" placeholder="密码" id="password" name="password"/>
+    <input type="password" placeholder="密码 / Password" id="password" name="password"/>
     <i class="fa fa-key"></i>
     <img id="captcha" width="100%" onclick="loadCaptcha()"></img>
-    <input type="text" placeholder="验证码" id="captcha_text"  name="captcha"/>
+    <input type="text" placeholder="验证码 / Captcha" id="captcha_text"  name="captcha"/>
     <i class="fa fa-flask"></i>
 	<input type="hidden" id="returnurl" value=<?php
 	    if(isset($_GET['redir']))
