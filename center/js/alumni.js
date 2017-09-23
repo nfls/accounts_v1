@@ -22,7 +22,7 @@ function init() {
         crossDomain: true,
         success: function (message) {
             if (message.code == 200)
-                updateInstruction(message.message, "status", false);
+                updateInstruction(message.message, "status", false, true);
             else
                 serverError();
         },
@@ -39,7 +39,7 @@ function init() {
         },
         crossDomain: true,
         success: function (message) {
-            updateInstruction(message.message, "instructions", true);
+            updateInstruction(message.message, "instructions", true, false);
         },
         error: function (message) {
             serverError();
@@ -57,7 +57,7 @@ function init() {
             //showMessage(message.message);
             if (message.code == 200) {
                 gotoStep(message.step);
-                updateInstruction(message.instructions, "tips", true);
+                updateInstruction(message.instructions, "tips", true, false);
             }
 
         },
@@ -316,9 +316,12 @@ function serverError() {
 function showMessage(message) {
     document.getElementById('serverinfo').innerHTML = message;
 }
-function updateInstruction(message, place, number) {
+function updateInstruction(message, place, number, newKind) {
     messageInfo = '';
     $.each(message, function (index, element) {
+        if(newKind){
+            element = element.title + "：" + element.content;
+        }
         if (number)
             messageInfo = messageInfo + (index + 1) + '. ' + element + '<br/>';
         else
