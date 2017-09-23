@@ -195,17 +195,17 @@ footer a, footer a:link {
   <body>
     <div class="wrapper">
   <form class="login">
-  <p class="title">找回密码</p>
-	 <input type="text" placeholder="邮箱" id="email" name="email" autofocus/>
+  <p class="title">Recover Password</p>
+	 <input type="text" placeholder="Email" id="email" name="email" autofocus/>
 	 <i class="fa fa-user"></i>
 	 <img id="captcha" width="100%" onclick="loadCaptcha()"></img>
-         <input type="text" placeholder="验证码" id="captcha_text" name="captcha"/>
+         <input type="text" placeholder="Captcha" id="captcha_text" name="captcha"/>
          <i class="fa fa-flask"></i>
 	 <button>
       <i class="spinner"></i>
-      <span class="state">发送恢复邮件</span>
+      <span class="state">Send Password Recovery Email</span>
     </button>
-	<a href="?action=login">登录</a>
+	<a href="?action=login">Login</a>
   </form>
   </p>
 </div>

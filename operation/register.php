@@ -196,25 +196,25 @@ footer a, footer a:link {
 
     <div class="wrapper">
   <form class="login">
-    <p class="title">注册</p>
-    <input type="text" placeholder="用户名" id="username" name="username" autofocus/>
+    <p class="title">Register</p>
+    <input type="text" placeholder="Username" id="username" name="username" autofocus/>
     <i class="fa fa-user"></i>
-     <input type="email" placeholder="邮箱" id="email" name="email" autofocus/>
+     <input type="email" placeholder="Email" id="email" name="email" autofocus/>
     <i class="fa fa-inbox"></i>
-    <input type="password" placeholder="密码" id="password" name="password"/>
+    <input type="password" placeholder="Password" id="password" name="password"/>
     <i class="fa fa-key"></i>
-    <input type="password" placeholder="确认密码" id="password-repeat" name="password-repeat"/>
+    <input type="password" placeholder="Repeat Password" id="password-repeat" name="password-repeat"/>
     <i class="fa fa-key"></i>
     <img id="captcha" width="100%" onclick="loadCaptcha()"></img>
-    <input type="text" placeholder="验证码" id="captcha_text" name="captcha"/>
+    <input type="text" placeholder="Captcha" id="captcha_text" name="captcha"/>
     <i class="fa fa-flask"></i>
 
-   <a href="?action=login">登录</a> <br/>
-   <a href="?action=privacy">隐私信息</a>
+   <a href="?action=login">Login</a> <br/>
+   <a href="?action=privacy">Privacy Policy</a>
     <button>
     <button>
       <i class="spinner"></i>
-      <span class="state">注册</span>
+      <span class="state">Register</span>
     </button>
   </form>
   </p>

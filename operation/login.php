@@ -195,7 +195,7 @@ footer a, footer a:link {
   <body>
     <div class="wrapper">
   <form class="login">
-    <p class="title">登录</p>
+    <p class="title">Login</p>
     <p id="notice"></p>
     <div id="login_frame" hidden>
 	<?php
@@ -203,22 +203,22 @@ footer a, footer a:link {
 		switch($_GET['reason'])
 		{
 			case "notlogin":
-				echo "<p>您需要登录才能进行操作！<br/> Login required.</p>";
+				echo "<p>Login required.</p>";
 				break;
 			case "logout":
-				echo "<p>您已退出！<br/> You have successfully logout.</p>";
+				echo "<p>You have successfully logout.</p>";
 				break;
 			default:
 				break;
 		}
 	}
 	?>
-    <input type="text" placeholder="用户名 / Username" id="username" name="username" autofocus/>
+    <input type="text" placeholder="Username" id="username" name="username" autofocus/>
     <i class="fa fa-user"></i>
-    <input type="password" placeholder="密码 / Password" id="password" name="password"/>
+    <input type="password" placeholder="Password" id="password" name="password"/>
     <i class="fa fa-key"></i>
     <img id="captcha" width="100%" onclick="loadCaptcha()"></img>
-    <input type="text" placeholder="验证码 / Captcha" id="captcha_text"  name="captcha"/>
+    <input type="text" placeholder="Captcha" id="captcha_text"  name="captcha"/>
     <i class="fa fa-flask"></i>
 	<input type="hidden" id="returnurl" value=<?php
 	    if(isset($_GET['redir']))
@@ -229,12 +229,12 @@ footer a, footer a:link {
 		    echo '""';
 	?>
 	/>
-    <a href="?action=forget">忘记密码</a>
+    <a href="?action=forget">Recover Password</a>
     <br/>
-    <a href="?action=register">注册</a>
+    <a href="?action=register">Register</a>
     <button>
       <i class="spinner"></i>
-      <span class="state">登录</span>
+      <span class="state">Login</span>
     </button>
     </div>
   </form>
