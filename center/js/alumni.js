@@ -274,29 +274,35 @@ function updateForm(message,step) {
     else{
         $.each(message,
             function (index, element) {
-                switch ($("#" + index).get(0).tagName) {
-                    case "INPUT":
-                        if ($('#' + index).attr('type') == "checkbox") {
-                            $('#' + index).prop('checked', element).change();
-                        }
-                        else {
+                try{
+
+                    switch ($("#" + index).get(0).tagName) {
+                        case "INPUT":
+                            if ($('#' + index).attr('type') == "checkbox") {
+                                $('#' + index).prop('checked', element).change();
+                            }
+                            else {
+                                $('#' + index).val(element).change();
+                            }
+                            break;
+                        case "P":
+                            $('#' + index).text(element);
+                            break;
+                        case "SELECT":
+                            $('#' + index).val(element);
+                            $('#' + index + ' option[value=' + element + ']').attr('selected', 'selected').change();
+                            break;
+                        case "TEXTAREA":
                             $('#' + index).val(element).change();
-                        }
-                        break;
-                    case "P":
-                        $('#' + index).text(element);
-                        break;
-                    case "SELECT":
-                        $('#' + index).val(element);
-                        $('#' + index + ' option[value=' + element + ']').attr('selected', 'selected').change();
-                        break;
-                    case "TEXTAREA":
-                        $('#' + index).val(element).change();
-                        $('#' + index).trigger('autoresize');
-                        break;
-                    default:
-                        break;
+                            $('#' + index).trigger('autoresize');
+                            break;
+                        default:
+                            break;
+                    }
+                } catch(err){
+
                 }
+
             }
         );
         $('select').material_select();
