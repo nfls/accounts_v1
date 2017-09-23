@@ -101,7 +101,7 @@ function submitInfo(action) {
         formInfo[$(this).attr('id')] = getData_($(this).val());
     });
     $.each($('select', '#form' + step), function (k) {
-        if ($(this).attr('id') != null && $(this).is(":visible"))
+        if ($(this).attr('id') != null && ($(this).attr('id') !="hide")
             formInfo[$(this).attr('id')] = getData_($(this).find('option:selected').attr('value'));
     });
     var jsonData = JSON.stringify(formInfo);
