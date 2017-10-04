@@ -5,7 +5,6 @@ function submitRegister() {
     var passchk = document.getElementById("password-repeat").value;
     var email = document.getElementById("email").value;
     var captcha = grecaptcha.getResponse();
-    e.preventDefault();
     if (pass != passchk) {
         window.alert("密码不一致!");
         return;
