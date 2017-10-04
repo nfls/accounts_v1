@@ -1,5 +1,11 @@
 var working = false;
 $('.login').on('submit', function (e) {
+    var response = grecaptcha.getResponse();
+    if(response.length == 0){
+        return;
+    } else {
+        console.log(response);
+    }
     var email = document.getElementById("email").value;
     var captcha = document.getElementById("captcha_text").value;
     e.preventDefault();
@@ -9,13 +15,13 @@ $('.login').on('submit', function (e) {
         $state = $this.find('button > .state');
     $this.addClass('loading');
     $state.html('Authenticating');
+
     $.ajax({
         type: "POST",
         url: "https://api.nfls.io/center/recover",
         data: {
             email: email,
-            session: session,
-            captcha: captcha
+            response: response
         },
         dataType: "json",
         success: function (message) {

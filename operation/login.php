@@ -47,7 +47,7 @@
   border-radius: 2px 2px 5px 5px;
   padding: 10px 20px 20px 20px;
   width: 90%;
-  max-width: 320px;
+  max-width: 400px;
   background: #ffffff;
   position: relative;
   padding-bottom: 80px;
