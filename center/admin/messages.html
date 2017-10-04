@@ -103,8 +103,9 @@
             <div class="panel-footer">
                 <div class="btn-group" role="group" aria-label="...">
                     <button type="button" class="btn btn-warning" onclick="add()">新增</button>
-                    <button type="button" class="btn btn-success" onclick="save()">保存</button>
                     <button type="button" class="btn btn-danger" onclick="remove()">删除</button>
+                    <button type="button" class="btn btn-success" onclick="save()">保存</button>
+                    <button type="button" class="btn btn-primary" onclick="upload()">上传图片</button>
                 </div>
             </div>
         </div>
@@ -115,6 +116,14 @@
                 <h3 class="panel-title">历史系统公告</h3>
             </div>
             <div class="panel-body">
+                <div class="form-group">
+                    <select class="form-control" id="filter">
+                        <option value="0">所有</option>
+                        <option value="1">通知公告</option>
+                        <option value="2">系统推送</option>
+                        <option value="3">首页动态</option>
+                    </select>
+                </div>
                 <table class="table" id="submit_user_list">
                     <tr>
                         <th>No.</th>

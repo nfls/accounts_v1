@@ -7,6 +7,9 @@ var offset = 0;
 var on = true;
 var fun = "new";
 var id = 0;
+function upload(){
+    window.open("https://api.nfls.io/admin/uploads");
+}
 function getPermission(){
     $.ajax({
         type: "GET",
@@ -23,6 +26,9 @@ function getPermission(){
         }
     });
 }
+$("#filter").change(function(){
+    initialize();
+});
 function initialize(){
     getPermission();
     document.getElementById("submit_user_list").innerHTML = '<tr><th>No.</th><th>发送时间</th><th>类型</th><th>地点</th><th>接收人</th><th>标题</th><th>操作</th></tr>';
@@ -31,7 +37,8 @@ function initialize(){
         url: url + "admin/message/get",
         dataType: "json",
         data:{
-            startFrom: offset
+            startFrom: offset,
+            place: $("#filter").val()
         },
         xhrFields: {
             withCredentials: true
