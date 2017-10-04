@@ -199,7 +199,7 @@ footer a, footer a:link {
 	 <input type="text" placeholder="Email" id="email" name="email" autofocus/>
 	 <i class="fa fa-user"></i>
 	 <div class="g-recaptcha" data-sitekey="6Lc0GTMUAAAAAARFMMHvdwE14X3nIgoLXx7SF2F5"></div>
-	 <button type="button" onclick="submit()"">
+	 <button type="button" onclick="submitRecover()"">
       <i class="spinner"></i>
       <span class="state">Send Password Recovery Email</span>
     </button>

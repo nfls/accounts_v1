@@ -1,5 +1,5 @@
 var working = false;
-function submit() {
+function submitRecover() {
     var response = grecaptcha.getResponse();
     if(response.length == 0){
         return;
@@ -7,8 +7,6 @@ function submit() {
         console.log(response);
     }
     var email = document.getElementById("email").value;
-    var captcha = document.getElementById("captcha_text").value;
-    e.preventDefault();
     if (working) return;
     working = true;
     var $this = $(this),
