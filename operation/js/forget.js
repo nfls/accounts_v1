@@ -19,7 +19,7 @@ function submitRecover() {
         url: "https://api.nfls.io/center/recover",
         data: {
             email: email,
-            response: response
+            captcha: response
         },
         dataType: "json",
         success: function (message) {
