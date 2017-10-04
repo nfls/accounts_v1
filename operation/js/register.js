@@ -1,31 +1,16 @@
 var working = false;
-var session = "";
-loadCaptcha();
-function loadCaptcha() {
-    $.ajax({
-        type: "GET",
-        url: "https://api.nfls.io/center/registerCaptcha",
-        success: function (message) {
-            document.getElementById('captcha').setAttribute('src', message["info"]["captcha"]);
-            session = message["info"]["session"];
-        }
-    })
-}
-
-$('.login').on('submit', function (e) {
+function submitRegister() {
     var pass = document.getElementById("password").value;
     var user = document.getElementById("username").value;
     var passchk = document.getElementById("password-repeat").value;
     var email = document.getElementById("email").value;
-    var captcha = document.getElementById("captcha_text").value;
+    var captcha = grecaptcha.getResponse();
     e.preventDefault();
     if (pass != passchk) {
         window.alert("密码不一致!");
         return;
     }
-    if (working) return;
-    working = true;
-    var $this = $(this),
+    var $this = $('.login'),
         $state = $this.find('button > .state');
     $this.addClass('loading');
     $state.html('Registering');
@@ -36,14 +21,13 @@ $('.login').on('submit', function (e) {
             username: user,
             password: pass,
             email: email,
-            session: session,
             captcha: captcha
         },
         dataType: "json",
         success: function (message) {
             if (message.info.status == "success") {
                 $this.addClass('ok');
-                $state.html('注册成功！请检查您邮箱内的确认邮件。');
+                $state.html('Register succeeded! You can login now.');
                 setTimeout(function () {
                     window.location.href = "index.php?action=login";
                 }, 2000);
@@ -53,7 +37,9 @@ $('.login').on('submit', function (e) {
                 $this.addClass('error');
                 $state.html(message.info.message);
                 setTimeout(function () {
-                    window.location.href = "index.php?action=register";
+                    $this.removeClass('error loading');
+                    $state.html("Register");
+                    grecaptcha.reset();
                 }, 1000);
 
             }
@@ -63,10 +49,10 @@ $('.login').on('submit', function (e) {
             $state.html('Log in');
             $this.removeClass('ok loading');
             working = false;
-            alert("请求错误，请稍后再试！");
+            alert("Server error, please try again.");
             window.location.href = "index.php?action=register";
         }
     });
 
 
-});
+}

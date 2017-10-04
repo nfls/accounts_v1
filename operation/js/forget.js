@@ -4,7 +4,7 @@ function submitRecover() {
     var email = document.getElementById("email").value;
     if (working) return;
     working = true;
-    var $this = $(this),
+    var $this = $('.login'),
         $state = $this.find('button > .state');
     $this.addClass('loading');
     $state.html('Authenticating');
@@ -18,31 +18,30 @@ function submitRecover() {
         },
         dataType: "json",
         success: function (message) {
-            /*
             if (message.info.status == "success") {
                 $this.addClass('ok');
-                $state.html('密码恢复邮件已发送至您的邮箱。');
+                $state.html('Password recovery email has sent to your email!');
                 setTimeout(function () {
                     window.location.href = "index.php?action=login";
                 }, 2000);
             }
             else {
                 $this.addClass('error');
-                $state.html('没有账户与此邮箱关联。');
+                $state.html('No account was associated with this address.');
                 setTimeout(function () {
-                    window.location.href = "index.php?action=forget";
+                    $this.removeClass('error loading');
+                    $state.html("Send Password Recovery Email");
+                    grecaptcha.reset();
                 }, 1000);
 
             }
-            */
-
         },
         error: function (message) {
             $state.html('Log in');
             $this.removeClass('ok loading');
             working = false;
-            alert("请求错误，请稍后再试！");
-            //window.location.href = "index.php?action=login";
+            alert("Server error, please try again.");
+            window.location.href = "index.php?action=forget";
         }
     });
 

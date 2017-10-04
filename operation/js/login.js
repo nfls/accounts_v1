@@ -57,6 +57,7 @@ function submitLogin()  {
                     setTimeout(function () {
                         $this.removeClass('error loading');
                         $state.html("Login");
+                        grecaptcha.reset();
                     }, 1500);
                 }
 
@@ -75,7 +76,7 @@ function submitLogin()  {
             $state.html('Log in');
             $this.removeClass('ok loading');
             working = false;
-            alert("请求错误，请稍后再试！");
+            alert("Server error, please try again.");
             window.location.href = "index.php?action=login";
         }
     });
