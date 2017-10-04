@@ -47,7 +47,7 @@
   border-radius: 2px 2px 5px 5px;
   padding: 10px 20px 20px 20px;
   width: 90%;
-  max-width: 350px;
+  max-width: 345px;
   background: #ffffff;
   position: relative;
   padding-bottom: 80px;
@@ -198,8 +198,8 @@ footer a, footer a:link {
   <p class="title">Recover Password</p>
 	 <input type="text" placeholder="Email" id="email" name="email" autofocus/>
 	 <i class="fa fa-user"></i>
-	 <div class="g-recaptcha" data-theme="dark" data-size="full" data-sitekey="6Lc0GTMUAAAAAARFMMHvdwE14X3nIgoLXx7SF2F5"></div>
-	 <button>
+	 <div class="g-recaptcha" data-sitekey="6Lc0GTMUAAAAAARFMMHvdwE14X3nIgoLXx7SF2F5"></div>
+	 <button type="button">
       <i class="spinner"></i>
       <span class="state">Send Password Recovery Email</span>
     </button>
