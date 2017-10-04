@@ -22,8 +22,6 @@ function submitLogin()  {
     var user = document.getElementById("username").value;
     var captcha = grecaptcha.getResponse();
     var returnurl = document.getElementById("returnurl").value;
-    if (working) return;
-    working = true;
     var $this = $('.login'),
         $state = $this.find('button > .state');
     $this.addClass('loading');
@@ -58,6 +56,7 @@ function submitLogin()  {
                     $state.html(message.info.message);
                     setTimeout(function () {
                         $this.removeClass('error loading');
+                        $state.html("Login");
                     }, 1500);
                 }
 
