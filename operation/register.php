@@ -6,8 +6,8 @@
     <title>注册 - 南京外国语学校在线社区 | Nanjing Foreign Language School Online Community</title>
 	<meta name="keywords" content="NFLS, 南外, 南京外国语学校, 南京外校, Nanjing Foreign Language School">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src='https://www.recaptcha.net/recaptcha/api.js'></script>
     <link rel="stylesheet" href="css/normalize.css">
 
     
@@ -47,7 +47,7 @@
   border-radius: 2px 2px 5px 5px;
   padding: 10px 20px 20px 20px;
   width: 90%;
-  max-width: 320px;
+  max-width: 345px;
   background: #ffffff;
   position: relative;
   padding-bottom: 80px;
@@ -205,9 +205,7 @@ footer a, footer a:link {
     <i class="fa fa-key"></i>
     <input type="password" placeholder="Repeat Password" id="password-repeat" name="password-repeat"/>
     <i class="fa fa-key"></i>
-    <img id="captcha" width="100%" onclick="loadCaptcha()"></img>
-    <input type="text" placeholder="Captcha" id="captcha_text" name="captcha"/>
-    <i class="fa fa-flask"></i>
+    <div class="g-recaptcha" data-sitekey="6Lc0GTMUAAAAAARFMMHvdwE14X3nIgoLXx7SF2F5"></div>
 
    <a href="?action=login">Login</a> <br/>
    <a href="?action=privacy">Privacy Policy</a>
