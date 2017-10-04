@@ -1,30 +1,9 @@
 var working = false;
-var session = "";
-loadCaptcha();
-$.ajax({
-    type: "GET",
-    url: "https://api.nfls.io/center/notice",
-    dataType: "json",
-    success: function (message) {
-        if (message.status == "succeed") {
-            if(message.info.allow == true){
-                $("#login_frame").show();
-                console.log("tes");
-            }
-            if(message.info.message != ""){
-                $("#notice").html(message.info.message);
-            } else {
-                $("#notice").hide();
-            }
-        }
-    }
-});
-$('.login').on('submit', function (e) {
+function submitLogin() {
     var pass = document.getElementById("password").value;
     var user = document.getElementById("username").value;
-    var captcha = document.getElementById("captcha_text").value;
+    var captcha = grecaptcha.getResponse();
     var returnurl = document.getElementById("returnurl").value;
-    e.preventDefault();
     if (working) return;
     working = true;
     var $this = $(this),
@@ -37,7 +16,6 @@ $('.login').on('submit', function (e) {
         data: {
             username: user,
             password: pass,
-            session: session,
             captcha: captcha
         },
         dataType: "json",
@@ -61,7 +39,7 @@ $('.login').on('submit', function (e) {
                     $this.addClass('error');
                     $state.html(message.info.message);
                     setTimeout(function () {
-                        window.location.href = "index.php?action=login&redir="+encodeURIComponent(returnurl);
+                        $this.removeClass('error loading');
                     }, 1500);
                 }
 
@@ -86,15 +64,4 @@ $('.login').on('submit', function (e) {
     });
 
 
-});
-
-function loadCaptcha(){
-    $.ajax({
-        type: "GET",
-        url: "https://api.nfls.io/center/loginCaptcha",
-        success: function (message){
-            document.getElementById('captcha').setAttribute( 'src', message["info"]["captcha"] );
-            session = message["info"]["session"];
-        }
-    })
 }

@@ -1,11 +1,6 @@
 var working = false;
 function submitRecover() {
     var response = grecaptcha.getResponse();
-    if(response.length == 0){
-        return;
-    } else {
-        console.log(response);
-    }
     var email = document.getElementById("email").value;
     if (working) return;
     working = true;
