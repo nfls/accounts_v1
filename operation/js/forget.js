@@ -1,16 +1,4 @@
 var working = false;
-var session = "";
-loadCaptcha();
-function loadCaptcha() {
-    $.ajax({
-        type: "GET",
-        url: "https://api.nfls.io/center/recoverCaptcha",
-        success: function (message) {
-            document.getElementById('captcha').setAttribute('src', message["info"]["captcha"]);
-            session = message["info"]["session"];
-        }
-    })
-}
 $('.login').on('submit', function (e) {
     var email = document.getElementById("email").value;
     var captcha = document.getElementById("captcha_text").value;
