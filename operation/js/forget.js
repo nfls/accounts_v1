@@ -49,7 +49,7 @@ $('.login').on('submit', function (e) {
             $this.removeClass('ok loading');
             working = false;
             alert("请求错误，请稍后再试！");
-            window.location.href = "index.php?action=login";
+            //window.location.href = "index.php?action=login";
         }
     });
 
