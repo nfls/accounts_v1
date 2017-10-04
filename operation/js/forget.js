@@ -25,6 +25,7 @@ $('.login').on('submit', function (e) {
         },
         dataType: "json",
         success: function (message) {
+            /*
             if (message.info.status == "success") {
                 $this.addClass('ok');
                 $state.html('密码恢复邮件已发送至您的邮箱。');
@@ -40,6 +41,7 @@ $('.login').on('submit', function (e) {
                 }, 1000);
 
             }
+            */
 
         },
         error: function (message) {
