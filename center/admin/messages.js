@@ -7,8 +7,25 @@ var offset = 0;
 var on = true;
 var fun = "new";
 var id = 0;
+function getPermission(){
+    $.ajax({
+        type: "GET",
+        url: url + "admin/message/permission",
+        dataType: "json",
+        xhrFields: {
+            withCredentials: true
+        },
+        success: function (message) {
+           $("#permission").text("当前权限：" + message.info);
+        },
+        error: function (message) {
+            ///转跳
+        }
+    });
+}
 function initialize(){
-    document.getElementById("submit_user_list").innerHTML = '<tr><th>No.</th><th>发送时间</th><th>类型</th><th>接收人</th><th>标题</th><th>操作</th></tr>';
+    getPermission();
+    document.getElementById("submit_user_list").innerHTML = '<tr><th>No.</th><th>发送时间</th><th>类型</th><th>地点</th><th>接收人</th><th>标题</th><th>操作</th></tr>';
     $.ajax({
         type: "GET",
         url: url + "admin/message/get",
@@ -63,15 +80,20 @@ function loadList(mes, i) {
     if(mes["id"] == 1){
         on = false;
     }
-    document.getElementById("submit_user_list").innerHTML += '<tr><th>' + mes["id"] + '</th>' + '<th>' + mes["time"] + '</th>' + '<th>' + mes["type"] + '</th>' + '<th>' + mes["receiver"] + '<th>' + mes["title"] + '</th>' + '</th><th><button type="button" class="btn btn-default" onclick="loadDetail(' + mes["id"] + ')">编辑</button></th></tr>';
+    document.getElementById("submit_user_list").innerHTML += '<tr><th>' + mes["id"] + '</th>' + '<th>' + mes["time"] + '</th>' + '<th>' + mes["type"] + '</th>' + '<th>' + getLocation(mes["place"]) + '</th>' + '<th>' + mes["receiver"] + '<th>' + mes["title"] + '</th>' + '</th><th><button type="button" class="btn btn-default" onclick="loadDetail(' + mes["id"] + ')">编辑</button></th></tr>';
 }
 $("#place").change(function(){
+    $("#site").val("none").change();
     switch($(this).val()){
         case "1":
-        case "3":
+        case "2":
+            $("#site").show();
+            $("#url").attr("placeholder","地址，请输入'*.nfls.io/'后面的内容，如d/26(论坛)");
             $("#img_div").hide();
             break;
-        case "2":
+        case "3":
+            $("#site").hide();
+            $("#url").attr("placeholder","请粘贴完整站内地址，https开头，客户端会自动识别");
             $("#img_div").show();
             break;
         default:
@@ -101,9 +123,14 @@ function loadDetail(id){
             $("#time").val(message.info.time);
             $("#groups").val(message.info.groups);
             $("#receiver").val(message.info.receiver);
-            var conf = JSON.parse(message.info.conf);
-            $("#site").val(conf.type).change();
-            $("#url").val(conf.url).change();
+            if(message.info.place != 3){
+                var conf = JSON.parse(message.info.conf);
+                $("#site").val(conf.type).change();
+                $("#url").val(conf.url).change();
+            } else {
+                $("#url").val(message.info.conf);
+            }
+
 
         },
         error: function (message) {
@@ -143,6 +170,16 @@ function save(){
             alert("修改失败，请检查您的权限或者信息是否填写完整");
         }
     });
+}
+function getLocation(id){
+    switch(id){
+        case 1:
+            return "系统公告";
+        case 2:
+            return "系统推送";
+        case 3:
+            return "首页动态";
+    }
 }
 function add(){
     fun = "new";
