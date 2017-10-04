@@ -1,4 +1,22 @@
 var working = false;
+$.ajax({
+    type: "GET",
+    url: "https://api.nfls.io/center/notice",
+    dataType: "json",
+    success: function (message) {
+        if (message.status == "succeed") {
+            if(message.info.allow == true){
+                $("#login_frame").show();
+                console.log("tes");
+            }
+            if(message.info.message != ""){
+                $("#notice").html(message.info.message);
+            } else {
+                $("#notice").hide();
+            }
+        }
+    }
+});
 function submitLogin() {
     var pass = document.getElementById("password").value;
     var user = document.getElementById("username").value;
