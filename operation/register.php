@@ -211,8 +211,7 @@ footer a, footer a:link {
 
    <a href="?action=login">Login</a> <br/>
    <a href="?action=privacy">Privacy Policy</a>
-    <button>
-    <button>
+    <button type="button" onclick="submitRegister()">
       <i class="spinner"></i>
       <span class="state">Register</span>
     </button>
