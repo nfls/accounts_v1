@@ -230,7 +230,7 @@ footer a, footer a:link {
     <a href="?action=forget">Recover Password</a>
     <br/>
     <a href="?action=register">Register</a>
-    <button type="button" onclick"submitLogin()"">
+    <button type="button" onclick"submitLogin()">
       <i class="spinner"></i>
       <span class="state">Login</span>
     </button>
