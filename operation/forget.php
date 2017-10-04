@@ -198,7 +198,7 @@ footer a, footer a:link {
   <p class="title">Recover Password</p>
 	 <input type="text" placeholder="Email" id="email" name="email" autofocus/>
 	 <i class="fa fa-user"></i>
-	 <div class="g-recaptcha" data-theme="dark" data-size="compact" data-sitekey="6Lc0GTMUAAAAAARFMMHvdwE14X3nIgoLXx7SF2F5"></div>
+	 <div class="g-recaptcha" data-theme="dark" data-size="full" data-sitekey="6Lc0GTMUAAAAAARFMMHvdwE14X3nIgoLXx7SF2F5"></div>
 	 <button>
       <i class="spinner"></i>
       <span class="state">Send Password Recovery Email</span>
