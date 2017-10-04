@@ -17,14 +17,14 @@ $.ajax({
         }
     }
 });
-function submitLogin() {
+function submitLogin()  {
     var pass = document.getElementById("password").value;
     var user = document.getElementById("username").value;
     var captcha = grecaptcha.getResponse();
     var returnurl = document.getElementById("returnurl").value;
     if (working) return;
     working = true;
-    var $this = $(this),
+    var $this = $('.login'),
         $state = $this.find('button > .state');
     $this.addClass('loading');
     $state.html('Authenticating');
