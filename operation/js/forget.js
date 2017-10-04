@@ -1,5 +1,5 @@
 var working = false;
-$('.login').on('submit', function (e) {
+function submit() {
     var response = grecaptcha.getResponse();
     if(response.length == 0){
         return;
