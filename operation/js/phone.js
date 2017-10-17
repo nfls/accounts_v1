@@ -1,25 +1,16 @@
 var working = false;
-function submitRegister() {
-    var pass = document.getElementById("password").value;
-    var user = document.getElementById("username").value;
-    var passchk = document.getElementById("password-repeat").value;
-    var email = document.getElementById("email").value;
+function submitPhone() {
+    var phone = document.getElementById("phone").value;
     var captcha = grecaptcha.getResponse();
-    if (pass != passchk) {
-        window.alert("密码不一致!");
-        return;
-    }
     var $this = $('.login'),
         $state = $this.find('button > .state');
     $this.addClass('loading');
-    $state.html('Registering');
+    $state.html('Submitting');
     $.ajax({
         type: "POST",
-        url: "https://api.nfls.io/center/register",
+        url: "https://api.nfls.io/center/phone",
         data: {
-            username: user,
-            password: pass,
-            email: email,
+            phone: phone,
             captcha: captcha
         },
         dataType: "json",
@@ -49,7 +40,7 @@ function submitRegister() {
             $this.removeClass('ok loading');
             working = false;
             alert("Server error, please try again.");
-            window.location.href = "index.php?action=register";
+            window.location.href = "phone.php";
         }
     });
 

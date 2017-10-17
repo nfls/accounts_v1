@@ -198,7 +198,7 @@ footer a, footer a:link {
   <form class="login">
     <p class="title">Realname Authorization</p>
     <p>According to Cyberspace Administration Office of China, all users need to confirm their phone numbers and personal information in order to use our service. After you click on 'Submit', you will receive a message with a unique 6-digit code. 根据网信办规定，网站所有用户必须完成实名认证。请在文本框内输入您的手机号，提交之后，您将收到一条带有6位数认证码的短信。</p>
-    <input type="text" placeholder="Phone Number" id="phonr" name="phone" autofocus/>
+    <input type="text" placeholder="Phone Number" id="phone" name="phone" autofocus/>
     <i class="fa fa-key"></i>
     <div class="g-recaptcha" data-sitekey="6Lc0GTMUAAAAAARFMMHvdwE14X3nIgoLXx7SF2F5"></div>
     <button type="button" onclick="submitPhone()">
