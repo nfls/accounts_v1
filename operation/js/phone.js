@@ -39,7 +39,7 @@ function submitPhone() {
             }
             else {
                 $this.addClass('error');
-                $state.html("Invalid captcha or phone number!";
+                $state.html("Invalid captcha or phone number!");
                 setTimeout(function () {
                     $this.removeClass('error loading');
                     $state.html("Submit");
