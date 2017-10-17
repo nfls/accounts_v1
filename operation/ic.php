@@ -215,7 +215,7 @@ footer a, footer a:link {
     <p class="title">在校信息认证</p>
     <p>根据网信部相关规定，在使用本站服务前，您需要绑定您的手机号并提交相关信息。<br/>请在下面填写您的班级信息，注意：恶意填写将导致封号。</p>
     <input type="text" placeholder="中文名" id="chnName" name="chnName" autofocus/><i class="fa fa-user"></i>
-    <input type="text" placeholder="英文名" id="engName" name="engName" autofocus/><i class="fa fa-user-o"></i>
+    <input type="text" placeholder="英文名" id="engName" name="engName" autofocus/><i class="fa fa-user-circle"></i>
     <input type="text" placeholder="班级（如PreIB2，AS1）" id="class" name="class" autofocus/><i class="fa fa-users"></i>
     <button type="button" onclick="submitForm()">
       <i class="spinner"></i>
