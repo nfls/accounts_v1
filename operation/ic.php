@@ -7,9 +7,11 @@
   if($status["info"]["phone"] === true){
     if($status["info"]["ic"] === true){
       header("Location:https://center.nfls.io");
-    }else{
-      header("Location:ic.php");
+      die();
     }
+    
+  }else{
+    header("Location:phone.php");
     die();
   }
 ?>
@@ -210,26 +212,21 @@ footer a, footer a:link {
 
     <div class="wrapper">
   <form class="login">
-    <p class="title">手机号认证</p>
-    <p>根据网信部相关规定，在使用本站服务前，您需要绑定您的手机号并提交相关信息。如果出现任何问题（如没收到短信），请点击重新开始。验证码每个手机号1天内限可发送5次，超出将无法收到。</p>
-    <input type="text" placeholder="Phone Number" id="phone" name="phone" autofocus/>
-    <i class="fa fa-mobile"></i>
-    <div id="code_region" hidden>
-      <input type="text" placeholder="6-Digit Code" id="code" name="code"/>
-      <i class="fa fa-key"></i>
-    </div>
-    <div class="g-recaptcha" data-sitekey="6Lc0GTMUAAAAAARFMMHvdwE14X3nIgoLXx7SF2F5"></div>
+    <p class="title">在校信息认证</p>
+    <p>根据网信部相关规定，在使用本站服务前，您需要绑定您的手机号并提交相关信息。请在下面填写您的班级信息。注意：恶意填写将导致封号。</p>
+    <input type="text" placeholder="中文名" id="chnName" name="chnName" autofocus/><i class="fa fa-mobile"></i>
+    <input type="text" placeholder="英文名" id="engName" name="engName" autofocus/><i class="fa fa-mobile"></i>
+    <input type="text" placeholder="班级（如PreIB2，AS1）" id="class" name="class" autofocus/><i class="fa fa-mobile"></i>
     <button type="button" onclick="submitForm()">
       <i class="spinner"></i>
       <span class="state">提交</span>
     </button>
-    <a href="phone.php">重新开始</a>
   </form>
   </p>
 </div>
         <script src="ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-        <script src="js/phone.js"></script>
+        <script src="js/ic.js"></script>
 
     
     
