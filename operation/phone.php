@@ -211,11 +211,11 @@ footer a, footer a:link {
     <div class="wrapper">
   <form class="login">
     <p class="title">手机号认证</p>
-    <p>根据网信部相关规定，在使用本站服务前，您需要绑定您的手机号并提交相关信息。如果出现任何问题（如没收到短信），请点击重新开始。验证码每个手机号1天内限可发送5次，超出将无法收到。</p>
-    <input type="text" placeholder="Phone Number" id="phone" name="phone" autofocus/>
+    <p>根据网信部相关规定，在使用本站服务前，您需要绑定您的手机号并提交相关信息。<br/>如果出现任何问题（如没收到短信），请点击重新开始，验证码每个手机号超出一定次数后将无法收到。</p>
+    <input type="text" placeholder="手机号" id="phone" name="phone" autofocus/>
     <i class="fa fa-mobile"></i>
     <div id="code_region" hidden>
-      <input type="text" placeholder="6-Digit Code" id="code" name="code"/>
+      <input type="text" placeholder="6位验证码" id="code" name="code"/>
       <i class="fa fa-key"></i>
     </div>
     <div class="g-recaptcha" data-sitekey="6Lc0GTMUAAAAAARFMMHvdwE14X3nIgoLXx7SF2F5"></div>
