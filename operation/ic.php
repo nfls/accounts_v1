@@ -213,11 +213,12 @@ footer a, footer a:link {
     <div class="wrapper">
   <form class="login">
     <p class="title">在校信息认证</p>
-    <p>根据网信办相关规定，在使用本站服务前，您需要绑定您的手机号并提交相关信息。<br/>请在下面填写您的班级信息以启用资源下载功能，注意：恶意填写将导致封号；非国际部学生可跳过该步骤。</p>
+    <p>请在下面填写您的班级信息以启用资源下载功能，注意：恶意填写将导致封号；非国际部在校学生可跳过该步骤，您已完成所有基础认证项目。</p>
+    <p id="status">当前状态：未提交</p>
     <input type="text" placeholder="中文名" id="chnName" name="chnName" autofocus/><i class="fa fa-user"></i>
     <input type="text" placeholder="英文名" id="engName" name="engName" autofocus/><i class="fa fa-user-plus"></i>
     <input type="text" placeholder="班级（如PreIB2，AS1）" id="class" name="class" autofocus/><i class="fa fa-users"></i>
-    <button type="button" onclick="submitForm()">
+    <button type="button" onclick="ajax_submit('POST')" id="submitButton">
       <i class="spinner"></i>
       <span class="state">提交</span>
     </button>
