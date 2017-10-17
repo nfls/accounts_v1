@@ -33,7 +33,7 @@ function submitPhone() {
                     $this.removeClass('error loading');
                     $state.html("Submit");
                     step = 2;
-                    $.("#code_region").show();
+                    $("#code_region").show();
                 }, 2000);
 
             }
