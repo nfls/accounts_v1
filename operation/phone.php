@@ -1,11 +1,16 @@
 <?php
   $status = json_decode(file_get_contents("https://api.nfls.io/center/auth?token=".$_COOKIE['token']),true);
+  if(!isset($_COOKIE["token"])){
+    header("Location:login.php");
+    die();
+  }
   if($status["info"]["phone"] === true){
     if($status["info"]["ic"] === true){
       header("Location:https://center.nfls.io");
     }else{
       header("Location:ic.php");
     }
+    die();
   }
 ?>
 <!DOCTYPE html>
