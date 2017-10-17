@@ -26,7 +26,7 @@ function submitPhone() {
         },
         dataType: "json",
         success: function (message) {
-            if (message.info.status == true) {
+            if (message.info == true) {
                 $this.addClass('ok');
                 $state.html('Submit succeeded! Please check your inbox!');
                 setTimeout(function () {
@@ -80,7 +80,7 @@ function submitCode(){
         },
         dataType: "json",
         success: function (message) {
-            if (message.info.status == true) {
+            if (message.info == true) {
                 $this.addClass('ok');
                 $state.html('Succeeded! You can continue using our services now.');
                 setTimeout(function () {
