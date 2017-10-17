@@ -30,8 +30,9 @@ function submitPhone() {
                 $this.addClass('ok');
                 $state.html('Submit succeeded! Please check your inbox!');
                 setTimeout(function () {
-                    $this.removeClass('error loading');
+                    $this.removeClass('ok loading');
                     $state.html("Submit");
+                    grecaptcha.reset();
                     step = 2;
                     $("#code_region").show();
                 }, 2000);
@@ -84,7 +85,7 @@ function submitCode(){
                 $this.addClass('ok');
                 $state.html('Succeeded! You can continue using our services now.');
                 setTimeout(function () {
-                    $this.removeClass('error loading');
+                    $this.removeClass('ok loading');
                     $state.html("Submit");
                     window.location.href = "https://dl.nfls.io";
                 }, 2000);
