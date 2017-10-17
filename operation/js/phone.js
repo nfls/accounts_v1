@@ -28,10 +28,10 @@ function submitPhone() {
         success: function (message) {
             if (message.info == true) {
                 $this.addClass('ok');
-                $state.html('Submit succeeded! Please check your inbox!');
+                $state.html('发送成功，请检查您的短信收件箱');
                 setTimeout(function () {
                     $this.removeClass('ok loading');
-                    $state.html("Submit");
+                    $state.html("提交");
                     grecaptcha.reset();
                     step = 2;
                     $("#code_region").show();
@@ -40,7 +40,7 @@ function submitPhone() {
             }
             else {
                 $this.addClass('error');
-                $state.html("Invalid captcha or phone number!");
+                $state.html("无效手机号或人机验证码！");
                 setTimeout(function () {
                     $this.removeClass('error loading');
                     $state.html("Submit");
@@ -51,7 +51,7 @@ function submitPhone() {
         },
         error: function (message) {
             $this.addClass('error');
-                $state.html("Invalid captcha or phone number!");
+                $state.html("无效手机号或人机验证码！");
                 setTimeout(function () {
                     $this.removeClass('error loading');
                     $state.html("Submit");
@@ -83,7 +83,7 @@ function submitCode(){
         success: function (message) {
             if (message.info == true) {
                 $this.addClass('ok');
-                $state.html('Succeeded! You can continue using our services now.');
+                $state.html('绑定成功！您可以继续使用本站的所有服务！');
                 setTimeout(function () {
                     $this.removeClass('ok loading');
                     $state.html("Submit");
@@ -93,7 +93,7 @@ function submitCode(){
             }
             else {
                 $this.addClass('error');
-                $state.html("Invalid captcha or code!");
+                $state.html("无效六位码或人机验证码！");
                 setTimeout(function () {
                     $this.removeClass('error loading');
                     $state.html("Submit");
@@ -104,7 +104,7 @@ function submitCode(){
         },
         error: function (message) {
             $this.addClass('error');
-                $state.html("Invalid captcha or code!");
+                $state.html("无效六位码或人机验证码！");
                 setTimeout(function () {
                     $this.removeClass('error loading');
                     $state.html("Submit");

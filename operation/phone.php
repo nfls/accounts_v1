@@ -1,3 +1,13 @@
+<?php
+  $status = json_decode(file_get_contents("https://api.nfls.io/center/auth?token=".$_COOKIE['token']),true);
+  if($status["info"]["phone"] === true){
+    if($status["info"]["ic"] === true){
+      header("Location:https://center.nfls.io");
+    }else{
+      header("Location:ic.php");
+    }
+  }
+?>
 <!DOCTYPE html>
 <html >
   <head>
@@ -195,7 +205,8 @@ footer a, footer a:link {
 
     <div class="wrapper">
   <form class="login">
-    <p class="title">Realname Authorization</p>
+    <p class="title">手机号实名认证</p>
+    <p>根据网信部相关规定，在使用本站服务前，您需要绑定您的手机号并提交相关信息。</p>
     <input type="text" placeholder="Phone Number" id="phone" name="phone" autofocus/>
     <i class="fa fa-mobile"></i>
     <div id="code_region" hidden>
@@ -205,7 +216,7 @@ footer a, footer a:link {
     <div class="g-recaptcha" data-sitekey="6Lc0GTMUAAAAAARFMMHvdwE14X3nIgoLXx7SF2F5"></div>
     <button type="button" onclick="submitForm()">
       <i class="spinner"></i>
-      <span class="state">Submit</span>
+      <span class="state">提交</span>
     </button>
     <a href="phone.php">重新开始</a>
   </form>
