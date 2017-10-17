@@ -13,6 +13,9 @@ function submitPhone() {
             phone: phone,
             captcha: captcha
         },
+        xhrFields: {
+            withCredentials: true
+        },
         dataType: "json",
         success: function (message) {
             if (message.info.status == "success") {
