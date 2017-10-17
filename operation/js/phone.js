@@ -50,7 +50,7 @@ function submitPhone() {
         },
         error: function (message) {
             $this.addClass('error');
-                $state.html("Invalid captcha or phone number!";
+                $state.html("Invalid captcha or phone number!");
                 setTimeout(function () {
                     $this.removeClass('error loading');
                     $state.html("Submit");
@@ -92,7 +92,7 @@ function submitCode(){
             }
             else {
                 $this.addClass('error');
-                $state.html("Invalid captcha or code!";
+                $state.html("Invalid captcha or code!");
                 setTimeout(function () {
                     $this.removeClass('error loading');
                     $state.html("Submit");
@@ -103,7 +103,7 @@ function submitCode(){
         },
         error: function (message) {
             $this.addClass('error');
-                $state.html("Invalid captcha or code!";
+                $state.html("Invalid captcha or code!");
                 setTimeout(function () {
                     $this.removeClass('error loading');
                     $state.html("Submit");
