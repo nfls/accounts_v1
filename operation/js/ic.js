@@ -29,7 +29,7 @@ function ajax_submit(type){
                 $this.addClass('ok');
                 $state.html("提交成功！");
                 setTimeout(function () {
-                    $this.removeClass('error loading');
+                    $this.removeClass('ok loading');
                     $state.html("提交");
                 }, 1000);
             }
