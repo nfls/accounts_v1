@@ -217,7 +217,7 @@ footer a, footer a:link {
     <p id="status">当前状态：未提交</p>
     <input type="text" placeholder="中文名" id="chnName" name="chnName" autofocus/><i class="fa fa-user"></i>
     <input type="text" placeholder="英文名" id="engName" name="engName" autofocus/><i class="fa fa-user-plus"></i>
-    <input type="text" placeholder="班级（如PreIB2，AS1）" id="class" name="class" autofocus/><i class="fa fa-users"></i>
+    <input type="text" placeholder="班级（如PreIB2，AS1）" id="tmpClass" name="tmpClass" autofocus/><i class="fa fa-users"></i>
     <button type="button" onclick="ajax_submit('POST')" id="submitButton">
       <i class="spinner"></i>
       <span class="state">提交</span>
