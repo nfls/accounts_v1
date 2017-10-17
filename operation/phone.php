@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>手机号绑定 - 南京外国语学校在线社区 | Nanjing Foreign Language School Online Community</title>
+    <title>实名认证 - 南京外国语学校在线社区 | Nanjing Foreign Language School Online Community</title>
 	  <meta name="keywords" content="NFLS, 南外, 南京外国语学校, 南京外校, Nanjing Foreign Language School">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -197,14 +196,18 @@ footer a, footer a:link {
     <div class="wrapper">
   <form class="login">
     <p class="title">Realname Authorization</p>
-    <p>According to Cyberspace Administration Office of China, all users need to confirm their phone numbers and personal information in order to use our service. After you click on 'Submit', you will receive a message with a unique 6-digit code. 根据网信办规定，网站所有用户必须完成实名认证。请在文本框内输入您的手机号，提交之后，您将收到一条带有6位数认证码的短信。</p>
     <input type="text" placeholder="Phone Number" id="phone" name="phone" autofocus/>
-    <i class="fa fa-key"></i>
+    <i class="fa fa-mobile"></i>
+    <div id="code_region" hidden>
+      <input type="text" placeholder="6-Digit Code" id="code" name="code"/>
+      <i class="fa fa-key"></i>
+    </div>
     <div class="g-recaptcha" data-sitekey="6Lc0GTMUAAAAAARFMMHvdwE14X3nIgoLXx7SF2F5"></div>
-    <button type="button" onclick="submitPhone()">
+    <button type="button" onclick="submitForm()">
       <i class="spinner"></i>
       <span class="state">Submit</span>
     </button>
+    <a href="phone.php">重新开始</a>
   </form>
   </p>
 </div>
