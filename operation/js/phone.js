@@ -83,11 +83,11 @@ function submitCode(){
         success: function (message) {
             if (message.info == true) {
                 $this.addClass('ok');
-                $state.html('绑定成功！您可以继续使用本站的所有服务！');
+                $state.html('绑定成功！请在下面的表格中填写您的班级信息');
                 setTimeout(function () {
                     $this.removeClass('ok loading');
                     $state.html("Submit");
-                    window.location.href = "https://dl.nfls.io";
+                    window.location.href = "ic.php";
                 }, 2000);
 
             }
