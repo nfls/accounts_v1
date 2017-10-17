@@ -25,7 +25,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">系统公告管理</a>
+            <a class="navbar-brand" href="#">App管理</a>
             <div class="input-group">
 
             </div>
@@ -42,61 +42,44 @@
                 <p id="permission">当前权限</p>
             </div>
         </div>
-        <div class="panel panel-success">
+        <div class="panel panel-warning">
             <div class="panel-heading">
-                <h3 class="panel-title">系统公告管理</h3>
+                <h3 class="panel-title">推送管理</h3>
             </div>
             <div class="panel-body">
                 <div class="form-group">
-                    <label for="place">类型</label>
-                    <select class="form-control" id="place">
-                        <option value="1">通知公告</option>
-                        <option value="2">系统推送</option>
-                        <option value="3">首页动态</option>
-                    </select>
+                    <input class="form-control" id="pushtext" disabled>
                 </div>
-                <div class="form-group">
-                    <label for="type">分类</label>
-                    <select class="form-control" id="type">
-                        <option value="1">测试</option>
-                        <option value="2">通知</option>
-                        <option value="3">公告</option>
-                        <option value="4">预告</option>
-                        <option value="5">推广</option>
-                    </select>
+            </div>
+
+            <div class="panel-footer">
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" class="btn btn-warning" onclick="send()">发送</button>
                 </div>
+            </div>
+        </div>
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">启动画面管理</h3>
+            </div>
+            <div class="panel-body">
                 <div class="form-group">
-                    <input class="form-control" placeholder="标题" id="title">
-                </div>
-                <div class="form-group">
-                    <input class="form-control" placeholder="内容" id="detail">
+                    <input class="form-control" placeholder="版权文字（<br/>为换行符）" id="title">
                 </div>
                 <div class="form-group" id="img_div">
-                    <input class="form-control" placeholder="图片" id="img">
+                    <input class="form-control" placeholder="图片URL" id="url">
                 </div>
-                <div class="form-group">
-                    <label for="type">转跳站点</label>
-                    <select class="form-control" id="site">
-                        <option value="none">无</option>
-                        <option value="forum">论坛</option>
-                        <option value="wiki">百科</option>
-                        <option value="ic">国际部</option>
-                        <option value="alumni">校友会</option>
-                        <option value="game">游戏</option>
-                        <option value="weather">气象站</option>
-                        <option value="live">直播</option>
-                        <option value="video">视频</option>
-                        <option value="media">影音</option>
-                    </select>
+                <div class="form-group" id="start_div">
+                    <input class="form-control" placeholder="起始时间（不填为立即生效）" id="start">
                 </div>
-                <div class="form-group">
-                    <input class="form-control" placeholder="地址，请输入'*.nfls.io/'后面的内容，如d/26(论坛)" id="url">
+                <div class="form-group" id="end_div">
+                    <input class="form-control" placeholder="终止时间（不填为长期有效直至新图片被添加）" id="end">
                 </div>
                 <div class="form-group">
                     <input class="form-control" placeholder="接收人ID" id="receiver">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" placeholder="发送时间" id="time" readonly>
+                    <input class="form-control" placeholder="更新时间" id="time" readonly>
                 </div>
             </div>
 
@@ -113,25 +96,17 @@
     <div class="row" id="history">
         <div class="panel panel-danger">
             <div class="panel-heading">
-                <h3 class="panel-title">历史系统公告</h3>
+                <h3 class="panel-title">历史启动画面</h3>
             </div>
             <div class="panel-body">
-                <div class="form-group">
-                    <select class="form-control" id="filter">
-                        <option value="0">所有</option>
-                        <option value="1">通知公告</option>
-                        <option value="2">系统推送</option>
-                        <option value="3">首页动态</option>
-                    </select>
-                </div>
                 <table class="table" id="submit_user_list">
                     <tr>
                         <th>No.</th>
-                        <th>发送时间</th>
-                        <th>地点</th>
-                        <th>类型</th>
                         <th>接收人</th>
-                        <th>标题</th>
+                        <th>版权说明</th>
+                        <th>起始时间</th>
+                        <th>终止时间</th>
+                        <th>更新时间</th>
                         <th>操作</th>
                     </tr>
                 </table>
@@ -149,6 +124,6 @@
 
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="messages.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

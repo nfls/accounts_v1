@@ -31,10 +31,10 @@ $("#filter").change(function(){
 });
 function initialize(){
     getPermission();
-    document.getElementById("submit_user_list").innerHTML = '<tr><th>No.</th><th>发送时间</th><th>类型</th><th>地点</th><th>接收人</th><th>标题</th><th>操作</th></tr>';
+    document.getElementById("submit_user_list").innerHTML = '<tr><th>No.</th><th>接收人</th><th>版权说明</th><th>起始时间</th><th>终止时间</th><th>更新时间</th><th>操作</th></tr>';
     $.ajax({
         type: "GET",
-        url: url + "admin/message/get",
+        url: url + "admin/picture/get",
         dataType: "json",
         data:{
             startFrom: offset,
@@ -58,7 +58,7 @@ function remove(){
     if(id!=0){
         $.ajax({
             type: "POST",
-            url: url + "admin/message/remove",
+            url: url + "admin/picture/remove",
             dataType: "json",
             data:{
                 id: self.id
@@ -87,7 +87,7 @@ function loadList(mes, i) {
     if(mes["id"] == 1){
         on = false;
     }
-    document.getElementById("submit_user_list").innerHTML += '<tr><th>' + mes["id"] + '</th>' + '<th>' + mes["time"] + '</th>' + '<th>' + mes["type"] + '</th>' + '<th>' + getLocation(mes["place"]) + '</th>' + '<th>' + mes["receiver"] + '<th>' + mes["title"] + '</th>' + '</th><th><button type="button" class="btn btn-default" onclick="loadDetail(' + mes["id"] + ')">编辑</button></th></tr>';
+    document.getElementById("submit_user_list").innerHTML += '<tr><th>' + mes["id"] + '</th>' + '<th>' + mes["receiver"] + '</th>' + '<th>' + mes["text"] + '</th>' + '<th>' + mes["start"] + '</th>' + '<th>' + mes["end"] + '<th>' + mes["time"] + '</th>' + '</th><th><button type="button" class="btn btn-default" onclick="loadDetail(' + mes["id"] + ')">编辑</button></th></tr>';
 }
 $("#place").change(function(){
     $("#site").val("none").change();
@@ -114,31 +114,20 @@ function loadDetail(id){
         data:{
           id:id
         },
-        url: url + "admin/message/detail",
+        url: url + "admin/picture/detail",
         dataType: "json",
         xhrFields: {
             withCredentials: true
         },
         success: function (message) {
             fun = "edit";
-            $("#title").val(message.info.title);
-            $("#detail").val(message.info.detail);
-            $("#img").val(message.info.img);
-            $("#type").val(message.info.type).change();
-            $("#place").val(message.info.place).change();
-            self.id = id;
+            $("#title").val(message.info.text).change();
             $("#time").val(message.info.time).change();
-            $("#groups").val(message.info.groups).change();
+            $("#start").val(message.info.start).change();
+            $("#end").val(message.info.end).change();
             $("#receiver").val(message.info.receiver).change();
-            if(message.info.place != 3){
-                var conf = JSON.parse(message.info.conf);
-                $("#site").val(conf.type).change();
-                $("#url").val(conf.url).change();
-            } else {
-                $("#url").val(message.info.conf);
-            }
-
-
+            $("#url").val(message.info.url).change();
+            self.id = id;
         },
         error: function (message) {
             ///转跳
@@ -151,16 +140,12 @@ function save(){
         data:{
             id:id,
             title:$("#title").val(),
-            detail:$("#detail").val(),
-            img:$("#img").val(),
-            type:$("#type").val(),
-            place:$("#place").val(),
-            site:$("#site").val(),
             url:$("#url").val(),
-            groups:$("#groups").val(),
+            start:$("#start").val(),
+            end:$("#end").val(),
             receiver:$("#receiver").val()
         },
-        url: url + "admin/message/save",
+        url: url + "admin/picture/save",
         dataType: "json",
         xhrFields: {
             withCredentials: true
