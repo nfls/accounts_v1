@@ -229,7 +229,7 @@ footer a, footer a:link {
 </div>
         <script src="ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-        <script src="js/phone.js"></script>
+        <script src="js/phone.js?v=1"></script>
 
     
     

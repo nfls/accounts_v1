@@ -240,7 +240,7 @@ footer a, footer a:link {
 </div>
         <script src="ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-        <script src="js/login.js"></script>
+        <script src="js/login.js?v=1"></script>
 		<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 
     

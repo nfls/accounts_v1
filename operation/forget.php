@@ -209,7 +209,7 @@ footer a, footer a:link {
 </div>
         <script src="ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-        <script src="js/forget.js"></script>
+        <script src="js/forget.js?v=1"></script>
 
     
     
