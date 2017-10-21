@@ -1,11 +1,15 @@
 <?php
-  $status = json_decode(file_get_contents("https://api.nfls.io/center/auth?token=".$_COOKIE['token']),true);
   if(!isset($_COOKIE["token"])){
     header("Location:login.php");
     die();
   }
-  if($status["info"]["phone"] === true){
-    if($status["info"]["ic"] === true){
+  $status = json_decode(file_get_contents("https://api.nfls.io/center/auth?token=".$_COOKIE['token']),true);
+  if($status["code"] != 200){
+    header("Location:login.php");
+    die();
+  }
+  if($status["info"]["phone"] == true){
+    if($status["info"]["ic"] == true){
       header("Location:https://center.nfls.io");
       die();
     }
