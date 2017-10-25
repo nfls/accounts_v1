@@ -3,8 +3,8 @@
 	session_start();
 	
 	if(isset($_COOKIE['token']))
-		Header("Location:https://login.nfls.io/center");
+		Header("Location:https://login.nfls.io/center/");
 	else
-		Header("Location:https://login.nfls.io/operation");
+		Header("Location:https://login.nfls.io/operation/");
 
 ?>
