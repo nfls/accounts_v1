@@ -8,13 +8,7 @@
     header("Location:login.php");
     die();
   }
-  if($status["info"]["phone"] == true){
-    if($status["info"]["ic"] == true){
-      header("Location:https://center.nfls.io");
-      die();
-    }
-    
-  }else{
+  if(!$status["info"]["phone"] == true){
     header("Location:phone.php");
     die();
   }
