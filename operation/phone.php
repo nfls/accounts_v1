@@ -9,11 +9,7 @@
     die();
   }
   if($status["info"]["phone"] == true){
-    if($status["info"]["ic"] == true){
-      header("Location:https://center.nfls.io");
-    }else{
-      header("Location:ic.php");
-    }
+    header("Location:ic.php");
     die();
   }
 ?>
