@@ -13,8 +13,7 @@ function submitRegister() {
         data: {
             username: user,
             password: pass,
-            email: email,
-            captcha: captcha
+            email: email
         },
         dataType: "json",
         success: function (message) {
