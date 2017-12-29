@@ -213,7 +213,7 @@
     <form class="login">
         <p class="title">Login</p>
         <p id="notice"></p>
-        <div id="login_frame" hidden>
+        <div id="login_frame">
             <?php
             if (isset($_GET['reason'])) {
                 switch ($_GET['reason']) {
