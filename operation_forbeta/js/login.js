@@ -3,7 +3,7 @@ function submitLogin()  {
     var user = document.getElementById("username").value;
     $.ajax({
         type: "POST",
-        url: "https://api.nfls.io/center/login",
+        url: "http://127.0.0.1:8000/user/login",
         data: {
             username: user,
             password: pass
